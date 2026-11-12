@@ -3,13 +3,14 @@ import SwiftUI
 import UIKit
 
 struct CaseDiagram: View {
+    @EnvironmentObject private var model: TrainerModel
     let id: Int
     var body: some View {
-        if let path = Bundle.main.path(forResource: String(id), ofType: "png", inDirectory: "Cases"),
+        if let path = Bundle.main.path(forResource: String(id), ofType: "png", inDirectory: model.kind.diagramDirectory),
            let image = UIImage(contentsOfFile: path) {
             Image(uiImage: image).resizable().scaledToFit()
                 .padding(8).background(.white, in: RoundedRectangle(cornerRadius: 16))
-                .accessibilityLabel("Orientation diagram for case \(id)")
+                .accessibilityLabel("\(model.kind.title) diagram for case \(id)")
         } else { Image(systemName: "pentagon").resizable().scaledToFit().accessibilityLabel("Diagram unavailable") }
     }
 }
@@ -45,7 +46,7 @@ struct TrainerEmptyState: View {
 
 struct ContentView: View {
     @EnvironmentObject private var model: TrainerModel
-    @State private var tab = 0
+    @Binding var tab: Int
     var body: some View {
         TabView(selection: $tab) {
             NavigationStack { CaseLibrary { recap in model.begin(recap: recap); tab = 1 } }
@@ -64,16 +65,16 @@ struct CaseLibrary: View {
     @EnvironmentObject private var model: TrainerModel
     @State private var search = ""
     let train: (Bool) -> Void
-    private var filtered: [OLLCase] {
-        model.cases.filter { search.isEmpty || $0.name.localizedCaseInsensitiveContains(search) || "Group \($0.group)".localizedCaseInsensitiveContains(search) }
+    private var filtered: [TrainerCase] {
+        model.cases.filter { search.isEmpty || $0.name.localizedCaseInsensitiveContains(search) || model.kind.groupName($0.group).localizedCaseInsensitiveContains(search) }
     }
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 22) {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("ONE FACE.\nA LITTLE FASTER.").font(.system(.largeTitle, design: .rounded, weight: .heavy))
-                    Text("Megaminx OLL • \(model.cases.count) cases").foregroundStyle(.secondary)
-                    Text("Choose the cases you want to master. Set up a solved Megaminx, then practice the last layer.").font(.subheadline)
+                    Text(model.kind == .oll ? "ONE FACE.\nA LITTLE FASTER." : "EVERY PIECE.\nIN ITS PLACE.").font(.system(.largeTitle, design: .rounded, weight: .heavy))
+                    Text("Megaminx \(model.kind.title) • \(model.cases.count) cases").foregroundStyle(.secondary)
+                    Text(model.kind.instructions + " Set up a solved Megaminx, then practice the last layer.").font(.subheadline)
                 }.padding(.top)
                 if model.cases.isEmpty { TrainerEmptyState("Case data unavailable", systemImage: "exclamationmark.triangle") }
                 ForEach(Array(Set(filtered.map(\.group))).sorted(), id: \.self) { group in
@@ -81,7 +82,7 @@ struct CaseLibrary: View {
                     VStack(alignment: .leading, spacing: 12) {
                         Button { model.toggle(Set(items.map(\.id))) } label: {
                             HStack {
-                                Text("Group \(group)").font(.headline)
+                                Text(model.kind.groupName(group)).font(.headline)
                                 Spacer()
                                 Image(systemName: Set(items.map(\.id)).isSubset(of: model.selected) ? "checkmark.circle.fill" : "circle")
                             }.frame(minHeight: 44)
@@ -145,7 +146,7 @@ struct PracticeView: View {
                     }
                     Text("Build the case").font(.title2.bold())
                     Text("Apply this setup to a solved Megaminx. Keep the same grip for the solution.").font(.subheadline).foregroundStyle(.secondary).multilineTextAlignment(.center)
-                    Text(item.setup).font(.system(.title3, design: .monospaced)).multilineTextAlignment(.center).textSelection(.enabled)
+                    Text(item.setup.isEmpty ? "Already solved — no setup moves." : item.setup).font(.system(.title3, design: .monospaced)).multilineTextAlignment(.center).textSelection(.enabled)
                         .padding(20).frame(maxWidth: .infinity).background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
                     Button { model.tapTimer() } label: {
                         VStack(spacing: 12) {
@@ -163,8 +164,8 @@ struct PracticeView: View {
                         }.controlSize(.large)
                         if model.reveal {
                             CaseDiagram(id: item.id).frame(height: 180)
-                            Text("Case \(item.name)").font(.headline)
-                            Text(item.solution).font(.system(.body, design: .monospaced)).multilineTextAlignment(.center).textSelection(.enabled)
+                            Text("\(model.kind.title) Case \(item.name)").font(.headline)
+                            Text(item.solution.isEmpty ? "Already solved — no solution moves needed." : item.solution).font(.system(.body, design: .monospaced)).multilineTextAlignment(.center).textSelection(.enabled)
                             Text("Solution is the inverse of the setup sequence.").font(.caption).foregroundStyle(.secondary)
                         }
                     }
@@ -174,7 +175,7 @@ struct PracticeView: View {
                 }
             }.padding(24).frame(maxWidth: 720).frame(maxWidth: .infinity)
         }.background(Color(.systemGroupedBackground))
-            .navigationTitle("Practice")
+            .navigationTitle("\(model.kind.title) Practice")
             .onReceive(timer) { _ in model.tick() }
             .onChange(of: scenePhase) { phase in if phase != .active { model.cancelTiming() } }
             .onChange(of: model.running) { running in UIApplication.shared.isIdleTimerDisabled = running }
@@ -186,7 +187,7 @@ struct HistoryView: View {
     @State private var confirmClear = false
     var body: some View {
         List {
-            Section("Your practice") {
+            Section("\(model.kind.title) practice") {
                 LabeledContent("Solves", value: String(model.solves.count))
                 LabeledContent("Best", value: timeString(model.best))
                 LabeledContent("Mean", value: timeString(model.mean))
@@ -205,7 +206,7 @@ struct HistoryView: View {
                     }
                 }.onDelete { indices in model.solves.remove(atOffsets: indices); model.save() }
             }
-        }.navigationTitle("Progress")
+        }.navigationTitle("\(model.kind.title) Progress")
             .toolbar { Button("Clear", role: .destructive) { confirmClear = true }.disabled(model.solves.isEmpty) }
             .confirmationDialog("Delete all solve times?", isPresented: $confirmClear, titleVisibility: .visible) {
                 Button("Delete all times", role: .destructive) { model.solves = []; model.save() }
@@ -216,15 +217,15 @@ struct SettingsView: View {
     @EnvironmentObject private var model: TrainerModel
     var body: some View {
         Form {
-            Section("Practice") {
+            Section("\(model.kind.title) Practice") {
                 Toggle("Balance case frequency", isOn: $model.weighted).onChange(of: model.weighted) { _ in model.save() }
                 Text("Cases seen less often are more likely to appear in Train mode. Recap visits each selected case once.").font(.caption).foregroundStyle(.secondary)
             }
             Section("How to train") {
-                Text("1. Start with a solved Megaminx.\n2. Apply the setup with the last layer on top.\n3. Tap the timer, solve the orientation, then tap to stop.\n4. Tap Next case and reset the puzzle before the next setup.")
+                Text("1. Start with a solved Megaminx.\n2. Apply the setup with the last layer on top.\n3. Tap the timer, solve the last-layer case, then tap to stop.\n4. Tap Next case and reset the puzzle before the next setup.")
                 Text("Turns are 72°. U2 means two turns; a prime (′) reverses the direction. Timing cancels if you leave Practice or the app becomes inactive.").font(.subheadline).foregroundStyle(.secondary)
             }
-            Section("Privacy") { Text("Practice history and preferences stay on this device. No account, analytics, or network connection is required.") }
+            Section("Privacy") { Text("OLL and PLL keep separate selections, practice history, and preferences on this device. No account, analytics, or network connection is required.") }
         }.navigationTitle("Settings")
     }
 }

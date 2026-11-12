@@ -2,7 +2,27 @@ import Combine
 import Foundation
 import SwiftUI
 
-struct OLLCase: Codable, Identifiable {
+enum TrainerKind: String, CaseIterable, Identifiable {
+    case oll, pll
+    var id: String { rawValue }
+    var title: String { rawValue.uppercased() }
+    var catalogName: String { self == .oll ? "cases" : "pll-cases" }
+    var diagramDirectory: String { self == .oll ? "Cases" : "PLLCases" }
+    // Keep the original key so existing OLL selections and history are preserved.
+    var storageKey: String { self == .oll ? "megaminx.state.v1" : "megaminx.pll.state.v1" }
+    var detail: String { self == .oll ? "Orient the last layer" : "Permute the last layer" }
+    var instructions: String {
+        self == .oll
+            ? "Choose cases to practice orienting the last-layer pieces."
+            : "Choose cases to practice moving the oriented last-layer pieces into place."
+    }
+    func groupName(_ group: Int) -> String {
+        let label = self == .pll ? String(UnicodeScalar(64 + group)!) : String(group)
+        return "Group \(label)"
+    }
+}
+
+struct TrainerCase: Codable, Identifiable {
     let id: Int
     let name: String
     let group: Int
@@ -28,12 +48,13 @@ struct SavedState: Codable {
 }
 
 @MainActor final class TrainerModel: ObservableObject {
-    let cases: [OLLCase]
+    let kind: TrainerKind
+    let cases: [TrainerCase]
     @Published var selected: Set<Int> = []
     @Published var solves: [Solve] = []
     @Published var appearances: [Int: Int] = [:]
     @Published var weighted = true
-    @Published var current: OLLCase?
+    @Published var current: TrainerCase?
     @Published var running = false
     @Published var elapsed = 0.0
     @Published var reveal = false
@@ -42,17 +63,18 @@ struct SavedState: Codable {
     @Published var practiced = 0
     @Published var total = 0
     @Published var storageError: String?
-    private var queue: [OLLCase] = []
+    private var queue: [TrainerCase] = []
     private var start: TimeInterval?
-    private let key = "megaminx.state.v1"
+    private var key: String { kind.storageKey }
     private let defaults: UserDefaults
     var recapPosition: Int { total - queue.count }
-    init(catalog: [OLLCase]? = nil, defaults: UserDefaults = .standard) {
+    init(kind: TrainerKind = .oll, catalog: [TrainerCase]? = nil, defaults: UserDefaults = .standard) {
+        self.kind = kind
         self.defaults = defaults
         if let catalog { cases = catalog }
-        else if let url = Bundle.main.url(forResource: "cases", withExtension: "json"),
+        else if let url = Bundle.main.url(forResource: kind.catalogName, withExtension: "json"),
            let data = try? Data(contentsOf: url),
-           let decoded = try? JSONDecoder().decode([OLLCase].self, from: data) {
+           let decoded = try? JSONDecoder().decode([TrainerCase].self, from: data) {
             cases = decoded
         } else { cases = [] }
         if let data = defaults.data(forKey: key),
@@ -73,6 +95,7 @@ struct SavedState: Codable {
     }
     func begin(recap: Bool) {
         guard !selected.isEmpty else { return }
+        cancelTiming()
         self.recap = recap; complete = false; practiced = 0
         queue = cases.filter { selected.contains($0.id) }.shuffled()
         total = queue.count

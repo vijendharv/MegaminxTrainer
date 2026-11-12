@@ -1,6 +1,6 @@
 # Megaminx Lab — iPhone & iPad
 
-Native SwiftUI Megaminx OLL trainer for iOS/iPadOS 16 or later.
+Native SwiftUI Megaminx OLL and PLL trainer for iOS/iPadOS 16 or later.
 
 ## Run on your iPhone or iPad
 
@@ -12,7 +12,9 @@ For simulator use, select an installed iPhone or iPad simulator and Run. No acco
 
 ## Included
 
-- 178 bundled case diagrams and setup sequences across 37 groups, with search and group selection.
+- Switch between OLL (orientation) and PLL (permutation) from any tab; the app remembers your trainer.
+- 178 OLL cases across 37 groups and 152 PLL entries across groups A–Z, including a solved/skip case, with offline diagrams and setups.
+- Separate selections, frequency weighting, and solve history for each trainer; existing OLL progress is preserved.
 - Weighted random practice and a shuffled, one-pass recap.
 - Tap-to-start/stop timer using a monotonic clock; interruptions cancel an unfinished time.
 - Revealable solutions derived by reversing setup moves. These return to the exact initial state; they are not optimized OLL algorithms.
