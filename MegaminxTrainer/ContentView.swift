@@ -397,6 +397,13 @@ struct CopyableAlgorithm: View {
                     .accessibilityLabel("\(copied ? "Copied" : "Copy") \(title)")
                 }
             }
+            if let rotations = AlgorithmNotation.leadingRotations(in: sequence) {
+                Label("Start with \(rotations)", systemImage: "arrow.triangle.2.circlepath")
+                    .font(.system(.headline, design: .monospaced))
+                    .padding(.horizontal, 12).padding(.vertical, 8)
+                    .background(Color.mint.opacity(0.15), in: RoundedRectangle(cornerRadius: 10))
+                    .accessibilityLabel("Starting puzzle rotation: \(rotations)")
+            }
             Text(sequence.isEmpty ? "No moves needed." : sequence)
                 .font(.system(.body, design: .monospaced))
                 .textSelection(.enabled)

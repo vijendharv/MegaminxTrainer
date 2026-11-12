@@ -36,6 +36,17 @@ struct TrainerCase: Codable, Identifiable {
         }.joined(separator: " ")
     }
 }
+enum AlgorithmNotation {
+    /// For display only. Keep the original sequence intact for rendering and copying.
+    static func leadingRotations(in sequence: String) -> String? {
+        let rotations = sequence.split(whereSeparator: { $0.isWhitespace }).prefix { token in
+            let move = token.trimmingCharacters(in: CharacterSet(charactersIn: "()"))
+            return move.range(of: "^[xyz](2|3)?['′]?$", options: .regularExpression) != nil
+        }.map { $0.trimmingCharacters(in: CharacterSet(charactersIn: "()")) }
+        return rotations.isEmpty ? nil : rotations.joined(separator: " ")
+    }
+}
+
 struct Solve: Codable, Identifiable, Sendable {
     var id = UUID()
     let caseID: Int

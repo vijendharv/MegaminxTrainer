@@ -48,3 +48,11 @@
 - An optimized local Mac benchmark with 20,000 saved solves reduced median stop-handler work from 34.39 ms to 0.06 ms across five runs. This measures handler work, not end-to-end touch latency or performance on the reported iPad.
 - Performance on the user's older physical iPad and the revised touch area's layout still need device verification.
 - Final unsigned iPhone/iPad simulator build and explicit iOS 16 type check passed; no new source-code warnings were emitted.
+
+## Starting-rotation visibility
+
+- Confirmed OLL 4B matches the supplied screenshot: its second algorithm begins with y2' and its third with y'. Those prefixes were already present in the catalog and the raw strings used by Copy.
+- Added a prominent starting-rotation label to algorithm cards, including parenthesized and multiple leading rotations. Full displayed/copied sequences are unchanged.
+- Compared all 541 bundled algorithms with the workbook notes again; every string matches, including leading rotations.
+- Added exact 4B sequence assertions and checks for rotation labels, parenthesized prefixes, multiple rotations, and trailing repetition notation.
+- Model checks and the unsigned iPhone/iPad simulator build passed. The installed device version and on-device appearance remain unverified.

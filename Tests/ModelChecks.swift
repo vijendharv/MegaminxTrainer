@@ -7,6 +7,18 @@ import Foundation
         precondition(cases.count == 178 && Set(cases.map(\.id)).count == 178)
         precondition(cases.reduce(0) { $0 + $1.algorithms.count } == 302)
         precondition(cases.first!.algorithms.first == "(L R U R' U' R' F R F' L')")
+        let fourB = cases.first { $0.name == "4B" }!
+        precondition(fourB.algorithms == [
+            "(R' U2' R U R' U' R U R' U R)",
+            "y2' (R U2 R' U' R U R' U' R U' R')",
+            "y' (BL R' U2' R U R' U R BL')"
+        ])
+        precondition(AlgorithmNotation.leadingRotations(in: fourB.algorithms[0]) == nil)
+        precondition(AlgorithmNotation.leadingRotations(in: fourB.algorithms[1]) == "y2'")
+        precondition(AlgorithmNotation.leadingRotations(in: fourB.algorithms[2]) == "y'")
+        precondition(AlgorithmNotation.leadingRotations(in: "(y2') (R U R')") == "y2'")
+        precondition(AlgorithmNotation.leadingRotations(in: "x' y2 (R U R')") == "x' y2")
+        precondition(AlgorithmNotation.leadingRotations(in: "(R U R')x3") == nil)
         for item in cases {
             precondition(TrainerCase.inverse(item.solution) == item.setup)
             precondition(!item.groupDescription.isEmpty)
