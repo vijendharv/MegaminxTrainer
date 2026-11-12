@@ -17,7 +17,9 @@ For simulator use, select an installed iPhone or iPad simulator and Run. No acco
 - Separate selections, frequency weighting, and solve history for each trainer; existing OLL progress is preserved.
 - Weighted random practice and a shuffled, one-pass recap.
 - Tap-to-start/stop timer using a monotonic clock; interruptions cancel an unfinished time.
-- Revealable solutions derived by reversing setup moves. These return to the exact initial state; they are not optimized OLL algorithms.
+- 541 offline algorithms, including alternatives, with native case details and copy buttons. Tap a case to study it; use its selection control to include it in practice.
+- Reveal algorithms during practice, with the inverse setup available separately for an exact reset.
+- Four tabs: Train, Algorithms, Progress, and Settings. Information inside Algorithms provides learning paths, recognition features, group descriptions, and notation.
 - Local selection, frequency, and solve-history persistence; best, mean, and trimmed average of five.
 - Custom Megaminx app icon for iPhone and iPad.
 - Adaptive case grid, system dark/light appearance, Dynamic Type, and accessible control labels.

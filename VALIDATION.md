@@ -25,3 +25,15 @@
 - All app sources passed type checking for arm64-apple-ios16.0.
 - Unsigned iPhone/iPad simulator build passed. Built-bundle checks confirmed minimum OS 16.0, both device families, both JSON catalogs, and all 330 diagrams.
 - Interactive simulator layout checks were not completed because the simulator UI session stalled. Physical-puzzle validation remains unverified.
+
+## Native algorithm library and Information
+
+- Added four tabs: Train, Algorithms, Progress, and Settings. Train opens timed practice after case selection. Algorithms provides a separate searchable reference grid.
+- Added 302 OLL and 239 PLL algorithms from the workbook's cell notes, preserving alternatives, parentheses, rotations, and notation. All 329 case notes were compared with the export and matched exactly.
+- Added native case-detail sheets with copy controls, a group directory, recognition categories, learning paths, and notation guidance. Credits, Trainers, Note, and email content are excluded from Information.
+- Reveal solution now shows imported algorithms; inverse setup is separately labeled as an exact reset.
+- Corrected PLL case 90's display name from Q1A to Q1+, matching the workbook and the trainer entry's three algorithms. Case ID, setup, and stored-history associations are unchanged.
+- Added a repeatable importer at Scripts/import_algorithms.py. Import was run twice and produced identical catalogs. No workbook or external service is required at runtime.
+- Model checks passed, including 541 algorithms, group descriptions, Q1+ mapping, and independent OLL/PLL persistence. Existing IDs, groups, and setups were compared against the previous commit and are unchanged.
+- Explicit iOS 16 type checking and the unsigned iPhone/iPad simulator build passed. Built-bundle checks confirmed both device families, minimum OS 16.0, and all imported algorithms.
+- Interactive layout and clipboard checks on device/simulator remain unverified. Algorithm execution has not been physically tested on a Megaminx.

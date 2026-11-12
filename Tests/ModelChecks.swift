@@ -5,8 +5,13 @@ import Foundation
         let root = URL(fileURLWithPath: CommandLine.arguments[1])
         let cases = try JSONDecoder().decode([TrainerCase].self, from: Data(contentsOf: root.appendingPathComponent("MegaminxTrainer/Resources/cases.json")))
         precondition(cases.count == 178 && Set(cases.map(\.id)).count == 178)
+        precondition(cases.reduce(0) { $0 + $1.algorithms.count } == 302)
+        precondition(cases.first!.algorithms.first == "(L R U R' U' R' F R F' L')")
         for item in cases {
             precondition(TrainerCase.inverse(item.solution) == item.setup)
+            precondition(!item.groupDescription.isEmpty)
+            precondition(item.setup.isEmpty ? item.algorithms.isEmpty : !item.algorithms.isEmpty)
+            precondition(item.algorithms.allSatisfy { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
             precondition(item.setup.split(separator: " ").allSatisfy { $0.range(of: "^[RUF](2)?(')?$", options: .regularExpression) != nil })
             let image = try Data(contentsOf: root.appendingPathComponent("MegaminxTrainer/Resources/Cases/\(item.id).png"))
             precondition(image.starts(with: [137,80,78,71]))
@@ -39,12 +44,20 @@ import Foundation
         precondition(defaults.data(forKey: "megaminx.state.v1") != nil)
         let pllCases = try JSONDecoder().decode([TrainerCase].self, from: Data(contentsOf: root.appendingPathComponent("MegaminxTrainer/Resources/pll-cases.json")))
         precondition(pllCases.count == 152 && Set(pllCases.map(\.id)).count == 152)
+        precondition(pllCases.reduce(0) { $0 + $1.algorithms.count } == 239)
+        let q1 = pllCases.first { $0.id == 90 }!
+        precondition(q1.name == "Q1+" && q1.algorithms.count == 3)
+        precondition(q1.algorithms.first == "(R2' U2 R2 U R2' U2 R2 U' R2' U2 R2 U R2' U2 R2)")
+        precondition(Set(pllCases.map(\.name)).count == 152)
         precondition(Set(pllCases.map(\.group)) == Set(1...26))
         precondition(pllCases.filter { $0.setup.isEmpty }.map(\.id) == [81])
         precondition(TrainerKind.pll.groupName(1) == "Group A" && TrainerKind.pll.groupName(26) == "Group Z")
         precondition(TrainerKind.oll.groupName(37) == "Group 37")
         for item in pllCases {
             precondition(TrainerCase.inverse(item.solution) == item.setup)
+            precondition(!item.groupDescription.isEmpty)
+            precondition(item.setup.isEmpty ? item.algorithms.isEmpty : !item.algorithms.isEmpty)
+            precondition(item.algorithms.allSatisfy { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
             precondition(item.setup.split(separator: " ").allSatisfy { $0.range(of: "^[RU](2)?(')?$", options: .regularExpression) != nil })
             let image = try Data(contentsOf: root.appendingPathComponent("MegaminxTrainer/Resources/PLLCases/\(item.id).png"))
             precondition(image.starts(with: [137,80,78,71]))
@@ -71,6 +84,6 @@ import Foundation
         pllRestored.solves = []; pllRestored.save()
         precondition(TrainerModel(catalog: cases, defaults: defaults).solves.count == 5)
         precondition(TrainerModel(kind: .pll, catalog: pllCases, defaults: defaults).solves.isEmpty)
-        print("Passed: 178 OLL and 152 PLL resources, inverse notation, recap, timer, interruption, statistics, OLL migration, independent trainer persistence")
+        print("Passed: 178 OLL and 152 PLL resources, inverse notation, recap, timer, interruption, statistics, OLL migration, independent trainer persistence, 541 imported algorithms, group descriptions, Q1+ mapping")
     }
 }

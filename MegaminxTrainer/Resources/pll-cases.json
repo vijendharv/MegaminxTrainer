@@ -3,912 +3,1606 @@
     "id": 1,
     "name": "A1+",
     "group": 1,
-    "setup": "R' U R2 U2' R U2 R2 U' R U R2 U2' R' U2 R'"
+    "setup": "R' U R2 U2' R U2 R2 U' R U R2 U2' R' U2 R'",
+    "groupDescription": "3 corner CP",
+    "algorithms": [
+      "(F' R' F R U' R' F' R2 U R' U' R' F R)"
+    ]
   },
   {
     "id": 2,
     "name": "A1-",
     "group": 1,
-    "setup": "R U2 R2' U2 R U2' R U' R' U2' R' U2 R2 U' R'"
+    "setup": "R U2 R2' U2 R U2' R U' R' U2' R' U2 R2 U' R'",
+    "groupDescription": "3 corner CP",
+    "algorithms": [
+      "(R' F' R U R U' R2' F R U R' F' R F)"
+    ]
   },
   {
     "id": 3,
     "name": "A2+",
     "group": 1,
-    "setup": "R U2 R2' U2 R2' U R2 U2 R2 U2' R U' R' U R'"
+    "setup": "R U2 R2' U2 R2' U R2 U2 R2 U2' R U' R' U R'",
+    "groupDescription": "3 corner CP",
+    "algorithms": [
+      "(BR' R' U L U' R' U L' U' R2 BR)",
+      "(R' U2' R U' R' F' R U R' U' R' F R U2' R)"
+    ]
   },
   {
     "id": 4,
     "name": "A2-",
     "group": 1,
-    "setup": "R U' R U R' U2 R2' U2' R2' U' R2 U2' R2 U2' R'"
+    "setup": "R U' R U R' U2 R2' U2' R2' U' R2 U2' R2 U2' R'",
+    "groupDescription": "3 corner CP",
+    "algorithms": [
+      "(BR' R2' U L U' R U L' U' R BR)",
+      "y' (R' U2 R' F' R U R U' R' F R U R' U2 R)"
+    ]
   },
   {
     "id": 5,
     "name": "B1+",
     "group": 2,
-    "setup": "R2 U R2' U2 R2 U2 R2' U2' R2 U R2' U R2 U2' R2'"
+    "setup": "R2 U R2' U2 R2 U2 R2' U2' R2 U R2' U R2 U2' R2'",
+    "groupDescription": "Double R block",
+    "algorithms": [
+      "(R U R' U' R' U2' R U R U' R2' U2 R)",
+      "(y2) (R' U2' R2 U R' U' R' U2 R U R U' R')"
+    ]
   },
   {
     "id": 6,
     "name": "B1-",
     "group": 2,
-    "setup": "R2 U2' R2' U R2 U R2' U2' R2 U2 R2' U2 R2 U R2'"
+    "setup": "R2 U2' R2' U R2 U R2' U2' R2 U2 R2' U2 R2 U R2'",
+    "groupDescription": "Double R block",
+    "algorithms": [
+      "(R' U' R U R U2 R' U' R' U R2 U2' R')",
+      "(y2') (R U2 R2' U' R U R U2' R' U' R' U R)"
+    ]
   },
   {
     "id": 7,
     "name": "B2+",
     "group": 2,
-    "setup": "R U' R' U2 R2 U R2' U' R2 U2 R2' U R U R U2' R2'"
+    "setup": "R U' R' U2 R2 U R2' U' R2 U2 R2' U R U R U2' R2'",
+    "groupDescription": "Double R block",
+    "algorithms": [
+      "(R2 U R2' U2 R U2' R U R' U' R U' R2' U2 R U R')",
+      "(y2') (R U' R' U2' R2 U R' U R U' R' U2 R' U2' R2 U' R2')"
+    ]
   },
   {
     "id": 8,
     "name": "B2-",
     "group": 2,
-    "setup": "R2 U R2 U2 R2 U2' R U' R2 U2 R2 U' R2' U R2 U R'"
+    "setup": "R2 U R2 U2 R2 U2' R U' R2 U2 R2 U' R2' U R2 U R'",
+    "groupDescription": "Double R block",
+    "algorithms": [
+      "(R2' U' R2 U2' R' U2 R' U' R U R' U R2 U2' R' U' R)",
+      "(y2) (R' U R U2 R2' U' R U' R' U R U2' R U2 R2' U R2)"
+    ]
   },
   {
     "id": 9,
     "name": "C1+",
     "group": 3,
-    "setup": "R U2 R' U2 R' U2' R2 U' R' U R' U2 R U2 R U' R'"
+    "setup": "R U2 R' U2 R' U2' R2 U' R' U R' U2 R U2 R U' R'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "y2 (R U2 R' U R F U R' U' R F' R' U R U R')",
+      "(R U2 R' U' R U2' R' U R U R2' U' R U' R U R2' U R)",
+      "(y') (R U R' U2' R' U2' R U' R U R2' U2 R U2' R U2' R')"
+    ]
   },
   {
     "id": 10,
     "name": "C1-",
     "group": 3,
-    "setup": "R' U2' R U2' R U2 R2' U R U' R U2' R' U2' R' U R"
+    "setup": "R' U2' R U2' R U2 R2' U R U' R U2' R' U2' R' U R",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R' U2' R U R' U2 R U' R' U' R2 U R' U R' U' R2 U' R')",
+      "(y') (R' U' R U2 R U2 R' U R' U' R2 U2' R' U2 R' U2 R)"
+    ]
   },
   {
     "id": 11,
     "name": "C2+",
     "group": 3,
-    "setup": "R' U' R U' R U2 R2' U' R2 U' R2' U2' R U R' U2 R"
+    "setup": "R' U' R U' R U2 R2' U' R2 U' R2' U2' R U R' U2 R",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R' U' R U' R U2 R2' U' R2 U' R2' U2' R U R' U2 R)",
+      "(y2) (R' U2' R U' R' U2 R2 U R2' U R2 U2' R' U R' U R)"
+    ]
   },
   {
     "id": 12,
     "name": "C2-",
     "group": 3,
-    "setup": "R U R' U R' U2' R2 U R2' U R2 U2 R' U' R U2' R'"
+    "setup": "R U R' U R' U2' R2 U R2' U R2 U2 R' U' R U2' R'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R U R' U R' U2' R2 U R2' U R2 U2 R' U' R U2' R')",
+      "(y2') (R U2 R' U R U2' R2' U' R2 U' R2' U2 R U' R U' R')"
+    ]
   },
   {
     "id": 13,
     "name": "C3+",
     "group": 3,
-    "setup": "R2 U2 R2' U R2 U' R2' U2' R2 U' R2' U2 R2 U2' R2'"
+    "setup": "R2 U2 R2' U R2 U' R2' U2' R2 U' R2' U2 R2 U2' R2'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R2' U2 R2 U R2' U' R2 U2' R2' U' R2 U2 R2' U2' R2)",
+      "(y) (R2' U2 R2 U2' R2' U R2 U2 R2' U R2 U' R2' U2' R2)"
+    ]
   },
   {
     "id": 14,
     "name": "C3-",
     "group": 3,
-    "setup": "R2 U2' R2' U' R2 U R2' U2 R2 U R2' U2' R2 U2 R2'"
+    "setup": "R2 U2' R2' U' R2 U R2' U2 R2 U R2' U2' R2 U2 R2'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R2 U2' R2' U' R2 U R2' U2 R2 U R2' U2' R2 U2 R2')",
+      "(y') (R2' U2' R2 U2 R2' U' R2 U2' R2' U' R2 U R2' U2 R2)"
+    ]
   },
   {
     "id": 15,
     "name": "C4+",
     "group": 3,
-    "setup": "R2 U2' R2' U' R2 U2' R2' U R2 U2 R2' U R2 U2 R2'"
+    "setup": "R2 U2' R2' U' R2 U2' R2' U R2 U2 R2' U R2 U2 R2'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R2' U2' R2 U' R2' U2' R2 U' R2' U2 R2 U R2' U2 R2)",
+      "(y2) (R2' U2 R2 bR2' U R2' U' R2 U' bR2 U R2' U2' R2)"
+    ]
   },
   {
     "id": 16,
     "name": "C4-",
     "group": 3,
-    "setup": "R2 U2 R2' U R2 U2 R2' U' R2 U2' R2' U' R2 U2' R2'"
+    "setup": "R2 U2 R2' U R2 U2 R2' U' R2 U2' R2' U' R2 U2' R2'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R2' U2 R2 U R2' U2 R2 U R2' U2' R2 U' R2' U2' R2)",
+      "(y2') (R2 U2' R2' F2 U' R2 U R2' U F2' U' R2 U2 R2')"
+    ]
   },
   {
     "id": 17,
     "name": "C5+",
     "group": 3,
-    "setup": "R' U2' R U2' R' U' R U R' U2' R' U2' R U' R' U2' R2"
+    "setup": "R' U2' R U2' R' U' R U R' U2' R' U2' R U' R' U2' R2",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R' U2' R F U' R' U' R U F' U R' U2 R)",
+      "(R' U2' R U L U2' R' U' R U2 L' R' U2 R)"
+    ]
   },
   {
     "id": 18,
     "name": "C5-",
     "group": 3,
-    "setup": "R U2 R' U2 R U R' U' R U2 R U2 R' U R U2 R2'"
+    "setup": "R U2 R' U2 R U R' U' R U2 R U2 R' U R U2 R2'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R U2 R' BR' U R U R' U' BR U' R U2' R')",
+      "(F' R U2 R' U F R U' R' U R' F' R U' R U2' R' F)"
+    ]
   },
   {
     "id": 19,
     "name": "C6+",
     "group": 3,
-    "setup": "R U R U R' U R U R' U2' R U' R2' U2' R U R'"
+    "setup": "R U R U R' U R U R' U2' R U' R2' U2' R U R'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R U' R' U2 R2 U R' U2 R U' R' U' R U' R' U' R')"
+    ]
   },
   {
     "id": 20,
     "name": "C6-",
     "group": 3,
-    "setup": "R' U' R' U' R U' R' U' R U2 R' U R2 U2 R' U' R"
+    "setup": "R' U' R' U' R U' R' U' R U2 R' U R2 U2 R' U' R",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R' U R U2' R2' U' R U2' R' U R U R' U R U R)"
+    ]
   },
   {
     "id": 21,
     "name": "D+",
     "group": 4,
-    "setup": "R' U2' R U R' U' R U' R' U2 R U2' R' U2' R"
+    "setup": "R' U2' R U R' U' R U' R' U2 R U2' R' U2' R",
+    "groupDescription": "3x1 and 2x2",
+    "algorithms": [
+      "(R U2 R' U' R U R' U R U2' R' U2 R U2 R')"
+    ]
   },
   {
     "id": 22,
     "name": "D-",
     "group": 4,
-    "setup": "R U2 R' U' R U R' U R U2' R' U2 R U2 R'"
+    "setup": "R U2 R' U' R U R' U R U2' R' U2 R U2 R'",
+    "groupDescription": "3x1 and 2x2",
+    "algorithms": [
+      "(R' U2' R U R' U' R U' R' U2 R U2' R' U2' R)"
+    ]
   },
   {
     "id": 23,
     "name": "E1",
     "group": 5,
-    "setup": "R' U2' R U R2' U' R U' R' U R2 U' R' U R' U R U R"
+    "setup": "R' U2' R U R2' U' R U' R' U R2 U' R' U R' U R U R",
+    "groupDescription": "4 corner CP",
+    "algorithms": [
+      "(R U R' U R' U' R F' R U R' U' R' F R2 U' R2' U R)",
+      "(y2) (R' U' R' DR' R U' R' DR R U R' DR' R U R' DR R2)"
+    ]
   },
   {
     "id": 24,
     "name": "E2",
     "group": 5,
-    "setup": "R2 U2 R2 U R' U' R U' R2' U R U' R U R' U R' U2 R2'"
+    "setup": "R2 U2 R2 U R' U' R U' R2' U R U' R U R' U R' U2 R2'",
+    "groupDescription": "4 corner CP",
+    "algorithms": [
+      "(x') (R U' R' DR R U R' DR' R U R' DR R U' R' DR')",
+      "(y') (R2 U R' U' y R U R' U' R U R' U' R U R' F U' F2')",
+      "(y') (BR' R' U2 R U' R' U R' U2' R U R' U R U' R U' BR)"
+    ]
   },
   {
     "id": 25,
     "name": "E3",
     "group": 5,
-    "setup": "R' U2 R' U2' R2' U2 R2' U' R2 U' R' U' R2' U2 R U2' R"
+    "setup": "R' U2 R' U2' R2' U2 R2' U' R2 U' R' U' R2' U2 R U2' R",
+    "groupDescription": "4 corner CP",
+    "algorithms": [
+      "(L' R U2 R' U' R U R' U' R U R' U' R U' R' L)"
+    ]
   },
   {
     "id": 26,
     "name": "F1+",
     "group": 6,
-    "setup": "R U R2' U' R2 U2' R2' U2 R U' R' U2 R2 U2 R'"
+    "setup": "R U R2' U' R2 U2' R2' U2 R U' R' U2 R2 U2 R'",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R2 U2 R2' U R2 U2 R2')",
+      "(R2' U2 R2 U R2' U2 R2)"
+    ]
   },
   {
     "id": 27,
     "name": "F1-",
     "group": 6,
-    "setup": "R' U' R2 U R2' U2 R2 U2' R' U R U2' R2' U2' R"
+    "setup": "R' U' R2 U R2' U2 R2 U2' R' U R U2' R2' U2' R",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R2 U2' R2' U' R2 U2' R2')"
+    ]
   },
   {
     "id": 28,
     "name": "F2+",
     "group": 6,
-    "setup": "R U' R' U2' R U' R U R2' U2 R U2' R U' R' U' R'"
+    "setup": "R U' R' U2' R U' R U R2' U2 R U2' R U' R' U' R'",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R U R' U2 R' U2' R2 U' R' U R' U2 R)"
+    ]
   },
   {
     "id": 29,
     "name": "F2-",
     "group": 6,
-    "setup": "R U R U2 R' U R' U' R2 U2' R' U2 R' U R U R'"
+    "setup": "R U R U2 R' U R' U' R2 U2' R' U2 R' U R U R'",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R' U' R U2' R U2 R2' U R U' R U2' R')"
+    ]
   },
   {
     "id": 30,
     "name": "F3+",
     "group": 6,
-    "setup": "R U R U R' U2 R' U2' R2 U' R' U R' U2 R U R'"
+    "setup": "R U R U R' U2 R' U2' R2 U' R' U R' U2 R U R'",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R' U2' R U' R U R2' U2 R U2' R U' R')"
+    ]
   },
   {
     "id": 31,
     "name": "F3-",
     "group": 6,
-    "setup": "R U' R' U' R U2' R U2 R2' U R U' R U2' R' U' R'"
+    "setup": "R U' R' U' R U2' R U2 R2' U R U' R U2' R' U' R'",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R U2 R' U R' U' R2 U2' R' U2 R' U R)"
+    ]
   },
   {
     "id": 32,
     "name": "F4+",
     "group": 6,
-    "setup": "R U2' R2 U2' R2' U' R2 U2' R2 U2' R U2' R' U' R U2' R'"
+    "setup": "R U2' R2 U2' R2' U' R2 U2' R2 U2' R U2' R' U' R U2' R'",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R U R' U R2 U2' R2' U2' R U2 R U2 R' U2' R')"
+    ]
   },
   {
     "id": 33,
     "name": "F4-",
     "group": 6,
-    "setup": "R' U2 R2 U2 R2' U R2 U2 R' U R' U2' R U' R' U2' R"
+    "setup": "R' U2 R2 U2 R2' U R2 U2 R' U R' U2' R U' R' U2' R",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R' U' R U' R2' U2 R2 U2 R' U2' R' U2' R U2 R)"
+    ]
   },
   {
     "id": 34,
     "name": "F5+",
     "group": 6,
-    "setup": "R U2' R' U' R U2' R' U R2' U2 R2' U R2 U2 R2' U2 R'"
+    "setup": "R U2' R' U' R U2' R' U R2' U2 R2' U R2 U2 R2' U2 R'",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R U2 R U2' R' U2' R' U2 R2 U2 R2' U' R U' R')"
+    ]
   },
   {
     "id": 35,
     "name": "F5-",
     "group": 6,
-    "setup": "R' U2' R U' R' U2' R U2' R U2' R2' U' R2 U2' R2' U2' R"
+    "setup": "R' U2' R U' R' U2' R U2' R U2' R2' U' R2 U2' R2' U2' R",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R' U2' R' U2 R U2 R U2' R2' U2' R2 U R' U R)"
+    ]
   },
   {
     "id": 36,
     "name": "G1+",
     "group": 7,
-    "setup": "R2' U2 R2' U2' R2 U' R U2' R' U' R U2' R2 U2 R2 U2' R2"
+    "setup": "R2' U2 R2' U2' R2 U' R U2' R' U' R U2' R2 U2 R2 U2' R2",
+    "groupDescription": "2x1 and headlights",
+    "algorithms": [
+      "(R' U2 R2 U2' R' U2 R' U R U2 R' U R2 U2 R2' U2' R)"
+    ]
   },
   {
     "id": 37,
     "name": "G1-",
     "group": 7,
-    "setup": "R U2' R2' U2 R U2' R U' R' U2' R U' R2' U2' R2 U2 R'"
+    "setup": "R U2' R2' U2 R U2' R U' R' U2' R U' R2' U2' R2 U2 R'",
+    "groupDescription": "2x1 and headlights",
+    "algorithms": [
+      "(R U2' R2' U2 R U2' R U' R' U2' R U' R2' U2' R2 U2 R')"
+    ]
   },
   {
     "id": 38,
     "name": "G2+",
     "group": 7,
-    "setup": "R U2' R' U2' R2' U R' U' R2' U R' U2' R2 U R U R' U' R2"
+    "setup": "R U2' R' U2' R2' U R' U' R2' U R' U2' R2 U R U R' U' R2",
+    "groupDescription": "2x1 and headlights",
+    "algorithms": [
+      "(R U' R2' U' F U F' R2 U2' R' U R U2 R' F U' F')",
+      "(y') (R U2' R' U' R U2' R2' U2 L U' R U L' R' U2' R)",
+      "(y) (R' U2 R L U' R' U L' U2' R2 U2 R' U R U2 R')"
+    ]
   },
   {
     "id": 39,
     "name": "G2-",
     "group": 7,
-    "setup": "R' U2 R U R' U R2' U' R' U R2' U R2' U' R' U' R U R2'"
+    "setup": "R' U2 R U R' U R2' U' R' U R2' U R2' U' R' U' R U R2'",
+    "groupDescription": "2x1 and headlights",
+    "algorithms": [
+      "(F U2' R' U' R F' R' U' R F U' R' U2' R U2 F')"
+    ]
   },
   {
     "id": 40,
     "name": "H1+",
     "group": 8,
-    "setup": "R U2 R2 U2 R U' R U R U' R U R2 U2' R2' U2' R' U' R2 U' R2'"
+    "setup": "R U2 R2 U2 R U' R U R U' R U R2 U2' R2' U2' R' U' R2 U' R2'",
+    "groupDescription": "5 piece EP/CP",
+    "algorithms": [
+      "(R' DR' R U R' DR R U)x3",
+      "(R U2 R' U2 R U' R' U' R U2 R' U R' F' R U R U' R' F)"
+    ]
   },
   {
     "id": 41,
     "name": "H1-",
     "group": 8,
-    "setup": "R2 U R2' U R U2 R2 U2 R2' U' R' U R' U' R' U R' U2' R2' U2' R'"
+    "setup": "R2 U R2' U R U2 R2 U2 R2' U' R' U R' U' R' U R' U2' R2' U2' R'",
+    "groupDescription": "5 piece EP/CP",
+    "algorithms": [
+      "(R' DR' R U' R' DR R U')x3",
+      "(F' R U R' U' R' F R U' R U2' R' U R U R' U2' R U2' R')"
+    ]
   },
   {
     "id": 42,
     "name": "H2+",
     "group": 8,
-    "setup": "R2 U2 R U2' R2' U2 R2' U2' R U2' R' U' R2 U R2 U' R' U R2'"
+    "setup": "R2 U2 R U2' R2' U2 R2' U2' R U2' R' U' R2 U R2 U' R' U R2'",
+    "groupDescription": "5 piece EP/CP",
+    "algorithms": [
+      "(R2 U2 R2' U' R2 U' R2' y' R2' U' R2 U' R2' U2 R2)"
+    ]
   },
   {
     "id": 43,
     "name": "H2-",
     "group": 8,
-    "setup": "R2 U' R U R2' U' R2' U R U2 R' U2 R2 U2' R2 U2 R' U2' R2'"
+    "setup": "R2 U' R U R2' U' R2' U R U2 R' U2 R2 U2' R2 U2 R' U2' R2'",
+    "groupDescription": "5 piece EP/CP",
+    "algorithms": [
+      "(R2' U2' R2 U R2' U R2 y R2 U R2' U R2 U2' R2')"
+    ]
   },
   {
     "id": 44,
     "name": "I1+",
     "group": 9,
-    "setup": "R' U2 R' U2 R' U2 R2 U2 R2 U2' R U R2' U R U R2 U R"
+    "setup": "R' U2 R' U2 R' U2 R2 U2 R2 U2' R U R2' U R U R2 U R",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R U2 R' U R' U' R U F' R U R' U' R' F U R2 U R')",
+      "(R2' U2 R2 U R2' F2 U' R2 U R2' U F2' U R2)"
+    ]
   },
   {
     "id": 45,
     "name": "I1-",
     "group": 9,
-    "setup": "R U2' R U2' R U2' R2' U2' R2' U2 R' U' R2 U' R' U' R2' U' R'"
+    "setup": "R U2' R U2' R U2' R2' U2' R2' U2 R' U' R2 U' R' U' R2' U' R'",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R2 U2' R2' U' R2 bR2' U R2' U' R2 U' bR2 U' R2')"
+    ]
   },
   {
     "id": 46,
     "name": "I2+",
     "group": 9,
-    "setup": "R' U' R2' U' R' U' R2 U' R' U2 R2' U2' R2' U2' R U2' R U2' R"
+    "setup": "R' U' R2' U' R' U' R2 U' R' U2 R2' U2' R2' U2' R U2' R U2' R",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R U' R2' U' F' R U R U' R' F U' R' U R U' R U2' R')",
+      "(R2' U' F2 U' R2 U' R2' U F2' R2 U' R2' U2' R2)"
+    ]
   },
   {
     "id": 47,
     "name": "I2-",
     "group": 9,
-    "setup": "R U R2 U R U R2' U R U2' R2 U2 R2 U2 R' U2 R' U2 R'"
+    "setup": "R U R2 U R U R2' U R U2' R2 U2 R2 U2 R' U2 R' U2 R'",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R2 U bR2' U R2' U R2 U' bR2 R2' U R2 U2 R2')"
+    ]
   },
   {
     "id": 48,
     "name": "I3+",
     "group": 9,
-    "setup": "R U R' U2 R U' R' U2' R' U2 R U2 R U2' R2' U2' R"
+    "setup": "R U R' U2 R U' R' U2' R' U2 R U2 R U2' R2' U2' R",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R' U2 R2 U2 R' U2' R' U2' R U2 R U R' U2' R U' R')",
+      "(y') (R2 U R2' U R2 U2' R2' U2 y' R2' U' R2 U2' R2' U2' R2)"
+    ]
   },
   {
     "id": 49,
     "name": "I3-",
     "group": 9,
-    "setup": "R U2' R2' U2' R U2 R U2 R' U2' R' U' R U2 R' U R"
+    "setup": "R U2' R2' U2' R U2 R U2 R' U2' R' U' R U2 R' U R",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R U2' R2' U2' R U2 R U2 R' U2' R' U' R U2 R' U R)",
+      "(y) (R2' U' R2 U' R2' U2 R2 U2' y R2 U R2' U2 R2 U2 R2')"
+    ]
   },
   {
     "id": 50,
     "name": "I4+",
     "group": 9,
-    "setup": "R U2 R' U' R2 U R' U R U2' R' U R' U R U2 R'"
+    "setup": "R U2 R' U' R2 U R' U R U2' R' U R' U R U2 R'",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R' U' R' U2' F' R U R U' R' F R' U2 R U R)",
+      "(y') (R U2' R' U' R U' R U2 R' U' R U' R2' U R U2' R')"
+    ]
   },
   {
     "id": 51,
     "name": "I4-",
     "group": 9,
-    "setup": "R' U2' R U R2' U' R U' R' U2 R U' R U' R' U2' R"
+    "setup": "R' U2' R U R2' U' R U' R' U2 R U' R U' R' U2' R",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R' U2 R U R' U R' U2' R U R' U R2 U' R' U2 R)"
+    ]
   },
   {
     "id": 52,
     "name": "I5+",
     "group": 9,
-    "setup": "R U2' R' U' R U' R U2 R' U' R U' R2' U R U2' R'"
+    "setup": "R U2' R' U' R U' R U2 R' U' R U' R2' U R U2' R'",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R' U' R' U2' R F' R U R' U' R' F U2 R U R)",
+      "(R U2 R' U' R2 U R' U R U2' R' U R' U R U2 R')"
+    ]
   },
   {
     "id": 53,
     "name": "I5-",
     "group": 9,
-    "setup": "R' U2 R U R' U R' U2' R U R' U R2 U' R' U2 R"
+    "setup": "R' U2 R U R' U R' U2' R U R' U R2 U' R' U2 R",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R' U2' R U R2' U' R U' R' U2 R U' R U' R' U2' R)"
+    ]
   },
   {
     "id": 54,
     "name": "I6+",
     "group": 9,
-    "setup": "R U' R' U2 R U2 R' U2' R' U2' R2 U R U2' R2 U2' R2' U' R2'"
+    "setup": "R U' R' U2 R U2 R' U2' R' U2' R2 U R U2' R2 U2' R2' U' R2'",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "x' (R2 U2' R2' F' R2 U2 R2' F2 R2 U2' R2' F' R2 U2 R2')",
+      "y2' (F R U2 R' U' R U' R' F' U R' U' R U2' R' U R U R' U R)"
+    ]
   },
   {
     "id": 55,
     "name": "I6-",
     "group": 9,
-    "setup": "R' U R U2' R' U2' R U2 R U2 R2' U' R' U2 R2' U2 R2 U R2"
+    "setup": "R' U R U2' R' U2' R U2 R U2 R2' U' R' U2 R2' U2 R2 U R2",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R2' F2 R2 U' R2' F2' R2 U2 R2' F2 R2 U' R2' F2' R2)",
+      "(y2') (R2' F2 R2 U R2' F2' R2 U2' R2' F2 R2 U R2' F2' R2)",
+      "(BR' R' U2' R U R' U R BR U' R U R' U2 R U' R' U' R U' R')"
+    ]
   },
   {
     "id": 56,
     "name": "J1+",
     "group": 10,
-    "setup": "R U2' R U2 R' U2' R' U R U2 R U2' R' U2 R'"
+    "setup": "R U2' R U2 R' U2' R' U R U2 R U2' R' U2 R'",
+    "groupDescription": "J block",
+    "algorithms": [
+      "(R U R' F' R U R' U' R' F R2 U' R')",
+      "(y2') (R U R2' F' R U R U' R' F R U' R')"
+    ]
   },
   {
     "id": 57,
     "name": "J1-",
     "group": 10,
-    "setup": "R' U2 R' U2' R U2 R U2 R' U2 R' U2' R U2 R"
+    "setup": "R' U2 R' U2' R U2 R U2 R' U2 R' U2' R U2 R",
+    "groupDescription": "J block",
+    "algorithms": [
+      "(F U' R' F R2 U' R' U' R U R' F' R U R' F')"
+    ]
   },
   {
     "id": 58,
     "name": "J2+",
     "group": 10,
-    "setup": "R2 U R2' U2 R2 U2 R2' U2' R2 U R2' U2 R2 U2 R2'"
+    "setup": "R2 U R2' U2 R2 U2 R2' U2' R2 U R2' U2 R2 U2 R2'",
+    "groupDescription": "J block",
+    "algorithms": [
+      "(R' U2' R U2 R' U R U R U2 R' U' R U' R2' U' R)"
+    ]
   },
   {
     "id": 59,
     "name": "J2-",
     "group": 10,
-    "setup": "R2 U' R2' U R2 U2 R2' U2' R2 U R2' U2' R2 U2' R2'"
+    "setup": "R2 U' R2' U R2 U2 R2' U2' R2 U R2' U2' R2 U2' R2'",
+    "groupDescription": "J block",
+    "algorithms": [
+      "(R U2 R' U2' R U' R' U' R' U2' R U R' U R2 U R')",
+      "(y2') (R U2 R' U R2' U' R U' R U R' U R2 U2 R' U R' U' R' U R2)"
+    ]
   },
   {
     "id": 60,
     "name": "J3+",
     "group": 10,
-    "setup": "R2 U2' R2' U2' R2 U R2' U2' R2 U2 R2' U R2 U' R2'"
+    "setup": "R2 U2' R2' U2' R2 U R2' U2' R2 U2 R2' U R2 U' R2'",
+    "groupDescription": "J block",
+    "algorithms": [
+      "(R U R' U' R' U2' R U R U R2' U R2 U2 R2' U2' R)",
+      "(R' U R2 U R' U R U2' R' U' R' U' R U2' R' U2 R)"
+    ]
   },
   {
     "id": 61,
     "name": "J3-",
     "group": 10,
-    "setup": "R2 U2 R2' U2 R2 U R2' U2' R2 U2 R2' U2 R2 U R2'"
+    "setup": "R2 U2 R2' U2 R2 U R2' U2' R2 U2 R2' U2 R2 U R2'",
+    "groupDescription": "J block",
+    "algorithms": [
+      "(R U' R2' U' R U' R' U2 R U R U R' U2 R U2' R')",
+      "y2 (F U F' R2' F U' F U' R2 U R2' U F2' R2)"
+    ]
   },
   {
     "id": 62,
     "name": "K1+",
     "group": 11,
-    "setup": "R2 U2' R2' U' R2 U R2' U' R2 U2' R U2' R2 U' R2' U2' R2"
+    "setup": "R2 U2' R2' U' R2 U R2' U' R2 U2' R U2' R2 U' R2' U2' R2",
+    "groupDescription": "5 corner CP",
+    "algorithms": [
+      "(R2' U2 R2 U R2' U' R2 U R2' U' R2 U R2' U2 R2)"
+    ]
   },
   {
     "id": 63,
     "name": "K1-",
     "group": 11,
-    "setup": "R2 U2 R2' U R2 U2 R U2 R2 U R2' U' R2 U R2' U2 R2"
+    "setup": "R2 U2 R2' U R2 U2 R U2 R2 U R2' U' R2 U R2' U2 R2",
+    "groupDescription": "5 corner CP",
+    "algorithms": [
+      "(R2 U2' R2' U' R2 U R2' U' R2 U R2' U' R2 U2' R2')"
+    ]
   },
   {
     "id": 64,
     "name": "K2+",
     "group": 11,
-    "setup": "R U2' R2 U' R' U R2 U2' R U R2' U' R U' R2' U2' R' U2 R2"
+    "setup": "R U2' R2 U' R' U R2 U2' R U R2' U' R U' R2' U2' R' U2 R2",
+    "groupDescription": "5 corner CP",
+    "algorithms": [
+      "(R' U2 R U' R' U2 R U2' R' U' R U2' R' U R U2' R' U R)",
+      "y' (R U R' U2' R U R' U2' R U' R' U2' R U2 R' U' R U2 R')"
+    ]
   },
   {
     "id": 65,
     "name": "K2-",
     "group": 11,
-    "setup": "R U R' U2 R U2 R2 U' R U R U2 R' U2 R U2 R2' U R2"
+    "setup": "R U R' U2 R U2 R2 U' R U R U2 R' U2 R U2 R2' U R2",
+    "groupDescription": "5 corner CP",
+    "algorithms": [
+      "(R U2' R' U R U2' R' U2 R U R' U2 R U' R' U2 R U' R')",
+      "y (R' U' R U2 R' U' R U2 R' U R U2 R' U2' R U R' U2' R)",
+      "y' (R2 U2' R2' U' R2 U2' R' U R' U' R' F R2 U' R' U' R U R' F')"
+    ]
   },
   {
     "id": 66,
     "name": "L1",
     "group": 12,
-    "setup": "R2 U2' R2' U' R2 U R2' U2' R2 U R2' U2' R2 U2 R2' U R2 U' R2'"
+    "setup": "R2 U2' R2' U' R2 U R2' U2' R2 U R2' U2' R2 U2 R2' U R2 U' R2'",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R' U2 R U R' U R U' R' U2 R U' R U R' U R U2' R')"
+    ]
   },
   {
     "id": 67,
     "name": "L2",
     "group": 12,
-    "setup": "R U' R2' U' R' U' R2 U2' R2 U2 R2 U2' R U2' R U R2 U R'"
+    "setup": "R U' R2' U' R' U' R2 U2' R2 U2 R2 U2' R U2' R U R2 U R'",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R' U2' R U' R' U R U R' U R2 U R' U R U R' U' R U2' R')",
+      "y2' (R U2 R' U R U' R' U' R U' R2' U' R U' R' U' R U R' U2 R)"
+    ]
   },
   {
     "id": 68,
     "name": "L3+",
     "group": 12,
-    "setup": "R2 U2' R2' U' R2 U2' R2' U R2 U2' R2' U' R2 U R2' U' R2 U2' R2'"
+    "setup": "R2 U2' R2' U' R2 U2' R2' U R2 U2' R2' U' R2 U R2' U' R2 U2' R2'",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(F U2' F' U2' R F R' U' R F' U2' R' U' R U2' R')"
+    ]
   },
   {
     "id": 69,
     "name": "L3-",
     "group": 12,
-    "setup": "R2' U R' U' R' U2' R2' U2 R U R U' R U2' R U2' R2' U' R2"
+    "setup": "R2' U R' U' R' U2' R2' U2 R U R U' R U2' R U2' R2' U' R2",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R U R' U' R' U2 R U R U R2' U R U' R U R' U' R U2' R')",
+      "(y2') (R' U2 R U2 F' R' y' R U R' bR U2 R U R' U2 R)"
+    ]
   },
   {
     "id": 70,
     "name": "L4+",
     "group": 12,
-    "setup": "R U2' R2 U' R' U2' R2 U R2 U R' U' R2 U2 R2' U2' R2' U' R"
+    "setup": "R U2' R2 U' R' U2' R2 U R2 U R' U' R2 U2 R2' U2' R2' U' R",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R U R U R' U R' U R U' R U2' R' U2' R' U' R U2 R')",
+      "(y2) (R' U2 R U' R' U2' R' U2' R U' R U R' U R' U R U R)"
+    ]
   },
   {
     "id": 71,
     "name": "L4-",
     "group": 12,
-    "setup": "R' U2 R U' R' U2' R' U2' R U' R U R' U R' U R U R"
+    "setup": "R' U2 R U' R' U2' R' U2' R U' R U R' U R' U R U R",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R U2' R' U R U2 R U2 R' U R' U' R U' R U' R' U' R')",
+      "(y2) (R' U' R' U' R U' R U' R' U R' U2 R U2 R U R' U2' R)"
+    ]
   },
   {
     "id": 72,
     "name": "L5+",
     "group": 12,
-    "setup": "R U R' U2 R U' R' U R U2 R2' U' R U' R' U2 R"
+    "setup": "R U R' U2 R U' R' U R U2 R2' U' R U' R' U2 R",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R' U2' R U R' U R2 U2' R' U' R U R' U2' R U' R')"
+    ]
   },
   {
     "id": 73,
     "name": "L5-",
     "group": 12,
-    "setup": "R' U' R U2' R' U R U' R' U2' R2 U R' U R U2' R'"
+    "setup": "R' U' R U2' R' U R U' R' U2' R2 U R' U R U2' R'",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R U2 R' U' R U' R2' U2 R U R' U' R U2 R' U R)"
+    ]
   },
   {
     "id": 74,
     "name": "L6+",
     "group": 12,
-    "setup": "R' U2' R U R' U R2 U2' R' U' R U R' U2' R U' R'"
+    "setup": "R' U2' R U R' U R2 U2' R' U' R U R' U2' R U' R'",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R U R' U2 R U' R' U R U2 R2' U' R U' R' U2 R)"
+    ]
   },
   {
     "id": 75,
     "name": "L6-",
     "group": 12,
-    "setup": "R U2 R' U' R U' R2' U2 R U R' U' R U2 R' U R"
+    "setup": "R U2 R' U' R U' R2' U2 R U R' U' R U2 R' U R",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R' U' R U2' R' U R U' R' U2' R2 U R' U R U2' R')"
+    ]
   },
   {
     "id": 76,
     "name": "M",
     "group": 13,
-    "setup": "R2 U R2 U' R2 U' R2' U2 R U R U2' R U' R2'"
+    "setup": "R2 U R2 U' R2 U' R2' U2 R U R U2' R U' R2'",
+    "groupDescription": "2 3x1s",
+    "algorithms": [
+      "(R' U2 R U2 R' U' F R2 U R2' U R2 U2' R2' F' R)",
+      "(y2') (R U R' U2' R' U2' R U R' U R2 U' R' U2 R U' R' U R U' R')",
+      "(y) (R U R' U' R U R' U2' R U R2' U' R U' R' U2 R U2 R U' R')"
+    ]
   },
   {
     "id": 77,
     "name": "N1+",
     "group": 14,
-    "setup": "R U2 R U2' R' U2 R' U2 R U2' R U2 R' U2' R'"
+    "setup": "R U2 R U2' R' U2 R' U2 R U2' R U2 R' U2' R'",
+    "groupDescription": "5 2x1s",
+    "algorithms": [
+      "(R U2 R' F' R U R' U' R' F R2 U2' R')",
+      "(y) (R U2 R2' F' R U R U' R' F R U2' R')",
+      "(y2') (R U2 R U2' R' U' R U2' R' U2 R')"
+    ]
   },
   {
     "id": 78,
     "name": "N1-",
     "group": 14,
-    "setup": "R U R2' U2 R' U2' R2' U' R2' U R' U2 R U2' R"
+    "setup": "R U R2' U2 R' U2' R2' U' R2' U R' U2 R U2' R",
+    "groupDescription": "5 2x1s",
+    "algorithms": [
+      "(R' U2 R' U2' R U' R' U2' R U2 R)",
+      "y2 (L' R' U2' R U' R' U2' R U' L)"
+    ]
   },
   {
     "id": 79,
     "name": "N2+",
     "group": 14,
-    "setup": "R2' U2 R U2' R2 U2' R2' U2 R' U2' R U R2 U' R2' U' R"
+    "setup": "R2' U2 R U2' R2 U2' R2' U2 R' U2' R U R2 U' R2' U' R",
+    "groupDescription": "5 2x1s",
+    "algorithms": [
+      "(R L U2 L' U R' L U' R U2 L' U2 R')"
+    ]
   },
   {
     "id": 80,
     "name": "N2-",
     "group": 14,
-    "setup": "R U' R2' U' R2 U R U2' R' U2 R2' U2' R2 U2' R U2 R2'"
+    "setup": "R U' R2' U' R2 U R U2' R' U2 R2' U2' R2 U2' R U2 R2'",
+    "groupDescription": "5 2x1s",
+    "algorithms": [
+      "(R' L' U2' R U' L R' U L' U2' R U2' L)",
+      "(R' U2 R U2' R2' U' R2 U' R2' U R2 U' R2' U2 R U2' R)"
+    ]
   },
   {
     "id": 81,
     "name": "solved",
     "group": 15,
-    "setup": ""
+    "setup": "",
+    "groupDescription": "Skip!",
+    "algorithms": []
   },
   {
     "id": 82,
     "name": "P1+",
     "group": 16,
-    "setup": "R' U2' R U' R' U2 R U2' R' U2' R2 U R' U2 R U2 R'"
+    "setup": "R' U2' R U' R' U2 R U2' R' U2' R2 U R' U2 R U2 R'",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(R' F R2 U R' U R U2' R' U R' F' R F U' F')"
+    ]
   },
   {
     "id": 83,
     "name": "P1-",
     "group": 16,
-    "setup": "R U2 R' U R U2' R' U2 R U2 R2' U' R U2' R' U2' R"
+    "setup": "R U2 R' U R U2' R' U2 R U2 R2' U' R U2' R' U2' R",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(R' U2' F' U2 F R2 U2' R' F R' F' R2 U2 R')",
+      "y2 (F R' U' R2 U' R2' U2 R U' F' R' U' F' U F R)"
+    ]
   },
   {
     "id": 84,
     "name": "P2+",
     "group": 16,
-    "setup": "R U2' R' U2' R U' R2' U2 R U2 R' U2' R U R' U2 R"
+    "setup": "R U2' R' U2' R U' R2' U2 R U2 R' U2' R U R' U2 R",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(F U F' R' F R U' R U2 R' U' R U' R2' F' R)",
+      "(F R U2 R' U' R U' R2' F' L F R F' L')"
+    ]
   },
   {
     "id": 85,
     "name": "P2-",
     "group": 16,
-    "setup": "R' U2 R U2 R' U R2 U2' R' U2' R U2 R' U' R U2' R'"
+    "setup": "R' U2 R U2 R' U R2 U2' R' U2' R U2 R' U' R U2' R'",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(BR' R' U2' R U R' U R2 x' U L' U' R' U L)",
+      "y' (R U2' R2' F R F' R U2 R2' F' U2' F U2 R)"
+    ]
   },
   {
     "id": 86,
     "name": "P3+",
     "group": 16,
-    "setup": "R' U2' R' U' R2 U2' R2' U R U' R U2 R' U2' R' U2' R2"
+    "setup": "R' U2' R' U' R2 U2' R2' U R U' R U2 R' U2' R' U2' R2",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(F R U' R' U' R U R U2 R' U' R U' R2' F')"
+    ]
   },
   {
     "id": 87,
     "name": "P3-",
     "group": 16,
-    "setup": "R U2 R U R2' U2 R2 U' R' U R' U2' R U2 R U2 R2'"
+    "setup": "R U2 R U R2' U2 R2 U' R' U R' U2' R U2 R U2 R2'",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(BR' R' U R U R' U' R' U2' R U R' U R2 BR)"
+    ]
   },
   {
     "id": 88,
     "name": "P4+",
     "group": 16,
-    "setup": "R2' U2 R U2 R U2' R' U R' U' R2 U2 R2' U R U2 R"
+    "setup": "R2' U2 R U2 R U2' R' U R' U' R2 U2 R2' U R U2 R",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(F R2 U R' U R U2' R' U' R' U R U R' F')"
+    ]
   },
   {
     "id": 89,
     "name": "P4-",
     "group": 16,
-    "setup": "R2 U2' R' U2' R' U2 R U' R U R2' U2' R2 U' R' U2' R'"
+    "setup": "R2 U2' R' U2' R' U2 R U' R U R2' U2' R2 U' R' U2' R'",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(BR' R2' U' R U' R' U2 R U R U' R' U' R BR)"
+    ]
   },
   {
     "id": 90,
-    "name": "Q1A",
+    "name": "Q1+",
     "group": 17,
-    "setup": "R2 U2' R2' U' R2 U2' R2' U R2 U2' R2' U' R2 U2' R2'"
+    "setup": "R2 U2' R2' U' R2 U2' R2' U R2 U2' R2' U' R2 U2' R2'",
+    "groupDescription": "5 edge EP",
+    "algorithms": [
+      "(R2' U2 R2 U R2' U2 R2 U' R2' U2 R2 U R2' U2 R2)",
+      "(R' U R U R' U2' R y U2' R U' R' U' R U2 R')",
+      "(F' R' F U F' R F U R' U2 R U' R' U' R U2 R' U R)"
+    ]
   },
   {
     "id": 91,
     "name": "Q1-",
     "group": 17,
-    "setup": "R2 U2 R2' U R2 U2 R2' U' R2 U2 R2' U R2 U2 R2'"
+    "setup": "R2 U2 R2' U R2 U2 R2' U' R2 U2 R2' U R2 U2 R2'",
+    "groupDescription": "5 edge EP",
+    "algorithms": [
+      "(R2 U2' R2' U' R2 U2' R2' U R2 U2' R2' U' R2 U2' R2')",
+      "(R U' R' U' R U2 R' y' U2 R' U R U R' U2' R)"
+    ]
   },
   {
     "id": 92,
     "name": "Q2+",
     "group": 17,
-    "setup": "R U2 R' U R U2 R' U' R' U2' R U' R' U2' R"
+    "setup": "R U2 R' U R U2 R' U' R' U2' R U' R' U2' R",
+    "groupDescription": "5 edge EP",
+    "algorithms": [
+      "(R' U2' R U' R' U2' R2 U2' R' U' R U2' R')"
+    ]
   },
   {
     "id": 93,
     "name": "Q2-",
     "group": 17,
-    "setup": "R' U2' R U' R' U2' R U R U2 R' U R U2 R'"
+    "setup": "R' U2' R U' R' U2' R U R U2 R' U R U2 R'",
+    "groupDescription": "5 edge EP",
+    "algorithms": [
+      "(R U2 R' U R U2 R2' U2 R U R' U2 R)"
+    ]
   },
   {
     "id": 94,
     "name": "R1+",
     "group": 18,
-    "setup": "R2 U R2' U R2 U R2' U2 R2 U2 R2' U R2 U' R2'"
+    "setup": "R2 U R2' U R2 U R2' U2 R2 U2 R2' U R2 U' R2'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R' U2 R U' R2' U2 R2 U R' U' R' U2' R U' R)"
+    ]
   },
   {
     "id": 95,
     "name": "R1-",
     "group": 18,
-    "setup": "R' U' R U R2 U2' R2' U' R' U R U' R2 U2' R2'"
+    "setup": "R' U' R U R2 U2' R2' U' R' U R U' R2 U2' R2'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R U2' R' U R2 U2' R2' U' R U R U2 R' U R')"
+    ]
   },
   {
     "id": 96,
     "name": "R2+",
     "group": 18,
-    "setup": "R2 U R2' U' R2 U2' R2' U2' R2 U' R2' U' R2 U' R2'"
+    "setup": "R2 U R2' U' R2 U2' R2' U2' R2 U' R2' U' R2 U' R2'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R' U R' U2 R U R U' R2' U2' R2 U R' U2' R)"
+    ]
   },
   {
     "id": 97,
     "name": "R2-",
     "group": 18,
-    "setup": "R U2' R' U R2 U2' R2' U' R U R U2 R' U R'"
+    "setup": "R U2' R' U R2 U2' R2' U' R U R U2 R' U R'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R U' R U2' R' U' R' U R2 U2 R2' U' R U2 R')"
+    ]
   },
   {
     "id": 98,
     "name": "R3+",
     "group": 18,
-    "setup": "R2 U2 R2' U R2 U' R2 U2' R2' U' R2 U2' R2' U2 R2'"
+    "setup": "R2 U2 R2' U R2 U' R2 U2' R2' U' R2 U2' R2' U2 R2'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R U R2' U R U R U' R' U' R U' R2' U' R U' R' U R)"
+    ]
   },
   {
     "id": 99,
     "name": "R3-",
     "group": 18,
-    "setup": "R2 U2' R2' U' R2 U R2 U2 R2' U R2 U2 R2' U2' R2'"
+    "setup": "R2 U2' R2' U' R2 U R2 U2 R2' U R2 U2 R2' U2' R2'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R' U' R2 U' R' U' R' U R U R' U R2 U R' U R U' R')"
+    ]
   },
   {
     "id": 100,
     "name": "R4+",
     "group": 18,
-    "setup": "R2 U2' R2 U2 R2' U R2 U2 R2' U R2' U' R2 U2' R2'"
+    "setup": "R2 U2' R2 U2 R2' U R2 U2 R2' U R2' U' R2 U2' R2'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R' U' R U R' U R2 U R' U R U R' U' R' U' R2 U' R')"
+    ]
   },
   {
     "id": 101,
     "name": "R4-",
     "group": 18,
-    "setup": "R2 U2 R2 U2' R2' U' R2 U2' R2' U' R2' U R2 U2 R2'"
+    "setup": "R2 U2 R2 U2' R2' U' R2 U2' R2' U' R2' U R2 U2 R2'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R U R' U' R U' R2' U' R U' R' U' R U R U R2' U R)"
+    ]
   },
   {
     "id": 102,
     "name": "S1+",
     "group": 19,
-    "setup": "R U R' U2 R U2 R' U' R' U' R U' R' U2 R"
+    "setup": "R U R' U2 R U2 R' U' R' U' R U' R' U2 R",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R' U2' R U R' U R U R U2' R' U2' R U' R')"
+    ]
   },
   {
     "id": 103,
     "name": "S1-",
     "group": 19,
-    "setup": "R2 U' R2' U R2 U R2' U2' R2 U' R2' U2 R2 U R2'"
+    "setup": "R2 U' R2' U R2 U R2' U2' R2 U' R2' U2 R2 U R2'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R' U' R U2' R' U2' R U R U R' U R U2' R')"
+    ]
   },
   {
     "id": 104,
     "name": "S2+",
     "group": 19,
-    "setup": "R2 U2' R2' U2' R2' U R' U' R2' U R2 U R U' R' U2' R2'"
+    "setup": "R2 U2' R2' U2' R2' U R' U' R2' U R2 U R U' R' U2' R2'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R2 U2' R2' U2' R2 U' R' U2 R' U' R' U2' R2 U R2' U R)"
+    ]
   },
   {
     "id": 105,
     "name": "S2-",
     "group": 19,
-    "setup": "R2 U2 R2' U R' U' R U R2 U R2' U' R' U R2' U R2'"
+    "setup": "R2 U2 R2' U R' U' R U R2 U R2' U' R' U R2' U R2'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R2' U2 R2 U2 R2' U R U2' R U R U2 R2' U' R2 U' R')"
+    ]
   },
   {
     "id": 106,
     "name": "S3+",
     "group": 19,
-    "setup": "R2 U2' R2' U2' R2 U' R' U2 R' U' R' U2' R2 U R2' U R"
+    "setup": "R2 U2' R2' U2' R2 U' R' U2 R' U' R' U2' R2 U R2' U R",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R2 U2' R2' U' R F' R U R2' U' R' F R3 U2' R2')"
+    ]
   },
   {
     "id": 107,
     "name": "S3-",
     "group": 19,
-    "setup": "R2' U2 R2 U2 R2' U R U2' R U R U2 R2' U' R2 U' R'"
+    "setup": "R2' U2 R2 U2 R2' U R U2' R U R U2 R2' U' R2 U' R'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R' U' R U' R2' F' R U R U' R' F U R U2' R' U2' R)",
+      "y (R U R2' U R2 U2' R' U' R' U2 R' U' R2 U2' R2' U2' R2)"
+    ]
   },
   {
     "id": 108,
     "name": "S4+",
     "group": 19,
-    "setup": "R2 U2' R2' U' R2 U2' R2' U' R2 U2 R2' U R2 U2 R2'"
+    "setup": "R2 U2' R2' U' R2 U2' R2' U' R2 U2 R2' U R2 U2 R2'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R2' U2' R2 U' R2' U2' R2 U R2' U2 R2 U R2' U2 R2)",
+      "(y') (R2' U2 R2 U' bR2' U R2' U R2 U' bR2 R2' U2' R2)"
+    ]
   },
   {
     "id": 109,
     "name": "S4-",
     "group": 19,
-    "setup": "R2 U2 R2' U R2 U2 R2' U R2 U2' R2' U' R2 U2' R2'"
+    "setup": "R2 U2 R2' U R2 U2 R2' U R2 U2' R2' U' R2 U2' R2'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R2' U2 R2 U R2' U2 R2 U' R2' U2' R2 U' R2' U2' R2)",
+      "(y) (R2 U2' R2' U F2 U' R2 U' R2' U F2' R2 U2 R2')"
+    ]
   },
   {
     "id": 110,
     "name": "S5+",
     "group": 19,
-    "setup": "R2' U2 R U R' U2 R U2 R U' R' U R U2 R' U2 R"
+    "setup": "R2' U2 R U R' U2 R U2 R U' R' U R U2 R' U2 R",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R' U2' R U' F U' R' U R U F' R' U2 R)",
+      "(R' U2' R L U2' R' U R U2 L' U' R' U2 R)"
+    ]
   },
   {
     "id": 111,
     "name": "S5-",
     "group": 19,
-    "setup": "R' U R U2' R2' U' R U2' R' U R U R' U R U R"
+    "setup": "R' U R U2' R2' U' R U2' R' U R U R' U R U R",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R U2 R' U BR' U R U' R' U' BR R U2' R')",
+      "(F' R U2 R' U R' F R U' R U R' F' U' R U2' R' F)"
+    ]
   },
   {
     "id": 112,
     "name": "S6+",
     "group": 19,
-    "setup": "R U' R' U2 R2 U R' U2 R U' R' U' R U' R' U' R'"
+    "setup": "R U' R' U2 R2 U R' U2 R U' R' U' R U' R' U' R'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R U R U R' U R U R' U2' R U' R2' U2' R U R')"
+    ]
   },
   {
     "id": 113,
     "name": "S6-",
     "group": 19,
-    "setup": "R2 U2' R' U' R U2' R' U2' R' U R U' R' U2' R U2' R'"
+    "setup": "R2 U2' R' U' R U2' R' U2' R' U R U' R' U2' R U2' R'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R' U' R' U' R U' R' U' R U2 R' U R2 U2 R' U' R)",
+      "(y2) (R U R2' F' R U2' R U2 R' F R U' R2' U' R U' R' U2 R)"
+    ]
   },
   {
     "id": 114,
     "name": "T1",
     "group": 20,
-    "setup": "R2' U R U R U2 R' U2' R' U2 R U2 R' U' R2"
+    "setup": "R2' U R U R U2 R' U2' R' U2 R U2 R' U' R2",
+    "groupDescription": "2,3 or 4 2x1s in these patterns:",
+    "algorithms": [
+      "(R U R' U' R' F R2 U' R' U' R U R' F')"
+    ]
   },
   {
     "id": 115,
     "name": "T2+",
     "group": 20,
-    "setup": "R U' R U R' U' R' U R U2' R U2 R' U2 R' U' R U2 R'"
+    "setup": "R U' R U R' U' R' U R U2' R U2 R' U2 R' U' R U2 R'",
+    "groupDescription": "2,3 or 4 2x1s in these patterns:",
+    "algorithms": [
+      "(R' U2' R U2 R' F R U R' U' R' F' R2)"
+    ]
   },
   {
     "id": 116,
     "name": "T2-",
     "group": 20,
-    "setup": "R' U R' U' R U R U' R' U2 R' U2' R U2' R U R' U2' R"
+    "setup": "R' U R' U' R U R U' R' U2 R' U2' R U2' R U R' U2' R",
+    "groupDescription": "2,3 or 4 2x1s in these patterns:",
+    "algorithms": [
+      "(R2' F R U R U' R' F' R U2' R' U2 R)",
+      "(y) (R U2 R' U2' R bR' R' U' R U R bR R2')"
+    ]
   },
   {
     "id": 117,
     "name": "T3+",
     "group": 20,
-    "setup": "R2 U R2' U2' R2 U R2' U' R2 U R2' U2' R2 U R2'"
+    "setup": "R2 U R2' U2' R2 U R2' U' R2 U R2' U2' R2 U R2'",
+    "groupDescription": "2,3 or 4 2x1s in these patterns:",
+    "algorithms": [
+      "(R2' U2 R2 U R2' U' R2 U R2' U2 R2)"
+    ]
   },
   {
     "id": 118,
     "name": "T3-",
     "group": 20,
-    "setup": "R2 U R2' U R2 U R2' U' R2 U' R2' U2 R2 U2 R2'"
+    "setup": "R2 U R2' U R2 U R2' U' R2 U' R2' U2 R2 U2 R2'",
+    "groupDescription": "2,3 or 4 2x1s in these patterns:",
+    "algorithms": [
+      "(R2 U2' R2' U' R2 U R2' U' R2 U2' R2')"
+    ]
   },
   {
     "id": 119,
     "name": "T4+",
     "group": 20,
-    "setup": "R U R' U R2 U2' R2' U' R2 U2' R2' U2' R U' R'"
+    "setup": "R U R' U R2 U2' R2' U' R2 U2' R2' U2' R U' R'",
+    "groupDescription": "2,3 or 4 2x1s in these patterns:",
+    "algorithms": [
+      "(R U R' F' R U R' U' R' F R U' R' F R2 U' R' U' R U R' F')",
+      "(y) (R U R' U2 R2 U2 R2' U R2 U2 R2' U' R U' R')",
+      "(R U R' U R2 U2' R2' U' R2 U2' R2' U2' R U' R')"
+    ]
   },
   {
     "id": 120,
     "name": "T4-",
     "group": 20,
-    "setup": "R2 U' R2' U' R2 U2 R2' U R2 U2 R2' U2 R2 U R2'"
+    "setup": "R2 U' R2' U' R2 U2 R2' U R2 U2 R2' U2 R2 U R2'",
+    "groupDescription": "2,3 or 4 2x1s in these patterns:",
+    "algorithms": [
+      "(R' U' R U2' R2' U2' R2 U' R2' U2' R2 U R' U R)",
+      "(y) (R' U' R U' R2' U2 R2 U R2' U2 R2 U2 R' U R)"
+    ]
   },
   {
     "id": 121,
     "name": "U1+",
     "group": 21,
-    "setup": "R U R U R2' U R U' R U' R' U2 R' U' R U2' R'"
+    "setup": "R U R U R2' U R U' R U' R' U2 R' U' R U2' R'",
+    "groupDescription": "3 edge EP",
+    "algorithms": [
+      "(R' U' R U' R U R2' U R U' R U' R')"
+    ]
   },
   {
     "id": 122,
     "name": "U1-",
     "group": 21,
-    "setup": "R U2 R' U2 R' U' R U' R U R2' U R U' R U2 R'"
+    "setup": "R U2 R' U2 R' U' R U' R U R2' U R U' R U2 R'",
+    "groupDescription": "3 edge EP",
+    "algorithms": [
+      "(R U R' U R' U' R2 U' R' U R' U R)"
+    ]
   },
   {
     "id": 123,
     "name": "U2+",
     "group": 21,
-    "setup": "R U2 R U R2' U R U' R U' R' U2 R' U' R U2 R'"
+    "setup": "R U2 R U R2' U R U' R U' R' U2 R' U' R U2 R'",
+    "groupDescription": "3 edge EP",
+    "algorithms": [
+      "(R U R' U2 R' U' R U' R U R2' U R U' R U2' R')",
+      "(R' U2' R U' R U R2' U R U' R U' R' U2 R' U R)"
+    ]
   },
   {
     "id": 124,
     "name": "U2-",
     "group": 21,
-    "setup": "R U R' U2 R' U' R U' R U R2' U R U' R U2' R'"
+    "setup": "R U R' U2 R' U' R U' R U R2' U R U' R U2' R'",
+    "groupDescription": "3 edge EP",
+    "algorithms": [
+      "(R U2 R' U R' U' R2 U' R' U R' U R U2' R U' R')",
+      "(R' U' R U2' R U R' U R' U' R2 U' R' U R' U2 R)"
+    ]
   },
   {
     "id": 125,
     "name": "V1+",
     "group": 22,
-    "setup": "R' U2' R U' R U R' U2 R U2 R' U2 R' U2' R"
+    "setup": "R' U2' R U' R U R' U2 R U2 R' U2 R' U2' R",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R' U2 R' dR' R U' R' dR R U R U' R' U' R)"
+    ]
   },
   {
     "id": 126,
     "name": "V1-",
     "group": 22,
-    "setup": "R U2 R' U R' U' R U2' R' U2' R U2' R U2 R'"
+    "setup": "R U2 R' U R' U' R U2' R' U2' R U2' R U2 R'",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R U2 R2' F R F' R U' R' F' U F R U' R')",
+      "(y2) (R U2' R' U2 R' U2 R U2 R' U R U' R U2' R')"
+    ]
   },
   {
     "id": 127,
     "name": "V2+",
     "group": 22,
-    "setup": "R2 U2' R2' U2' R2' U R2' U R2 U2' R' U' R' U2 R'"
+    "setup": "R2 U2' R2' U2' R2' U R2' U R2 U2' R' U' R' U2 R'",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R' U R U R' U' R' dR' R U R' dR R U2' R)"
+    ]
   },
   {
     "id": 128,
     "name": "V2-",
     "group": 22,
-    "setup": "R2' U2 R2 U2 R2 U' R2 U' R2' U2 R U R U2' R"
+    "setup": "R2' U2 R2 U2 R2 U' R2 U' R2' U2 R U R U2' R",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R U' R' F U R U' R' F' R U R' F' U' F R U R')",
+      "(R U' R' U' R U R' U R' DR' R U' R' DR R2 U R')",
+      "(y') (R U R' F' U' F R U R' F R' F' R2 U2' R')"
+    ]
   },
   {
     "id": 129,
     "name": "V3+",
     "group": 22,
-    "setup": "R' U' R' U' R U' R2 U R2 U R U R U2' R U' R'"
+    "setup": "R' U' R' U' R U' R2 U R2 U R U R U2' R U' R'",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R U R2 U' R' U' R U R' U' R' U R2' U R U' R)"
+    ]
   },
   {
     "id": 130,
     "name": "V3-",
     "group": 22,
-    "setup": "R U R U R' U R2' U' R2' U' R' U' R' U2 R' U R"
+    "setup": "R U R U R' U R2' U' R2' U' R' U' R' U2 R' U R",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R' U2' R U R U' R' F R' U2 R U2' F' R U R')",
+      "(y) (R' U' R2' U R U R' U' R U R U' R2 U' R' U R')"
+    ]
   },
   {
     "id": 131,
     "name": "V4+",
     "group": 22,
-    "setup": "R U R' U2 R' U' R' U' R2' U' R2' U R' U R U R"
+    "setup": "R U R' U2 R' U' R' U' R2' U' R2' U R' U R U R",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R' U R' U' R2 U' R U R U' R' U R U R2' U' R')",
+      "y' (R U R' U' R' U F R U R U' R' F' U R' U2' R)"
+    ]
   },
   {
     "id": 132,
     "name": "V4-",
     "group": 22,
-    "setup": "R' U' R U2' R U R U R2 U R2 U' R U' R' U' R'"
+    "setup": "R' U' R U2' R U R U R2 U R2 U' R U' R' U' R'",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R U' R' F U2 R' U2' R F' R U R' U' R' U2 R)",
+      "(y2') (R U' R U R2' U R' U' R' U R U' R' U' R2 U R)"
+    ]
   },
   {
     "id": 133,
     "name": "W",
     "group": 23,
-    "setup": "R2 U2' R2' U' R2 U R2' U2 R2 U2 R2' U2 R2 U2' R2'"
+    "setup": "R2 U2' R2' U' R2 U R2' U2 R2 U2 R2' U2 R2 U2' R2'",
+    "groupDescription": "2 2x2s",
+    "algorithms": [
+      "(R' U2' R' U2 R U2 R U' R2' U2 R2 U2 R' U R)"
+    ]
   },
   {
     "id": 134,
     "name": "X1",
     "group": 24,
-    "setup": "R U R U R2' U R U' R U' R2 U' R2 U' R2' U2 R U' R U' R'"
+    "setup": "R U R U R2' U R U' R U' R2 U' R2 U' R2' U2 R U' R U' R'",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(F U2 R U2' R' U R U R' U2' F' R' U' R U2' R' U2' R)"
+    ]
   },
   {
     "id": 135,
     "name": "X2",
     "group": 24,
-    "setup": "R2' U R2' U' R2' U' R U' R U R U R2 U R U2' R U' R2"
+    "setup": "R2' U R2' U' R2' U' R U' R U R U R2 U R U2' R U' R2",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(F R U R' F U R' U' F' U R2 U2' R' F')"
+    ]
   },
   {
     "id": 136,
     "name": "X3",
     "group": 24,
-    "setup": "R2 U2 R2' U R2 U2 R2' U2 R2 U2 R2' U2' R2 U R2' U2' R2 U2 R2'"
+    "setup": "R2 U2 R2' U R2 U2 R2' U2 R2 U2 R2' U2' R2 U R2' U2' R2 U2 R2'",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R' U' R U' R' U2 R2 U R' U2 R' U2' R2 U' R' U2 R' U R)",
+      "(y2') (R2 U R2' U R U2' R' U R' U2' R U R' U R2 U R U' R2')",
+      "(y') (R U R2' U2 R2 U2 R2' y' R' U' R U2 R' U' R U bR)"
+    ]
   },
   {
     "id": 137,
     "name": "X4",
     "group": 24,
-    "setup": "R' U2' R U R' U R U' R' U2' R U' R' U2 R U' R' U2 R"
+    "setup": "R' U2' R U R' U R U' R' U2' R U' R' U2 R U' R' U2 R",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R' U' R2 U' R' U R U' R2' U' R2 U R' U' R U R2' U2 R)"
+    ]
   },
   {
     "id": 138,
     "name": "X5+",
     "group": 24,
-    "setup": "R U2' R2 U2 R2' U2 R U2' R U R U R2 U' R' U2 R2' U2 R'"
+    "setup": "R U2' R2 U2 R2' U2 R U2' R U R U R2 U' R' U2 R2' U2 R'",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R' U R U2 R' U2 R U R2' U' R U' R' U' R U2 R' U R2)",
+      "(y2) (R2 U R' U2 R U' R' U' R U' R2' U R U2 R' U2 R U R')"
+    ]
   },
   {
     "id": 139,
     "name": "X5-",
     "group": 24,
-    "setup": "R' U2 R2' U2' R2 U2' R' U2 R' U' R' U' R2' U R U2' R2 U2' R"
+    "setup": "R' U2 R2' U2' R2 U2' R' U2 R' U' R' U' R2' U R U2' R2 U2' R",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R2' U' R U2' R' U R U R' U R2 U' R' U2' R U2' R' U' R)",
+      "(y2') (R U' R' U2' R U2' R' U' R2 U R' U R U R' U2' R U' R2')"
+    ]
   },
   {
     "id": 140,
     "name": "X6+",
     "group": 24,
-    "setup": "R' U' R U2' R' U R U' R' U2' R U' R' U2 R U2 R' U R"
+    "setup": "R' U' R U2' R' U R U' R' U2' R U' R' U2 R U2 R' U R",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R' U2 R' U' R2 U' R' U' R U R' U R' U R2 U' R' U2' R)",
+      "(y2') (F R U R' U' R U' R2' U' F' U' F U2 R U' R U R' F')"
+    ]
   },
   {
     "id": 141,
     "name": "X6-",
     "group": 24,
-    "setup": "R U R' U2 R U2 R' U' R U2' R' U' R U R' U2' R U' R'"
+    "setup": "R U R' U2 R U2 R' U' R U2' R' U' R U R' U2' R U' R'",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R U2' R U R2' U R U R' U' R U' R U' R2' U R U2 R')"
+    ]
   },
   {
     "id": 142,
     "name": "X7+",
     "group": 24,
-    "setup": "R U R' U R2' U2' R2 U' R2' U2 R2 U' R U' R' U2 R2' U R2"
+    "setup": "R U R' U R2' U2' R2 U' R2' U2 R2 U' R U' R' U2 R2' U R2",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R2 U' R2' U' F U F' R2 U2' R2' U R2 U2 R2' F U' F')",
+      "(R U R' U' F' U' F U R U R' U R U2' F R' F' R U R U' R2')"
+    ]
   },
   {
     "id": 143,
     "name": "X7-",
     "group": 24,
-    "setup": "R2 U R2' U2 R' U' R U' R2 U2 R2' U' R2 U2' R2' U R' U R"
+    "setup": "R2 U R2' U2 R' U' R U' R2 U2 R2' U' R2 U2' R2' U R' U R",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R U R2' F' R U2' R U' R' U2' R' F R U R U R' U2' R U' R')"
+    ]
   },
   {
     "id": 144,
     "name": "Y1+",
     "group": 25,
-    "setup": "R2' U2' R2' U2 R' U R U2 R2 U2' R' U2' R2' U R2 U R2'"
+    "setup": "R2' U2' R2' U2 R' U R U2 R2 U2' R' U2' R2' U R2 U R2'",
+    "groupDescription": "2 2x1s in Y pattern and other stuff",
+    "algorithms": [
+      "(F R U' R' U' R U R' F' R U R' U' R' F R F')"
+    ]
   },
   {
     "id": 145,
     "name": "Y1-",
     "group": 25,
-    "setup": "R2 U2 R2 U2' R U' R' U2' R2' U2 R U2 R2 U' R2' U' R2"
+    "setup": "R2 U2 R2 U2' R U' R' U2' R2' U2 R U2 R2 U' R2' U' R2",
+    "groupDescription": "2 2x1s in Y pattern and other stuff",
+    "algorithms": [
+      "(F R' F' R U R U' R' F R U' R' U R U R' F')"
+    ]
   },
   {
     "id": 146,
     "name": "Y2+",
     "group": 25,
-    "setup": "R2 U2' R2' U' R2 U2' R2' U2 R2 U2' R2' U' R2 U2' R2'"
+    "setup": "R2 U2' R2' U' R2 U2' R2' U2 R2 U2' R2' U' R2 U2' R2'",
+    "groupDescription": "2 2x1s in Y pattern and other stuff",
+    "algorithms": [
+      "(R2 U2' R2' U2 R2 U' R2' U2 R2 U2' R2')",
+      "(R' U2' R U R U R2' U R2 U2' R2' U2 R)",
+      "(y2') (R2' U2 R2 U2' R2' U2' R2 U2' R2' U2 R2)"
+    ]
   },
   {
     "id": 147,
     "name": "Y2-",
     "group": 25,
-    "setup": "R U2' R2 U2 R2' U2' R2 U2' R2' U2 R' U R2' U2 R2"
+    "setup": "R U2' R2 U2 R2' U2' R2 U2' R2' U2 R' U R2' U2 R2",
+    "groupDescription": "2 2x1s in Y pattern and other stuff",
+    "algorithms": [
+      "(R2' U2 R2 U2' R2' U R2 U2' R2' U2 R2)",
+      "(y2) (R' U2' R2 U2 R2' U' R2 U' R' U' R' U2 R)"
+    ]
   },
   {
     "id": 148,
     "name": "Y3+",
     "group": 25,
-    "setup": "R U R' U R2 U2' R2' U2' R U R U2' R' U2 R'"
+    "setup": "R U R' U R2 U2' R2' U2' R U R U2' R' U2 R'",
+    "groupDescription": "2 2x1s in Y pattern and other stuff",
+    "algorithms": [
+      "(y) (R2 U R2' U R2 U2' R2' U2 R2 U R2' U R2 U2' R2')",
+      "(R2 U bR2' U R2' U R2 U' bR2 U2' R2')"
+    ]
   },
   {
     "id": 149,
     "name": "Y3-",
     "group": 25,
-    "setup": "R2 U2' R2' U R2 U R2' U2 R2 U2' R2' U R2 U R2'"
+    "setup": "R2 U2' R2' U R2 U R2' U2 R2 U2' R2' U R2 U R2'",
+    "groupDescription": "2 2x1s in Y pattern and other stuff",
+    "algorithms": [
+      "(R2' U' F2 U' R2 U' R2' U F2' U2 R2)",
+      "y' (R2' U' R2 U' R2' U2 R2 U2' R2' U' R2 U' R2' U2 R2)",
+      "y2 (R2' F2' R U2' R U2 R' F R U R' U' R' F R2)"
+    ]
   },
   {
     "id": 150,
     "name": "Z1",
     "group": 26,
-    "setup": "R U2 R' U R U R' U2' R U2' R' U2' R U2' R' U R U R'"
+    "setup": "R U2 R' U R U R' U2' R U2' R' U2' R U2' R' U R U R'",
+    "groupDescription": "4 edge EP",
+    "algorithms": [
+      "(R' U' F R U' R' U' R U2 R' F' R F U' F' R' U2 R)",
+      "(R' U' R' U' R F R' F' U R F' U' F U2 R)"
+    ]
   },
   {
     "id": 151,
     "name": "Z2",
     "group": 26,
-    "setup": "R2 U R2' U2 R2 U2 R2' U2 R2 U2 R2' U R2 U2' R2' U2 R2 U2 R2'"
+    "setup": "R2 U R2' U2 R2 U2 R2' U2 R2 U2 R2' U R2 U2' R2' U2 R2 U2 R2'",
+    "groupDescription": "4 edge EP",
+    "algorithms": [
+      "(R' U2' R' U' R F R' F' U R F' U' F U2' R)"
+    ]
   },
   {
     "id": 152,
     "name": "Z3",
     "group": 26,
-    "setup": "R U' R U R U' R' U' R U R U2 R U' R U' R2' U' R2'"
+    "setup": "R U' R U R U' R' U' R U R U2 R U' R U' R2' U' R2'",
+    "groupDescription": "4 edge EP",
+    "algorithms": [
+      "(R' L' U2 L U R BR F U2' BR' U' F')"
+    ]
   }
 ]

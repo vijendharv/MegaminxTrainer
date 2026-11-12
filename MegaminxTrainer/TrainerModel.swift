@@ -27,6 +27,8 @@ struct TrainerCase: Codable, Identifiable {
     let name: String
     let group: Int
     let setup: String
+    var algorithms: [String] = []
+    var groupDescription: String = ""
     var solution: String { Self.inverse(setup) }
     static func inverse(_ sequence: String) -> String {
         sequence.split(separator: " ").reversed().map { token in

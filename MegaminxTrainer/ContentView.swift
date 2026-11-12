@@ -49,10 +49,10 @@ struct ContentView: View {
     @Binding var tab: Int
     var body: some View {
         TabView(selection: $tab) {
-            NavigationStack { CaseLibrary { recap in model.begin(recap: recap); tab = 1 } }
-                .tabItem { Label("Cases", systemImage: "square.grid.2x2") }.tag(0)
-            NavigationStack { PracticeView() }
-                .tabItem { Label("Practice", systemImage: "timer") }.tag(1)
+            TrainingHomeView()
+                .tabItem { Label("Train", systemImage: "timer") }.tag(0)
+            NavigationStack { CaseLibrary(isReference: true) }
+                .tabItem { Label("Algorithms", systemImage: "book") }.tag(1)
             NavigationStack { HistoryView() }
                 .tabItem { Label("Progress", systemImage: "chart.bar.xaxis") }.tag(2)
             NavigationStack { SettingsView() }
@@ -61,46 +61,95 @@ struct ContentView: View {
         .onChange(of: tab) { _ in model.cancelTiming() }
     }
 }
+struct TrainingHomeView: View {
+    @EnvironmentObject private var model: TrainerModel
+    @State private var showingPractice = false
+
+    var body: some View {
+        NavigationStack {
+            CaseLibrary { recap in
+                model.begin(recap: recap)
+                showingPractice = true
+            }
+            .navigationDestination(isPresented: $showingPractice) { PracticeView() }
+        }
+    }
+}
+
 struct CaseLibrary: View {
     @EnvironmentObject private var model: TrainerModel
     @State private var search = ""
+    @State private var detailCase: TrainerCase?
+    let isReference: Bool
     let train: (Bool) -> Void
+
+    init(isReference: Bool = false, train: @escaping (Bool) -> Void = { _ in }) {
+        self.isReference = isReference
+        self.train = train
+    }
+
     private var filtered: [TrainerCase] {
-        model.cases.filter { search.isEmpty || $0.name.localizedCaseInsensitiveContains(search) || model.kind.groupName($0.group).localizedCaseInsensitiveContains(search) }
+        model.cases.filter { item in
+            search.isEmpty || item.name.localizedCaseInsensitiveContains(search)
+                || model.kind.groupName(item.group).localizedCaseInsensitiveContains(search)
+                || item.groupDescription.localizedCaseInsensitiveContains(search)
+                || item.algorithms.contains { $0.localizedCaseInsensitiveContains(search) }
+        }
     }
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 22) {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text(model.kind == .oll ? "ONE FACE.\nA LITTLE FASTER." : "EVERY PIECE.\nIN ITS PLACE.").font(.system(.largeTitle, design: .rounded, weight: .heavy))
+                    Text(isReference ? "\(model.kind.title) Algorithms" : model.kind == .oll ? "ONE FACE.\nA LITTLE FASTER." : "EVERY PIECE.\nIN ITS PLACE.").font(.system(.largeTitle, design: .rounded, weight: .heavy))
                     Text("Megaminx \(model.kind.title) • \(model.cases.count) cases").foregroundStyle(.secondary)
-                    Text(model.kind.instructions + " Set up a solved Megaminx, then practice the last layer.").font(.subheadline)
+                    Text(isReference ? "Tap a diagram to study algorithms and alternatives. Use Information for learning paths and recognition tips." : model.kind.instructions + " Select cases below, then start Train or Recap.").font(.subheadline)
                 }.padding(.top)
                 if model.cases.isEmpty { TrainerEmptyState("Case data unavailable", systemImage: "exclamationmark.triangle") }
                 ForEach(Array(Set(filtered.map(\.group))).sorted(), id: \.self) { group in
                     let items = filtered.filter { $0.group == group }
                     VStack(alignment: .leading, spacing: 12) {
-                        Button { model.toggle(Set(items.map(\.id))) } label: {
-                            HStack {
-                                Text(model.kind.groupName(group)).font(.headline)
-                                Spacer()
-                                Image(systemName: Set(items.map(\.id)).isSubset(of: model.selected) ? "checkmark.circle.fill" : "circle")
-                            }.frame(minHeight: 44)
-                        }.buttonStyle(.plain)
+                        if isReference {
+                            groupHeading(group, items: items)
+                        } else {
+                            Button { model.toggle(Set(items.map(\.id))) } label: {
+                                HStack {
+                                    groupHeading(group, items: items)
+                                    Spacer()
+                                    Image(systemName: Set(items.map(\.id)).isSubset(of: model.selected) ? "checkmark.circle.fill" : "circle")
+                                }.frame(minHeight: 44)
+                            }.buttonStyle(.plain)
+                        }
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 125), spacing: 12)], spacing: 12) {
                             ForEach(items) { item in
-                                Button { model.toggle([item.id]) } label: {
-                                    VStack(spacing: 10) {
-                                        CaseDiagram(id: item.id).frame(height: 95)
-                                        HStack {
-                                            Text(item.name).font(.headline)
-                                            Spacer()
-                                            Image(systemName: model.selected.contains(item.id) ? "checkmark.circle.fill" : "circle").foregroundStyle(.mint)
+                                VStack(spacing: 0) {
+                                    Button { detailCase = item } label: {
+                                        VStack(spacing: 10) {
+                                            CaseDiagram(id: item.id).frame(height: 95)
+                                            HStack {
+                                                Text(item.name).font(.headline)
+                                                Spacer()
+                                                Image(systemName: "chevron.right").font(.caption).foregroundStyle(.secondary)
+                                            }
+                                        }.padding(12)
+                                    }
+                                    .buttonStyle(.plain)
+                                    .accessibilityLabel("\(model.kind.title) case \(item.name), view algorithms")
+                                    if !isReference {
+                                        Divider().padding(.horizontal, 12)
+                                        Button { model.toggle([item.id]) } label: {
+                                            Label(model.selected.contains(item.id) ? "Selected" : "Select",
+                                                  systemImage: model.selected.contains(item.id) ? "checkmark.circle.fill" : "circle")
+                                                .font(.subheadline).foregroundStyle(.mint)
+                                                .frame(maxWidth: .infinity, minHeight: 44)
+                                                .contentShape(Rectangle())
                                         }
-                                    }.padding(12).background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
-                                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(model.selected.contains(item.id) ? Color.mint : .clear, lineWidth: 2))
-                                }.buttonStyle(.plain).accessibilityLabel("Case \(item.name)")
-                                    .accessibilityValue(model.selected.contains(item.id) ? "Selected" : "Not selected")
+                                        .buttonStyle(.plain)
+                                        .accessibilityLabel("Select case \(item.name) for practice")
+                                        .accessibilityValue(model.selected.contains(item.id) ? "Selected" : "Not selected")
+                                    }
+                                }
+                                .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
+                                .overlay(RoundedRectangle(cornerRadius: 20).stroke(!isReference && model.selected.contains(item.id) ? Color.mint : .clear, lineWidth: 2))
                             }
                         }
                     }
@@ -109,23 +158,41 @@ struct CaseLibrary: View {
                 .frame(maxWidth: .infinity)
         }
         .background(Color(.systemGroupedBackground))
-        .navigationTitle("Megaminx Lab").navigationBarTitleDisplayMode(.inline)
-        .searchable(text: $search, prompt: "Find a case or group")
+        .navigationTitle(isReference ? "\(model.kind.title) Algorithms" : "\(model.kind.title) Trainer").navigationBarTitleDisplayMode(.inline)
+        .searchable(text: $search, prompt: "Find a case, group or algorithm")
         .toolbar {
-            Menu("Selection") {
-                Button("Select all") { model.selected = Set(model.cases.map(\.id)); model.save() }
-                Button("Clear selection") { model.selected = []; model.save() }
+            if isReference {
+                NavigationLink { InformationView() } label: {
+                    Label("Information", systemImage: "info.circle")
+                }
+            } else {
+                Menu("Selection") {
+                    Button("Select all") { model.selected = Set(model.cases.map(\.id)); model.save() }
+                    Button("Clear selection") { model.selected = []; model.save() }
+                }
             }
         }
         .safeAreaInset(edge: .bottom) {
-            VStack(spacing: 10) {
-                Text("\(model.selected.count) cases selected").font(.caption).foregroundStyle(.secondary)
-                HStack {
-                    Button { train(true) } label: { Label("Recap", systemImage: "arrow.triangle.2.circlepath") }.buttonStyle(.bordered)
-                    Button { train(false) } label: { Label("Train", systemImage: "play.fill") }.buttonStyle(.borderedProminent)
-                }.controlSize(.large).disabled(model.selected.isEmpty)
-            }.frame(maxWidth: .infinity).padding().background(.regularMaterial)
+            if !isReference {
+                VStack(spacing: 10) {
+                    Text("\(model.selected.count) cases selected").font(.caption).foregroundStyle(.secondary)
+                    HStack {
+                        Button { train(true) } label: { Label("Recap", systemImage: "arrow.triangle.2.circlepath") }.buttonStyle(.bordered)
+                        Button { train(false) } label: { Label("Train", systemImage: "play.fill") }.buttonStyle(.borderedProminent)
+                    }.controlSize(.large).disabled(model.selected.isEmpty)
+                }.frame(maxWidth: .infinity).padding().background(.regularMaterial)
+            }
         }
+        .sheet(item: $detailCase) { item in
+            CaseDetailView(item: item).environmentObject(model)
+        }
+    }
+
+    private func groupHeading(_ group: Int, items: [TrainerCase]) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(model.kind.groupName(group)).font(.headline)
+            Text(items.first?.groupDescription ?? "").font(.caption).foregroundStyle(.secondary)
+        }.frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 struct PracticeView: View {
@@ -145,7 +212,7 @@ struct PracticeView: View {
                         Text(model.recap ? "\(model.recapPosition) / \(model.total)" : "Case \(item.name)").font(.subheadline)
                     }
                     Text("Build the case").font(.title2.bold())
-                    Text("Apply this setup to a solved Megaminx. Keep the same grip for the solution.").font(.subheadline).foregroundStyle(.secondary).multilineTextAlignment(.center)
+                    Text("Apply this setup to a solved Megaminx. When revealing algorithms, match the grip in the diagram.").font(.subheadline).foregroundStyle(.secondary).multilineTextAlignment(.center)
                     Text(item.setup.isEmpty ? "Already solved — no setup moves." : item.setup).font(.system(.title3, design: .monospaced)).multilineTextAlignment(.center).textSelection(.enabled)
                         .padding(20).frame(maxWidth: .infinity).background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
                     Button { model.tapTimer() } label: {
@@ -165,17 +232,17 @@ struct PracticeView: View {
                         if model.reveal {
                             CaseDiagram(id: item.id).frame(height: 180)
                             Text("\(model.kind.title) Case \(item.name)").font(.headline)
-                            Text(item.solution.isEmpty ? "Already solved — no solution moves needed." : item.solution).font(.system(.body, design: .monospaced)).multilineTextAlignment(.center).textSelection(.enabled)
-                            Text("Solution is the inverse of the setup sequence.").font(.caption).foregroundStyle(.secondary)
+                            CaseAlgorithms(item: item).id(item.id)
                         }
                     }
                 } else {
-                    TrainerEmptyState("Ready when you are", systemImage: "timer", description: Text("Select cases in the Cases tab, then tap Train or Recap."))
+                    TrainerEmptyState("Ready when you are", systemImage: "timer", description: Text("Select cases in Train, then tap Train or Recap."))
                     Button("Train selected cases") { model.begin(recap: false) }.buttonStyle(.borderedProminent).disabled(model.selected.isEmpty)
                 }
             }.padding(24).frame(maxWidth: 720).frame(maxWidth: .infinity)
         }.background(Color(.systemGroupedBackground))
             .navigationTitle("\(model.kind.title) Practice")
+            .navigationBarTitleDisplayMode(.inline)
             .onReceive(timer) { _ in model.tick() }
             .onChange(of: scenePhase) { phase in if phase != .active { model.cancelTiming() } }
             .onChange(of: model.running) { running in UIApplication.shared.isIdleTimerDisabled = running }
@@ -227,5 +294,204 @@ struct SettingsView: View {
             }
             Section("Privacy") { Text("OLL and PLL keep separate selections, practice history, and preferences on this device. No account, analytics, or network connection is required.") }
         }.navigationTitle("Settings")
+    }
+}
+
+struct CaseDetailView: View {
+    @EnvironmentObject private var model: TrainerModel
+    @Environment(\.dismiss) private var dismiss
+    let item: TrainerCase
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 24) {
+                    CaseDiagram(id: item.id).frame(height: 220).frame(maxWidth: .infinity)
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(model.kind.groupName(item.group)).font(.headline)
+                        Text(item.groupDescription).foregroundStyle(.secondary)
+                    }
+                    Button { model.toggle([item.id]) } label: {
+                        Label(model.selected.contains(item.id) ? "Selected for practice" : "Select for practice",
+                              systemImage: model.selected.contains(item.id) ? "checkmark.circle.fill" : "circle")
+                            .frame(maxWidth: .infinity, minHeight: 32)
+                    }.buttonStyle(.bordered)
+                    CaseAlgorithms(item: item)
+                    DisclosureGroup("Setup moves") {
+                        CopyableAlgorithm(title: "Apply to a solved Megaminx", sequence: item.setup)
+                            .padding(.top, 12)
+                    }
+                }
+                .padding(24).frame(maxWidth: 720).frame(maxWidth: .infinity)
+            }
+            .background(Color(.systemGroupedBackground))
+            .navigationTitle("\(model.kind.title) · \(item.name)")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } } }
+        }
+    }
+}
+
+struct CaseAlgorithms: View {
+    let item: TrainerCase
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Algorithms").font(.title2.bold())
+            if item.setup.isEmpty {
+                Text("Already solved — no algorithm needed.").foregroundStyle(.secondary)
+            } else {
+                Text("Match the diagram’s grip. Include leading puzzle rotations when shown.")
+                    .font(.subheadline).foregroundStyle(.secondary)
+                ForEach(Array(item.algorithms.enumerated()), id: \.offset) { index, sequence in
+                    CopyableAlgorithm(title: index == 0 ? "Algorithm 1" : "Alternative \(index + 1)", sequence: sequence)
+                }
+                DisclosureGroup("Inverse setup · exact reset") {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Use the same grip as the setup to return to the exact starting state.")
+                            .font(.caption).foregroundStyle(.secondary)
+                        CopyableAlgorithm(title: "Undo setup", sequence: item.solution)
+                    }.padding(.top, 12)
+                }
+            }
+        }.frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+struct CopyableAlgorithm: View {
+    let title: String
+    let sequence: String
+    @State private var copied = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Text(title).font(.subheadline.bold())
+                Spacer()
+                if !sequence.isEmpty {
+                    Button {
+                        UIPasteboard.general.string = sequence
+                        copied = true
+                    } label: {
+                        Label(copied ? "Copied" : "Copy", systemImage: copied ? "checkmark" : "doc.on.doc")
+                            .font(.subheadline).frame(minHeight: 44)
+                    }
+                    .buttonStyle(.borderless)
+                    .accessibilityLabel("\(copied ? "Copied" : "Copy") \(title)")
+                }
+            }
+            Text(sequence.isEmpty ? "No moves needed." : sequence)
+                .font(.system(.body, design: .monospaced))
+                .textSelection(.enabled)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
+    }
+}
+
+struct InformationView: View {
+    @EnvironmentObject private var model: TrainerModel
+    private var groups: [Int] { Array(Set(model.cases.map(\.group))).sorted() }
+    private var recognition: [(String, String)] {
+        model.kind == .oll ? [
+            ("Corner orientation (OCLL)", "Groups 2–5"),
+            ("Edge orientation (EOLL)", "Group 1"),
+            ("Line edges · 3 oriented corners", "Groups 6–11"),
+            ("Line edges · 2 oriented corners", "Groups 12–17"),
+            ("Line edges · fewer than 2 oriented corners", "Groups 18–21"),
+            ("L-shaped edges · 3 oriented corners", "Groups 22–27"),
+            ("L-shaped edges · 2 oriented corners", "Groups 28–33"),
+            ("L-shaped edges · fewer than 2 oriented corners", "Groups 34–37")
+        ] : [
+            ("Corner permutation (CPLL)", "Groups A, E, K, H"),
+            ("Edge permutation (EPLL)", "Groups U, Z, Q, H"),
+            ("Block larger than 2×1", "Groups D, F, J, M, V, W, Y"),
+            ("R block · joined bar and headlights", "Groups B, P, R"),
+            ("Multiple 2×1 bars", "Groups C, N, S, T, Y"),
+            ("One 2×1 bar", "Groups G, I"),
+            ("No blocks", "Groups L, X")
+        ]
+    }
+
+    var body: some View {
+        List {
+            Section("\(model.kind.title) learning path") {
+                Text(model.kind.detail).font(.headline)
+                if model.kind == .oll {
+                    Text("You can learn OLL in any order. For an easier start, try groups 1, 6–9, 22, 24, 28–31, and 35.")
+                    Text("Cases with only one oriented edge are omitted. Aim to orient at least three edges during the last slot.")
+                        .font(.subheadline).foregroundStyle(.secondary)
+                } else {
+                    Text("Build a four-look last-layer foundation, then learn these PLL groups in order:")
+                    Text("U → Z → Q → T → Y → N → B → D → F → W → M → V → J → P → R → G → C → S → I → L → X")
+                        .font(.headline).fixedSize(horizontal: false, vertical: true)
+                    Text("Recognition and algorithm difficulty vary substantially between PLL groups.")
+                        .font(.subheadline).foregroundStyle(.secondary)
+                }
+            }
+            Section {
+                ForEach(recognition, id: \.0) { feature, groupNames in
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(feature)
+                        Text(groupNames).font(.subheadline).foregroundStyle(.secondary)
+                    }.padding(.vertical, 4)
+                }
+            } header: {
+                Text("Recognize the case")
+            } footer: {
+                Text("Check the features from top to bottom. A case can share features with several groups.")
+            }
+            Section("Group directory") {
+                ForEach(groups, id: \.self) { group in
+                    NavigationLink {
+                        GroupAlgorithmsView(group: group)
+                    } label: {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(model.kind.groupName(group)).font(.headline)
+                            Text(model.cases.first { $0.group == group }?.groupDescription ?? "")
+                                .font(.subheadline).foregroundStyle(.secondary)
+                        }.padding(.vertical, 4)
+                    }
+                }
+            }
+            Section("Reading algorithms") {
+                Text("Each face turn is 72°. A prime (′ or ') reverses a turn; 2 means two turns, and 3 means three turns.")
+                Text("Parentheses group moves. A trailing ×3 or x3 repeats the group three times. Leading x and y moves rotate the puzzle; keep them when copying an algorithm.")
+                Text("Algorithms preserve the sheet’s notation, including BR, DR, bR, and dR. Match the diagram’s viewing angle before starting.")
+                Text("In practice, the inverse setup is also available to undo the setup from the same grip.")
+            }
+        }
+        .navigationTitle("\(model.kind.title) Information")
+    }
+}
+
+struct GroupAlgorithmsView: View {
+    @EnvironmentObject private var model: TrainerModel
+    let group: Int
+    @State private var detailCase: TrainerCase?
+
+    var body: some View {
+        List(model.cases.filter { $0.group == group }) { item in
+            Button { detailCase = item } label: {
+                HStack(spacing: 16) {
+                    CaseDiagram(id: item.id).frame(width: 72, height: 72)
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(item.name).font(.headline)
+                        Text(item.setup.isEmpty ? "Solved / skip" : "\(item.algorithms.count) algorithms")
+                            .font(.subheadline).foregroundStyle(.secondary)
+                    }
+                    Spacer()
+                    Image(systemName: "chevron.right").font(.caption).foregroundStyle(.secondary)
+                }
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel("Case \(item.name), view algorithms")
+        }
+        .navigationTitle(model.kind.groupName(group))
+        .sheet(item: $detailCase) { item in
+            CaseDetailView(item: item).environmentObject(model)
+        }
     }
 }
