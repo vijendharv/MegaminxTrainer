@@ -224,11 +224,6 @@ struct SettingsView: View {
                 Text("1. Start with a solved Megaminx.\n2. Apply the setup with the last layer on top.\n3. Tap the timer, solve the orientation, then tap to stop.\n4. Tap Next case and reset the puzzle before the next setup.")
                 Text("Turns are 72°. U2 means two turns; a prime (′) reverses the direction. Timing cancels if you leave Practice or the app becomes inactive.").font(.subheadline).foregroundStyle(.secondary)
             }
-            Section("Credits & sources") {
-                Link("Reinier Schippers · original OLL trainer", destination: URL(string: "https://reinierschippers.nl/oll_trainer-master/")!)
-                Text("Case names, setup sequences and diagrams follow the reference trainer, which credits James’s Megaminx OLL document and Roman Strakhov’s trainer. This is an independent prototype.").font(.footnote)
-                Text("Diagram reuse permissions must be confirmed before public distribution.").font(.footnote)
-            }
             Section("Privacy") { Text("Practice history and preferences stay on this device. No account, analytics, or network connection is required.") }
         }.navigationTitle("Settings")
     }

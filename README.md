@@ -1,6 +1,6 @@
 # Megaminx Lab — iPhone & iPad
 
-Native SwiftUI prototype for iOS/iPadOS 16 or later, inspired by [Reinier Schippers’s OLL trainer](https://reinierschippers.nl/oll_trainer-master/).
+Native SwiftUI Megaminx OLL trainer for iOS/iPadOS 16 or later.
 
 ## Run on your iPhone or iPad
 
@@ -21,15 +21,6 @@ For simulator use, select an installed iPhone or iPad simulator and Run. No acco
 - Adaptive case grid, system dark/light appearance, Dynamic Type, and accessible control labels.
 
 Start each setup from a solved Megaminx. The app does not simulate the puzzle or verify a physical solve. Times are recorded as raw durations; inspection, +2 and DNF are not implemented. Recap skips are not counted as timed solves. Frequency weighting uses how often a case was presented.
-
-## Sources and distribution
-
-The reference credits Reinier Schippers, Roman Strakhov, and James’s Megaminx OLL document:
-https://docs.google.com/spreadsheets/d/1lVODoMORbDdVXwTG4RUZPWCSrx8uPx2bvwvXg5tuQYE/edit#gid=165427832
-
-Case names, diagrams (`Resources/Cases`) and setup sequences (`Resources/cases.json`) were retrieved from the reference on November 11, 2026. The reference's algorithm-hint table contains apparent placeholders, so it is intentionally not used. Setup sequences are preserved and hints are their mechanical inverses. Case/diagram correctness still needs a physical-puzzle review.
-
-The downloaded artwork's reuse license has not been established. Obtain permission or replace it with independently produced diagrams before distributing this prototype. This project is not an App Store submission: it still needs signing, physical-device QA, rights clearance, and release/privacy metadata. No Apple account settings or publishing actions were performed.
 
 ## Validation
 
