@@ -6,14 +6,32 @@ struct CaseDiagram: View {
     @EnvironmentObject private var model: TrainerModel
     let id: Int
     var body: some View {
-        if let path = Bundle.main.path(forResource: String(id), ofType: "png", inDirectory: model.kind.diagramDirectory),
-           let image = UIImage(contentsOfFile: path) {
+        if let image = CaseImageCache.image(id: id, kind: model.kind) {
             Image(uiImage: image).resizable().scaledToFit()
                 .padding(8).background(.white, in: RoundedRectangle(cornerRadius: 16))
                 .accessibilityLabel("\(model.kind.title) diagram for case \(id)")
         } else { Image(systemName: "pentagon").resizable().scaledToFit().accessibilityLabel("Diagram unavailable") }
     }
 }
+@MainActor private enum CaseImageCache {
+    private static let images: NSCache<NSString, UIImage> = {
+        let cache = NSCache<NSString, UIImage>()
+        cache.countLimit = 128
+        cache.totalCostLimit = 16 * 1024 * 1024
+        return cache
+    }()
+
+    static func image(id: Int, kind: TrainerKind) -> UIImage? {
+        let key = "\(kind.diagramDirectory)/\(id)" as NSString
+        if let image = images.object(forKey: key) { return image }
+        guard let path = Bundle.main.path(forResource: String(id), ofType: "png", inDirectory: kind.diagramDirectory),
+              let image = UIImage(contentsOfFile: path) else { return nil }
+        let cost = image.cgImage.map { $0.bytesPerRow * $0.height } ?? 0
+        images.setObject(image, forKey: key, cost: cost)
+        return image
+    }
+}
+
 /// Shared empty state using APIs available on iOS and iPadOS 16.
 struct TrainerEmptyState: View {
     let title: String
@@ -198,7 +216,6 @@ struct CaseLibrary: View {
 struct PracticeView: View {
     @EnvironmentObject private var model: TrainerModel
     @Environment(\.scenePhase) private var scenePhase
-    private let timer = Timer.publish(every: 0.03, on: .main, in: .common).autoconnect()
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
@@ -215,14 +232,6 @@ struct PracticeView: View {
                     Text("Apply this setup to a solved Megaminx. When revealing algorithms, match the grip in the diagram.").font(.subheadline).foregroundStyle(.secondary).multilineTextAlignment(.center)
                     Text(item.setup.isEmpty ? "Already solved — no setup moves." : item.setup).font(.system(.title3, design: .monospaced)).multilineTextAlignment(.center).textSelection(.enabled)
                         .padding(20).frame(maxWidth: .infinity).background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 20))
-                    Button { model.tapTimer() } label: {
-                        VStack(spacing: 12) {
-                            Text(timeString(model.elapsed)).font(.system(size: 76, weight: .light, design: .rounded)).monospacedDigit().minimumScaleFactor(0.4).lineLimit(1)
-                            Text(model.running ? "TAP TO STOP" : model.elapsed > 0 ? "SOLVE SAVED" : "TAP TO START").font(.caption.bold()).tracking(2)
-                        }.foregroundStyle(model.running ? Color.mint : Color.primary)
-                            .frame(maxWidth: .infinity, minHeight: 185).contentShape(Rectangle())
-                    }.buttonStyle(.plain).disabled(model.elapsed > 0 && !model.running)
-                        .accessibilityLabel(model.running ? "Stop timer" : "Start timer")
                     if !model.running {
                         HStack {
                             Button { model.reveal.toggle() } label: { Label(model.reveal ? "Hide solution" : "Reveal solution", systemImage: "eye") }
@@ -243,7 +252,15 @@ struct PracticeView: View {
         }.background(Color(.systemGroupedBackground))
             .navigationTitle("\(model.kind.title) Practice")
             .navigationBarTitleDisplayMode(.inline)
-            .onReceive(timer) { _ in model.tick() }
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                if model.current != nil && !model.complete {
+                    TimerPad(startedAt: model.timerStartedAt, elapsed: model.elapsed) { timestamp in
+                        model.tapTimer(at: timestamp)
+                    }
+                    .frame(maxWidth: 720).frame(maxWidth: .infinity)
+                    .background(Color(.systemGroupedBackground))
+                }
+            }
             .onChange(of: scenePhase) { phase in if phase != .active { model.cancelTiming() } }
             .onChange(of: model.running) { running in UIApplication.shared.isIdleTimerDisabled = running }
             .onDisappear { model.cancelTiming(); UIApplication.shared.isIdleTimerDisabled = false }
@@ -493,5 +510,68 @@ struct GroupAlgorithmsView: View {
         .sheet(item: $detailCase) { item in
             CaseDetailView(item: item).environmentObject(model)
         }
+    }
+}
+
+/// Only this small subtree redraws while timing; catalogs and history stay idle.
+struct TimerPad: View {
+    let startedAt: TimeInterval?
+    let elapsed: Double
+    let press: (TimeInterval) -> Void
+
+    var body: some View {
+        TimelineView(.animation(minimumInterval: 1.0 / 30.0, paused: startedAt == nil)) { _ in
+            VStack(spacing: 12) {
+                Text(timeString(startedAt.map { max(0, ProcessInfo.processInfo.systemUptime - $0) } ?? elapsed))
+                    .font(.system(size: 76, weight: .light, design: .rounded))
+                    .monospacedDigit().minimumScaleFactor(0.4).lineLimit(1)
+                Text(startedAt != nil ? "TAP TO STOP" : elapsed > 0 ? "SOLVE SAVED" : "TAP TO START")
+                    .font(.caption.bold()).tracking(2)
+            }
+            .foregroundStyle(startedAt != nil ? Color.mint : Color.primary)
+            .frame(maxWidth: .infinity, minHeight: 185)
+            .padding(.horizontal, 24)
+            .accessibilityHidden(true)
+        }
+        .overlay {
+            TimerTouchTarget(enabled: startedAt != nil || elapsed == 0,
+                             label: startedAt != nil ? "Stop timer" : elapsed > 0 ? "Solve saved" : "Start timer",
+                             value: startedAt != nil ? "Running" : timeString(elapsed), press: press)
+        }
+    }
+}
+
+/// Lives below the scrolling content. Capture touch-down, rather than waiting
+/// for finger release or the scroll view's gesture arbitration.
+struct TimerTouchTarget: UIViewRepresentable {
+    let enabled: Bool
+    let label: String
+    let value: String
+    let press: (TimeInterval) -> Void
+
+    func makeUIView(context: Context) -> ImmediateTimerControl {
+        ImmediateTimerControl()
+    }
+    func updateUIView(_ view: ImmediateTimerControl, context: Context) {
+        view.isEnabled = enabled
+        view.press = press
+        view.isAccessibilityElement = true
+        view.accessibilityLabel = label
+        view.accessibilityValue = value
+        view.accessibilityTraits = enabled ? [.button] : [.button, .notEnabled]
+    }
+}
+
+final class ImmediateTimerControl: UIControl {
+    var press: ((TimeInterval) -> Void)?
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard isEnabled, let touch = touches.first else { return }
+        press?(touch.timestamp)
+    }
+    override func accessibilityActivate() -> Bool {
+        guard isEnabled else { return false }
+        press?(ProcessInfo.processInfo.systemUptime)
+        return true
     }
 }

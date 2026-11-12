@@ -36,17 +36,43 @@ struct TrainerCase: Codable, Identifiable {
         }.joined(separator: " ")
     }
 }
-struct Solve: Codable, Identifiable {
+struct Solve: Codable, Identifiable, Sendable {
     var id = UUID()
     let caseID: Int
     let seconds: Double
     let date: Date
 }
-struct SavedState: Codable {
+struct SavedState: Codable, Sendable {
     var selected: Set<Int>
     var solves: [Solve]
     var appearances: [Int: Int]
     var weighted: Bool
+}
+
+/// All reads and writes pass through one serial queue. This also makes a new
+/// model wait for an earlier model's pending save before restoring its state.
+private final class TrainerStateStore: @unchecked Sendable {
+    private static let queue = DispatchQueue(label: "megaminx.persistence", qos: .utility)
+    private let defaults: UserDefaults
+    private let key: String
+
+    init(defaults: UserDefaults, key: String) {
+        self.defaults = defaults
+        self.key = key
+    }
+    func load() -> Data? { Self.queue.sync { defaults.data(forKey: key) } }
+    func save(_ state: SavedState) throws {
+        try Self.queue.sync { try write(state) }
+    }
+    func saveInBackground(_ state: SavedState, completion: @escaping @Sendable (Bool) -> Void) {
+        Self.queue.async { [self] in
+            do { try write(state); completion(true) }
+            catch { completion(false) }
+        }
+    }
+    private func write(_ state: SavedState) throws {
+        defaults.set(try JSONEncoder().encode(state), forKey: key)
+    }
 }
 
 @MainActor final class TrainerModel: ObservableObject {
@@ -67,29 +93,38 @@ struct SavedState: Codable {
     @Published var storageError: String?
     private var queue: [TrainerCase] = []
     private var start: TimeInterval?
-    private var key: String { kind.storageKey }
-    private let defaults: UserDefaults
+    var timerStartedAt: TimeInterval? { start }
+    private let store: TrainerStateStore
     var recapPosition: Int { total - queue.count }
     init(kind: TrainerKind = .oll, catalog: [TrainerCase]? = nil, defaults: UserDefaults = .standard) {
         self.kind = kind
-        self.defaults = defaults
+        self.store = TrainerStateStore(defaults: defaults, key: kind.storageKey)
         if let catalog { cases = catalog }
         else if let url = Bundle.main.url(forResource: kind.catalogName, withExtension: "json"),
            let data = try? Data(contentsOf: url),
            let decoded = try? JSONDecoder().decode([TrainerCase].self, from: data) {
             cases = decoded
         } else { cases = [] }
-        if let data = defaults.data(forKey: key),
+        if let data = store.load(),
            let saved = try? JSONDecoder().decode(SavedState.self, from: data) {
             selected = saved.selected.intersection(Set(cases.map(\.id)))
             solves = saved.solves; appearances = saved.appearances; weighted = saved.weighted
         } else { selected = Set(cases.prefix(2).map(\.id)) }
     }
+    private var snapshot: SavedState {
+        SavedState(selected: selected, solves: solves, appearances: appearances, weighted: weighted)
+    }
     func save() {
-        do {
-            let state = SavedState(selected: selected, solves: solves, appearances: appearances, weighted: weighted)
-            defaults.set(try JSONEncoder().encode(state), forKey: key)
-        } catch { storageError = "Your progress could not be saved." }
+        do { try store.save(snapshot) }
+        catch { storageError = "Your progress could not be saved." }
+    }
+    private func saveAfterSolve() {
+        store.saveInBackground(snapshot) { [weak self] success in
+            guard !success else { return }
+            Task { @MainActor [weak self] in
+                self?.storageError = "Your progress could not be saved."
+            }
+        }
     }
     func toggle(_ ids: Set<Int>) {
         if ids.isSubset(of: selected) { selected.subtract(ids) } else { selected.formUnion(ids) }
@@ -124,18 +159,23 @@ struct SavedState: Codable {
         if let current { appearances[current.id, default: 0] += 1 }
         save()
     }
-    func tapTimer() {
+    func tapTimer(at timestamp: TimeInterval? = nil) {
         guard let current else { return }
-        if running {
-            tick(); running = false; start = nil
+        // UITouch timestamps and systemUptime share the monotonic uptime clock.
+        // Rendering cadence must never determine the recorded solve time.
+        let now = timestamp ?? ProcessInfo.processInfo.systemUptime
+        if running, let start {
+            elapsed = max(0, now - start)
+            running = false
+            self.start = nil
             solves.insert(Solve(caseID: current.id, seconds: elapsed, date: Date()), at: 0)
-            practiced += 1; save()
+            practiced += 1
+            saveAfterSolve()
         } else if elapsed == 0 {
-            reveal = false; start = ProcessInfo.processInfo.systemUptime; running = true
+            reveal = false
+            start = now
+            running = true
         }
-    }
-    func tick() {
-        if let start { elapsed = ProcessInfo.processInfo.systemUptime - start }
     }
     func cancelTiming() {
         if running { running = false; start = nil; elapsed = 0 }

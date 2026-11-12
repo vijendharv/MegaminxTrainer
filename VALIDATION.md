@@ -37,3 +37,14 @@
 - Model checks passed, including 541 algorithms, group descriptions, Q1+ mapping, and independent OLL/PLL persistence. Existing IDs, groups, and setups were compared against the previous commit and are unchanged.
 - Explicit iOS 16 type checking and the unsigned iPhone/iPad simulator build passed. Built-bundle checks confirmed both device families, minimum OS 16.0, and all imported algorithms.
 - Interactive layout and clipboard checks on device/simulator remain unverified. Algorithm execution has not been physically tested on a Megaminx.
+
+## Older-iPad timer responsiveness
+
+- Removed the 0.03-second shared-model publisher. Only the timer digits redraw on a paused-capable 30 Hz timeline; hidden case libraries and solve history no longer receive per-tick invalidations.
+- Moved the timer into a fixed area outside the scroll view. A native control records touch-down timestamps rather than waiting for button release or scroll gesture handling. VoiceOver activation remains available.
+- Final solve duration uses monotonic input timestamps and is independent of display refreshes. Starting/stopping/cancelling, duplicate stop prevention, and exact timestamp arithmetic passed model checks.
+- Added a bounded, evictable diagram cache keyed by trainer and case ID.
+- Stop-time JSON encoding and defaults writes run on an ordered background queue. Tests cover immediate restoration and subsequent preference writes. Backgrounding flushes pending writes before suspension.
+- An optimized local Mac benchmark with 20,000 saved solves reduced median stop-handler work from 34.39 ms to 0.06 ms across five runs. This measures handler work, not end-to-end touch latency or performance on the reported iPad.
+- Performance on the user's older physical iPad and the revised touch area's layout still need device verification.
+- Final unsigned iPhone/iPad simulator build and explicit iOS 16 type check passed; no new source-code warnings were emitted.

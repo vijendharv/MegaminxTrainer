@@ -84,6 +84,27 @@ import Foundation
         pllRestored.solves = []; pllRestored.save()
         precondition(TrainerModel(catalog: cases, defaults: defaults).solves.count == 5)
         precondition(TrainerModel(kind: .pll, catalog: pllCases, defaults: defaults).solves.isEmpty)
-        print("Passed: 178 OLL and 152 PLL resources, inverse notation, recap, timer, interruption, statistics, OLL migration, independent trainer persistence, 541 imported algorithms, group descriptions, Q1+ mapping")
+        // Exact input timestamps determine the result without display ticks.
+        let timing = TrainerModel(catalog: cases, defaults: defaults)
+        timing.selected = [1]; timing.begin(recap: false)
+        let priorSolves = timing.solves.count
+        timing.tapTimer(at: 100)
+        precondition(timing.running && timing.timerStartedAt == 100 && timing.elapsed == 0)
+        timing.tapTimer(at: 112.345)
+        precondition(!timing.running && timing.timerStartedAt == nil)
+        precondition(abs(timing.elapsed - 12.345) < 0.000001)
+        precondition(abs(timing.solves.first!.seconds - 12.345) < 0.000001)
+        timing.tapTimer(at: 113) // A saved solve cannot be stopped/saved again.
+        precondition(timing.solves.count == priorSolves + 1)
+        timing.save() // Flushes the ordered background stop write.
+        precondition(TrainerModel(catalog: cases, defaults: defaults).solves.count == priorSolves + 1)
+        timing.next(); timing.tapTimer(at: 200); timing.cancelTiming()
+        precondition(timing.timerStartedAt == nil && !timing.running && timing.elapsed == 0)
+        // A later preference save must never be overwritten by an older stop save.
+        timing.tapTimer(at: 300); timing.tapTimer(at: 301)
+        timing.weighted = false; timing.save()
+        let timingRestored = TrainerModel(catalog: cases, defaults: defaults)
+        precondition(!timingRestored.weighted && timingRestored.solves.count == priorSolves + 2)
+        print("Passed: 178 OLL and 152 PLL resources, inverse notation, recap, timer, interruption, statistics, OLL migration, independent trainer persistence, 541 imported algorithms, group descriptions, Q1+ mapping, event-timestamp timing, ordered background saves")
     }
 }

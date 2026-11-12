@@ -8,6 +8,7 @@ import UIKit
 }
 
 struct TrainerRootView: View {
+    @Environment(\.scenePhase) private var scenePhase
     @StateObject private var oll = TrainerModel(kind: .oll)
     @StateObject private var pll = TrainerModel(kind: .pll)
     @State private var tab = 0
@@ -35,6 +36,15 @@ struct TrainerRootView: View {
             ContentView(tab: $tab)
                 .environmentObject(kind == .oll ? oll : pll)
                 .id(kind)
+        }
+        .onChange(of: scenePhase) { phase in
+            if phase == .background {
+                // Flush pending stop writes before the app can be suspended.
+                oll.cancelTiming()
+                pll.cancelTiming()
+                oll.save()
+                pll.save()
+            }
         }
         .onChange(of: activeTrainer) { _ in
             oll.cancelTiming()
