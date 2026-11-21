@@ -1,0 +1,1912 @@
+[
+  {
+    "id": 1,
+    "name": "A1+",
+    "group": 1,
+    "setup": "R' U R2 U2' R U2 R2 U' R U R2 U2' R' U2 R'",
+    "groupDescription": "3 corner CP",
+    "algorithms": [
+      "(F' R' F R U' R' F' R2 U R' U' R' F R)"
+    ],
+    "sheetCell": "B5",
+    "imageSHA256": "675c998a1118a0b685779bdfcc0ae37c1b9bc6367ea81fcc7c8849a5e87a63af"
+  },
+  {
+    "id": 2,
+    "name": "A1-",
+    "group": 1,
+    "setup": "R U2 R2' U2 R U2' R U' R' U2' R' U2 R2 U' R'",
+    "groupDescription": "3 corner CP",
+    "algorithms": [
+      "(R' F' R U R U' R2' F R U R' F' R F)"
+    ],
+    "sheetCell": "C5",
+    "imageSHA256": "8930242ce78707dd3ff3607896eb69485dd109c46de757332a5080845fc8ca26"
+  },
+  {
+    "id": 3,
+    "name": "A2+",
+    "group": 1,
+    "setup": "R U2 R2' U2 R2' U R2 U2 R2 U2' R U' R' U R'",
+    "groupDescription": "3 corner CP",
+    "algorithms": [
+      "(BR' R' U L U' R' U L' U' R2 BR)",
+      "(R' U2' R U' R' F' R U R' U' R' F R U2' R)"
+    ],
+    "sheetCell": "B7",
+    "imageSHA256": "d1be69b60ca3270b3d1fdbcfe261afc9881a4577646d701be91e2884ef244c5d"
+  },
+  {
+    "id": 4,
+    "name": "A2-",
+    "group": 1,
+    "setup": "R U' R U R' U2 R2' U2' R2' U' R2 U2' R2 U2' R'",
+    "groupDescription": "3 corner CP",
+    "algorithms": [
+      "(BR' R2' U L U' R U L' U' R BR)",
+      "y' (R' U2 R' F' R U R U' R' F R U R' U2 R)"
+    ],
+    "sheetCell": "C7",
+    "imageSHA256": "dcdd812ab05f4b53ded65dd5fc9d9dab245fac9776e04461f8eacd1995d695e9"
+  },
+  {
+    "id": 5,
+    "name": "B1+",
+    "group": 2,
+    "setup": "R2 U R2' U2 R2 U2 R2' U2' R2 U R2' U R2 U2' R2'",
+    "groupDescription": "Double R block",
+    "algorithms": [
+      "(R U R' U' R' U2' R U R U' R2' U2 R)",
+      "(y2) (R' U2' R2 U R' U' R' U2 R U R U' R')"
+    ],
+    "sheetCell": "D5",
+    "imageSHA256": "7ba270add813842fd934a6780d4b2036217c94562637c3011a5db31996c069c5"
+  },
+  {
+    "id": 6,
+    "name": "B1-",
+    "group": 2,
+    "setup": "R2 U2' R2' U R2 U R2' U2' R2 U2 R2' U2 R2 U R2'",
+    "groupDescription": "Double R block",
+    "algorithms": [
+      "(R' U' R U R U2 R' U' R' U R2 U2' R')",
+      "(y2') (R U2 R2' U' R U R U2' R' U' R' U R)"
+    ],
+    "sheetCell": "E5",
+    "imageSHA256": "ec3cda80a33173b7c6971e711d0ff267906ca771a4c7ec0a23665e5c6361372c"
+  },
+  {
+    "id": 7,
+    "name": "B2+",
+    "group": 2,
+    "setup": "R U' R' U2 R2 U R2' U' R2 U2 R2' U R U R U2' R2'",
+    "groupDescription": "Double R block",
+    "algorithms": [
+      "(R2 U R2' U2 R U2' R U R' U' R U' R2' U2 R U R')",
+      "(y2') (R U' R' U2' R2 U R' U R U' R' U2 R' U2' R2 U' R2')"
+    ],
+    "sheetCell": "D7",
+    "imageSHA256": "7865e6fd38d0a1ee19213e8c2a82ae95578d8c2bab0ae640cc3f20941b4137dc"
+  },
+  {
+    "id": 8,
+    "name": "B2-",
+    "group": 2,
+    "setup": "R2 U R2 U2 R2 U2' R U' R2 U2 R2 U' R2' U R2 U R'",
+    "groupDescription": "Double R block",
+    "algorithms": [
+      "(R2' U' R2 U2' R' U2 R' U' R U R' U R2 U2' R' U' R)",
+      "(y2) (R' U R U2 R2' U' R U' R' U R U2' R U2 R2' U R2)"
+    ],
+    "sheetCell": "E7",
+    "imageSHA256": "82c6df886d21f8a6b5f5eb106951cdc4097cba7bac62e71076937f810857fd54"
+  },
+  {
+    "id": 9,
+    "name": "C1+",
+    "group": 3,
+    "setup": "R U2 R' U2 R' U2' R2 U' R' U R' U2 R U2 R U' R'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "y2 (R U2 R' U R F U R' U' R F' R' U R U R')",
+      "(R U2 R' U' R U2' R' U R U R2' U' R U' R U R2' U R)",
+      "(y') (R U R' U2' R' U2' R U' R U R2' U2 R U2' R U2' R')"
+    ],
+    "sheetCell": "F5",
+    "imageSHA256": "a1d8958ad6386d248bfde5a39c0def7f7ac8ca31e9f223cf2a3b6250092e3ba5"
+  },
+  {
+    "id": 10,
+    "name": "C1-",
+    "group": 3,
+    "setup": "R' U2' R U2' R U2 R2' U R U' R U2' R' U2' R' U R",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R' U2' R U R' U2 R U' R' U' R2 U R' U R' U' R2 U' R')",
+      "(y') (R' U' R U2 R U2 R' U R' U' R2 U2' R' U2 R' U2 R)"
+    ],
+    "sheetCell": "G5",
+    "imageSHA256": "58968671a1ceced9994eb0be8a42566b48858d6de6cb6b36a5227a37f24f8234"
+  },
+  {
+    "id": 11,
+    "name": "C2+",
+    "group": 3,
+    "setup": "R' U' R U' R U2 R2' U' R2 U' R2' U2' R U R' U2 R",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R' U' R U' R U2 R2' U' R2 U' R2' U2' R U R' U2 R)",
+      "(y2) (R' U2' R U' R' U2 R2 U R2' U R2 U2' R' U R' U R)"
+    ],
+    "sheetCell": "F7",
+    "imageSHA256": "381a365a461407306d52153b384304106e46c058ddd53abdbdcc49c2747d17a5"
+  },
+  {
+    "id": 12,
+    "name": "C2-",
+    "group": 3,
+    "setup": "R U R' U R' U2' R2 U R2' U R2 U2 R' U' R U2' R'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R U R' U R' U2' R2 U R2' U R2 U2 R' U' R U2' R')",
+      "(y2') (R U2 R' U R U2' R2' U' R2 U' R2' U2 R U' R U' R')"
+    ],
+    "sheetCell": "G7",
+    "imageSHA256": "6137e6abad2ef98b55863129177a569c72cea7ce9b6c0bbe6ea9e003ad17f7b4"
+  },
+  {
+    "id": 13,
+    "name": "C3+",
+    "group": 3,
+    "setup": "R2 U2 R2' U R2 U' R2' U2' R2 U' R2' U2 R2 U2' R2'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R2' U2 R2 U R2' U' R2 U2' R2' U' R2 U2 R2' U2' R2)",
+      "(y) (R2' U2 R2 U2' R2' U R2 U2 R2' U R2 U' R2' U2' R2)"
+    ],
+    "sheetCell": "F9",
+    "imageSHA256": "7730cfb5fc4e3fcb882485397aa7af3d5ab00e5a8d2ac48a7ea2508eefbc5cf7"
+  },
+  {
+    "id": 14,
+    "name": "C3-",
+    "group": 3,
+    "setup": "R2 U2' R2' U' R2 U R2' U2 R2 U R2' U2' R2 U2 R2'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R2 U2' R2' U' R2 U R2' U2 R2 U R2' U2' R2 U2 R2')",
+      "(y') (R2' U2' R2 U2 R2' U' R2 U2' R2' U' R2 U R2' U2 R2)"
+    ],
+    "sheetCell": "G9",
+    "imageSHA256": "5d1d0728d054b00b1a6367691678acf4d18900f8005fdb862a3ebc9fe96c56c8"
+  },
+  {
+    "id": 15,
+    "name": "C4+",
+    "group": 3,
+    "setup": "R2 U2' R2' U' R2 U2' R2' U R2 U2 R2' U R2 U2 R2'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R2' U2' R2 U' R2' U2' R2 U' R2' U2 R2 U R2' U2 R2)",
+      "(y2) (R2' U2 R2 bR2' U R2' U' R2 U' bR2 U R2' U2' R2)"
+    ],
+    "sheetCell": "F11",
+    "imageSHA256": "41def9b2d977cab7530a47be539bc741504751bd49719afdf9bb7d72c6de5573"
+  },
+  {
+    "id": 16,
+    "name": "C4-",
+    "group": 3,
+    "setup": "R2 U2 R2' U R2 U2 R2' U' R2 U2' R2' U' R2 U2' R2'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R2' U2 R2 U R2' U2 R2 U R2' U2' R2 U' R2' U2' R2)",
+      "(y2') (R2 U2' R2' F2 U' R2 U R2' U F2' U' R2 U2 R2')"
+    ],
+    "sheetCell": "G11",
+    "imageSHA256": "f775ab87786b992acf8b6d14784d68412827f812cb23392a7b7bb8c041dd5bba"
+  },
+  {
+    "id": 17,
+    "name": "C5+",
+    "group": 3,
+    "setup": "R' U2' R U2' R' U' R U R' U2' R' U2' R U' R' U2' R2",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R' U2' R F U' R' U' R U F' U R' U2 R)",
+      "(R' U2' R U L U2' R' U' R U2 L' R' U2 R)"
+    ],
+    "sheetCell": "F13",
+    "imageSHA256": "8db64bbd72df857f93f92b4d8e653cf9b61cac3464c5a6a2fa704f0906a7f8a3"
+  },
+  {
+    "id": 18,
+    "name": "C5-",
+    "group": 3,
+    "setup": "R U2 R' U2 R U R' U' R U2 R U2 R' U R U2 R2'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R U2 R' BR' U R U R' U' BR U' R U2' R')",
+      "(F' R U2 R' U F R U' R' U R' F' R U' R U2' R' F)"
+    ],
+    "sheetCell": "G13",
+    "imageSHA256": "319da6a16edbc4338df2f5fec5fe0f470072d21a003e80211a27afd65b5f7d66"
+  },
+  {
+    "id": 19,
+    "name": "C6+",
+    "group": 3,
+    "setup": "R U R U R' U R U R' U2' R U' R2' U2' R U R'",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R U' R' U2 R2 U R' U2 R U' R' U' R U' R' U' R')"
+    ],
+    "sheetCell": "F15",
+    "imageSHA256": "2fe9566b107619002b9b89fb0542c8751604d8d6ad3aab4d32937c93c54b85bf"
+  },
+  {
+    "id": 20,
+    "name": "C6-",
+    "group": 3,
+    "setup": "R' U' R' U' R U' R' U' R U2 R' U R2 U2 R' U' R",
+    "groupDescription": "2 2x1s touching",
+    "algorithms": [
+      "(R' U R U2' R2' U' R U2' R' U R U R' U R U R)"
+    ],
+    "sheetCell": "G15",
+    "imageSHA256": "e8559eaa1e59e0d24470dfb2ff21ee0056003c89ef5033179aa9b3147a7905a1"
+  },
+  {
+    "id": 21,
+    "name": "D+",
+    "group": 4,
+    "setup": "R' U2' R U R' U' R U' R' U2 R U2' R' U2' R",
+    "groupDescription": "3x1 and 2x2",
+    "algorithms": [
+      "(R U2 R' U' R U R' U R U2' R' U2 R U2 R')"
+    ],
+    "sheetCell": "H5",
+    "imageSHA256": "b68484d72897e77cd4494ec8f6924e2e6ab52150de406794ae9c2a6ea5dd4278"
+  },
+  {
+    "id": 22,
+    "name": "D-",
+    "group": 4,
+    "setup": "R U2 R' U' R U R' U R U2' R' U2 R U2 R'",
+    "groupDescription": "3x1 and 2x2",
+    "algorithms": [
+      "(R' U2' R U R' U' R U' R' U2 R U2' R' U2' R)"
+    ],
+    "sheetCell": "I5",
+    "imageSHA256": "1b10dd2cc20b9b7fc82076e3ffbadabe10f81760cce1e5d322999a4ca6f87092"
+  },
+  {
+    "id": 23,
+    "name": "E1",
+    "group": 5,
+    "setup": "R' U2' R U R2' U' R U' R' U R2 U' R' U R' U R U R",
+    "groupDescription": "4 corner CP",
+    "algorithms": [
+      "(R U R' U R' U' R F' R U R' U' R' F R2 U' R2' U R)",
+      "(y2) (R' U' R' DR' R U' R' DR R U R' DR' R U R' DR R2)"
+    ],
+    "sheetCell": "J5",
+    "imageSHA256": "f78e1307a08f583606c9703a045c4c2bcb55dfd84f296f332660e0e4f507e196"
+  },
+  {
+    "id": 24,
+    "name": "E2",
+    "group": 5,
+    "setup": "R2 U2 R2 U R' U' R U' R2' U R U' R U R' U R' U2 R2'",
+    "groupDescription": "4 corner CP",
+    "algorithms": [
+      "(x') (R U' R' DR R U R' DR' R U R' DR R U' R' DR')",
+      "(y') (R2 U R' U' y R U R' U' R U R' U' R U R' F U' F2')",
+      "(y') (BR' R' U2 R U' R' U R' U2' R U R' U R U' R U' BR)"
+    ],
+    "sheetCell": "J7",
+    "imageSHA256": "1c5c8c65c4562a4afa388f626e7bb0250af88423577c09699202af0220d8a848"
+  },
+  {
+    "id": 25,
+    "name": "E3",
+    "group": 5,
+    "setup": "R' U2 R' U2' R2' U2 R2' U' R2 U' R' U' R2' U2 R U2' R",
+    "groupDescription": "4 corner CP",
+    "algorithms": [
+      "(L' R U2 R' U' R U R' U' R U R' U' R U' R' L)"
+    ],
+    "sheetCell": "J9",
+    "imageSHA256": "990879f74ea5f2db92a195aea1bf921416b7198e051c7e7384b5eac4076c9f30"
+  },
+  {
+    "id": 26,
+    "name": "F1+",
+    "group": 6,
+    "setup": "R U R2' U' R2 U2' R2' U2 R U' R' U2 R2 U2 R'",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R2 U2 R2' U R2 U2 R2')",
+      "(R2' U2 R2 U R2' U2 R2)"
+    ],
+    "sheetCell": "L5",
+    "imageSHA256": "53183304b8c02699c0c50bd2a42290ea62b659107bf15eb55c6ec8cd35dfb9f1"
+  },
+  {
+    "id": 27,
+    "name": "F1-",
+    "group": 6,
+    "setup": "R' U' R2 U R2' U2 R2 U2' R' U R U2' R2' U2' R",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R2 U2' R2' U' R2 U2' R2')"
+    ],
+    "sheetCell": "M5",
+    "imageSHA256": "7cf719e97dc84714ea803ea466e0f97b421a6f4d055fdae8b84b3dace25d1764"
+  },
+  {
+    "id": 28,
+    "name": "F2+",
+    "group": 6,
+    "setup": "R U' R' U2' R U' R U R2' U2 R U2' R U' R' U' R'",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R U R' U2 R' U2' R2 U' R' U R' U2 R)"
+    ],
+    "sheetCell": "L7",
+    "imageSHA256": "794fe8c5f1aa43d7ac78bf1a633ed1e6458a9c4723bc1957214352ae6c697935"
+  },
+  {
+    "id": 29,
+    "name": "F2-",
+    "group": 6,
+    "setup": "R U R U2 R' U R' U' R2 U2' R' U2 R' U R U R'",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R' U' R U2' R U2 R2' U R U' R U2' R')"
+    ],
+    "sheetCell": "M7",
+    "imageSHA256": "90c04885303de53114e78f708fe09a32466ecb105b03121fef33b443224e22e0"
+  },
+  {
+    "id": 30,
+    "name": "F3+",
+    "group": 6,
+    "setup": "R U R U R' U2 R' U2' R2 U' R' U R' U2 R U R'",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R' U2' R U' R U R2' U2 R U2' R U' R')"
+    ],
+    "sheetCell": "L9",
+    "imageSHA256": "5caac42396009d2ce068d0f3db13daed3befb3de9ac7c9d73030301eae40edfd"
+  },
+  {
+    "id": 31,
+    "name": "F3-",
+    "group": 6,
+    "setup": "R U' R' U' R U2' R U2 R2' U R U' R U2' R' U' R'",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R U2 R' U R' U' R2 U2' R' U2 R' U R)"
+    ],
+    "sheetCell": "M9",
+    "imageSHA256": "ab7954f6d677b3dc6dc514fde52f2210c8bc7486280ecded644d2da9f156f84f"
+  },
+  {
+    "id": 32,
+    "name": "F4+",
+    "group": 6,
+    "setup": "R U2' R2 U2' R2' U' R2 U2' R2 U2' R U2' R' U' R U2' R'",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R U R' U R2 U2' R2' U2' R U2 R U2 R' U2' R')"
+    ],
+    "sheetCell": "L11",
+    "imageSHA256": "e28e922e46e2c3c115676fd3ff9f80f8493589c8f2fefc4c9d4a1e48f3ec7727"
+  },
+  {
+    "id": 33,
+    "name": "F4-",
+    "group": 6,
+    "setup": "R' U2 R2 U2 R2' U R2 U2 R' U R' U2' R U' R' U2' R",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R' U' R U' R2' U2 R2 U2 R' U2' R' U2' R U2 R)"
+    ],
+    "sheetCell": "M11",
+    "imageSHA256": "cdb35b2e2caad1f865a26c3eebb96ecc1ba1f20d27ef23a3016aa587e66df703"
+  },
+  {
+    "id": 34,
+    "name": "F5+",
+    "group": 6,
+    "setup": "R U2' R' U' R U2' R' U R2' U2 R2' U R2 U2 R2' U2 R'",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R U2 R U2' R' U2' R' U2 R2 U2 R2' U' R U' R')"
+    ],
+    "sheetCell": "L13",
+    "imageSHA256": "2f00233026af76895b6675479310891c234487f7bb03ebe9c9457d340168f0b8"
+  },
+  {
+    "id": 35,
+    "name": "F5-",
+    "group": 6,
+    "setup": "R' U2' R U' R' U2' R U2' R U2' R2' U' R2 U2' R2' U2' R",
+    "groupDescription": "3x1 and 2x1(s)",
+    "algorithms": [
+      "(R' U2' R' U2 R U2 R U2' R2' U2' R2 U R' U R)"
+    ],
+    "sheetCell": "M13",
+    "imageSHA256": "1911f809cb8534c6a18498d3f69b6715bb29f5d80f3b2be4847b48ba247173df"
+  },
+  {
+    "id": 36,
+    "name": "G1+",
+    "group": 7,
+    "setup": "R2' U2 R2' U2' R2 U' R U2' R' U' R U2' R2 U2 R2 U2' R2",
+    "groupDescription": "2x1 and headlights",
+    "algorithms": [
+      "(R' U2 R2 U2' R' U2 R' U R U2 R' U R2 U2 R2' U2' R)"
+    ],
+    "sheetCell": "N5",
+    "imageSHA256": "635f15a2eb96c83e55c2aae1f9589a4d142a0c33c2da4797842165b0473b41f3"
+  },
+  {
+    "id": 37,
+    "name": "G1-",
+    "group": 7,
+    "setup": "R U2' R2' U2 R U2' R U' R' U2' R U' R2' U2' R2 U2 R'",
+    "groupDescription": "2x1 and headlights",
+    "algorithms": [
+      "(R U2' R2' U2 R U2' R U' R' U2' R U' R2' U2' R2 U2 R')"
+    ],
+    "sheetCell": "O5",
+    "imageSHA256": "c880015b36c14e667c20d0b75ce36fd4214a29099dcf44523c62345c0019f186"
+  },
+  {
+    "id": 38,
+    "name": "G2+",
+    "group": 7,
+    "setup": "R U2' R' U2' R2' U R' U' R2' U R' U2' R2 U R U R' U' R2",
+    "groupDescription": "2x1 and headlights",
+    "algorithms": [
+      "(R U' R2' U' F U F' R2 U2' R' U R U2 R' F U' F')",
+      "(y') (R U2' R' U' R U2' R2' U2 L U' R U L' R' U2' R)",
+      "(y) (R' U2 R L U' R' U L' U2' R2 U2 R' U R U2 R')"
+    ],
+    "sheetCell": "N7",
+    "imageSHA256": "0f78c642b7e8102b73d2a0f6ddfa8f1e15bc15516e5ff28339d2f48bf16279e9"
+  },
+  {
+    "id": 39,
+    "name": "G2-",
+    "group": 7,
+    "setup": "R' U2 R U R' U R2' U' R' U R2' U R2' U' R' U' R U R2'",
+    "groupDescription": "2x1 and headlights",
+    "algorithms": [
+      "(F U2' R' U' R F' R' U' R F U' R' U2' R U2 F')"
+    ],
+    "sheetCell": "O7",
+    "imageSHA256": "bedcd74fea91b6f8d03b1e0b3bf3459875f0f3014e9cc8ed15fb516ca631c7da"
+  },
+  {
+    "id": 40,
+    "name": "H1+",
+    "group": 8,
+    "setup": "R U2 R2 U2 R U' R U R U' R U R2 U2' R2' U2' R' U' R2 U' R2'",
+    "groupDescription": "5 piece EP/CP",
+    "algorithms": [
+      "(R' DR' R U R' DR R U)x3",
+      "(R U2 R' U2 R U' R' U' R U2 R' U R' F' R U R U' R' F)"
+    ],
+    "sheetCell": "P5",
+    "imageSHA256": "0ec025298df7e031836f4fb616ef6cc0685b00cd8b2651ca74d026072f7ccfe9"
+  },
+  {
+    "id": 41,
+    "name": "H1-",
+    "group": 8,
+    "setup": "R2 U R2' U R U2 R2 U2 R2' U' R' U R' U' R' U R' U2' R2' U2' R'",
+    "groupDescription": "5 piece EP/CP",
+    "algorithms": [
+      "(R' DR' R U' R' DR R U')x3",
+      "(F' R U R' U' R' F R U' R U2' R' U R U R' U2' R U2' R')"
+    ],
+    "sheetCell": "Q5",
+    "imageSHA256": "47fc7350a9b3b18306e252b6453557cf086a5ab04b9283de0fdbbe1f5517e301"
+  },
+  {
+    "id": 42,
+    "name": "H2+",
+    "group": 8,
+    "setup": "R2 U2 R U2' R2' U2 R2' U2' R U2' R' U' R2 U R2 U' R' U R2'",
+    "groupDescription": "5 piece EP/CP",
+    "algorithms": [
+      "(R2 U2 R2' U' R2 U' R2' y' R2' U' R2 U' R2' U2 R2)"
+    ],
+    "sheetCell": "P7",
+    "imageSHA256": "85423fe5cab522183cbe5e7a134f0cb0669023e377535d98765b81c23810b6c7"
+  },
+  {
+    "id": 43,
+    "name": "H2-",
+    "group": 8,
+    "setup": "R2 U' R U R2' U' R2' U R U2 R' U2 R2 U2' R2 U2 R' U2' R2'",
+    "groupDescription": "5 piece EP/CP",
+    "algorithms": [
+      "(R2' U2' R2 U R2' U R2 y R2 U R2' U R2 U2' R2')"
+    ],
+    "sheetCell": "Q7",
+    "imageSHA256": "1cacc68753e1428e3c7ab9740ece3768aef7ac071418e4b82aa8360765a9b7d4"
+  },
+  {
+    "id": 44,
+    "name": "I1+",
+    "group": 9,
+    "setup": "R' U2 R' U2 R' U2 R2 U2 R2 U2' R U R2' U R U R2 U R",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R U2 R' U R' U' R U F' R U R' U' R' F U R2 U R')",
+      "(R2' U2 R2 U R2' F2 U' R2 U R2' U F2' U R2)"
+    ],
+    "sheetCell": "R5",
+    "imageSHA256": "f76af9a93af5c983089fc1fb632b52eb51c0892595f77c613a4251ff9beb67b5"
+  },
+  {
+    "id": 45,
+    "name": "I1-",
+    "group": 9,
+    "setup": "R U2' R U2' R U2' R2' U2' R2' U2 R' U' R2 U' R' U' R2' U' R'",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R2 U2' R2' U' R2 bR2' U R2' U' R2 U' bR2 U' R2')"
+    ],
+    "sheetCell": "S5",
+    "imageSHA256": "f0c4b08e79183a8475b305c4fc186ac446c93904b61a792c434e318c02c2cdd2"
+  },
+  {
+    "id": 46,
+    "name": "I2+",
+    "group": 9,
+    "setup": "R' U' R2' U' R' U' R2 U' R' U2 R2' U2' R2' U2' R U2' R U2' R",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R U' R2' U' F' R U R U' R' F U' R' U R U' R U2' R')",
+      "(R2' U' F2 U' R2 U' R2' U F2' R2 U' R2' U2' R2)"
+    ],
+    "sheetCell": "R7",
+    "imageSHA256": "722b9666bdaec111a51fd8b8228eb0f54dc1ed343782d8d273ab8da9757536cc"
+  },
+  {
+    "id": 47,
+    "name": "I2-",
+    "group": 9,
+    "setup": "R U R2 U R U R2' U R U2' R2 U2 R2 U2 R' U2 R' U2 R'",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R2 U bR2' U R2' U R2 U' bR2 R2' U R2 U2 R2')"
+    ],
+    "sheetCell": "S7",
+    "imageSHA256": "48b7e7c58d4005dba4fe911d73932763266d473b2b182e2d76da7fa69ca666b7"
+  },
+  {
+    "id": 48,
+    "name": "I3+",
+    "group": 9,
+    "setup": "R U R' U2 R U' R' U2' R' U2 R U2 R U2' R2' U2' R",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R' U2 R2 U2 R' U2' R' U2' R U2 R U R' U2' R U' R')",
+      "(y') (R2 U R2' U R2 U2' R2' U2 y' R2' U' R2 U2' R2' U2' R2)"
+    ],
+    "sheetCell": "R9",
+    "imageSHA256": "af8802872fb06c08724616f3162a3844ffd290708d2a3d82dab65ef91606ffcf"
+  },
+  {
+    "id": 49,
+    "name": "I3-",
+    "group": 9,
+    "setup": "R U2' R2' U2' R U2 R U2 R' U2' R' U' R U2 R' U R",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R U2' R2' U2' R U2 R U2 R' U2' R' U' R U2 R' U R)",
+      "(y) (R2' U' R2 U' R2' U2 R2 U2' y R2 U R2' U2 R2 U2 R2')"
+    ],
+    "sheetCell": "S9",
+    "imageSHA256": "e9f9d0468ec64d1b96b61307dcac86d3040aa5268c742d08019be2b401ddae30"
+  },
+  {
+    "id": 50,
+    "name": "I4+",
+    "group": 9,
+    "setup": "R U2 R' U' R2 U R' U R U2' R' U R' U R U2 R'",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R' U' R' U2' F' R U R U' R' F R' U2 R U R)",
+      "(y') (R U2' R' U' R U' R U2 R' U' R U' R2' U R U2' R')"
+    ],
+    "sheetCell": "R11",
+    "imageSHA256": "04938b35f4379bd64fe589010beada395af152a2cbae7cc1b5c6e6597673974c"
+  },
+  {
+    "id": 51,
+    "name": "I4-",
+    "group": 9,
+    "setup": "R' U2' R U R2' U' R U' R' U2 R U' R U' R' U2' R",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R' U2 R U R' U R' U2' R U R' U R2 U' R' U2 R)"
+    ],
+    "sheetCell": "S11",
+    "imageSHA256": "2adabfa7ca96ccdd180668b46013868ed6a1bc8af58476b5c3451dca09c8c04f"
+  },
+  {
+    "id": 52,
+    "name": "I5+",
+    "group": 9,
+    "setup": "R U2' R' U' R U' R U2 R' U' R U' R2' U R U2' R'",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R' U' R' U2' R F' R U R' U' R' F U2 R U R)",
+      "(R U2 R' U' R2 U R' U R U2' R' U R' U R U2 R')"
+    ],
+    "sheetCell": "R13",
+    "imageSHA256": "427beb8a3634dfd086ee6c160167eaa9735d53e0ad69d090e8560c70c07db6e2"
+  },
+  {
+    "id": 53,
+    "name": "I5-",
+    "group": 9,
+    "setup": "R' U2 R U R' U R' U2' R U R' U R2 U' R' U2 R",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R' U2' R U R2' U' R U' R' U2 R U' R U' R' U2' R)"
+    ],
+    "sheetCell": "S13",
+    "imageSHA256": "c6493cdc995916acaef8a86107cd799d7c3850555bded9543eee7563eba81c97"
+  },
+  {
+    "id": 54,
+    "name": "I6+",
+    "group": 9,
+    "setup": "R U' R' U2 R U2 R' U2' R' U2' R2 U R U2' R2 U2' R2' U' R2'",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "x' (R2 U2' R2' F' R2 U2 R2' F2 R2 U2' R2' F' R2 U2 R2')",
+      "y2' (F R U2 R' U' R U' R' F' U R' U' R U2' R' U R U R' U R)"
+    ],
+    "sheetCell": "R15",
+    "imageSHA256": "16055357cad56a21afe1f5f1982cde1908857da83320af93330541480555ae68"
+  },
+  {
+    "id": 55,
+    "name": "I6-",
+    "group": 9,
+    "setup": "R' U R U2' R' U2' R U2 R U2 R2' U' R' U2 R2' U2 R2 U R2",
+    "groupDescription": "2x1",
+    "algorithms": [
+      "(R2' F2 R2 U' R2' F2' R2 U2 R2' F2 R2 U' R2' F2' R2)",
+      "(y2') (R2' F2 R2 U R2' F2' R2 U2' R2' F2 R2 U R2' F2' R2)",
+      "(BR' R' U2' R U R' U R BR U' R U R' U2 R U' R' U' R U' R')"
+    ],
+    "sheetCell": "S15",
+    "imageSHA256": "f5d32b7478be06246c416e5e417d11132a7c4fdefa774f66d0b9b50886d22035"
+  },
+  {
+    "id": 56,
+    "name": "J1+",
+    "group": 10,
+    "setup": "R U2' R U2 R' U2' R' U R U2 R U2' R' U2 R'",
+    "groupDescription": "J block",
+    "algorithms": [
+      "(R U R' F' R U R' U' R' F R2 U' R')",
+      "(y2') (R U R2' F' R U R U' R' F R U' R')"
+    ],
+    "sheetCell": "T5",
+    "imageSHA256": "c90912bddbc8f7a3139ee0cd5af0ad3628868877cc059ad2300a0bb5e1e3b07e"
+  },
+  {
+    "id": 57,
+    "name": "J1-",
+    "group": 10,
+    "setup": "R' U2 R' U2' R U2 R U2 R' U2 R' U2' R U2 R",
+    "groupDescription": "J block",
+    "algorithms": [
+      "(F U' R' F R2 U' R' U' R U R' F' R U R' F')"
+    ],
+    "sheetCell": "U5",
+    "imageSHA256": "480e6c5dfa5434ad5e76cc553b4ad49d50b00ad0521946f152d568100e22cff7"
+  },
+  {
+    "id": 58,
+    "name": "J2+",
+    "group": 10,
+    "setup": "R2 U R2' U2 R2 U2 R2' U2' R2 U R2' U2 R2 U2 R2'",
+    "groupDescription": "J block",
+    "algorithms": [
+      "(R' U2' R U2 R' U R U R U2 R' U' R U' R2' U' R)"
+    ],
+    "sheetCell": "T7",
+    "imageSHA256": "ac73f69b0659a89bad05f81d4b8f6a9b11cc18ea4a1b7c2739e63e01f6abe6d1"
+  },
+  {
+    "id": 59,
+    "name": "J2-",
+    "group": 10,
+    "setup": "R2 U' R2' U R2 U2 R2' U2' R2 U R2' U2' R2 U2' R2'",
+    "groupDescription": "J block",
+    "algorithms": [
+      "(R U2 R' U2' R U' R' U' R' U2' R U R' U R2 U R')",
+      "(y2') (R U2 R' U R2' U' R U' R U R' U R2 U2 R' U R' U' R' U R2)"
+    ],
+    "sheetCell": "U7",
+    "imageSHA256": "70de3c0eb2c54d9df8f9fe3bab1c785313e8042fbb43fed70a9f472d70a20a7d"
+  },
+  {
+    "id": 60,
+    "name": "J3+",
+    "group": 10,
+    "setup": "R2 U2' R2' U2' R2 U R2' U2' R2 U2 R2' U R2 U' R2'",
+    "groupDescription": "J block",
+    "algorithms": [
+      "(R U R' U' R' U2' R U R U R2' U R2 U2 R2' U2' R)",
+      "(R' U R2 U R' U R U2' R' U' R' U' R U2' R' U2 R)"
+    ],
+    "sheetCell": "T9",
+    "imageSHA256": "a6455c99b0ba65ae3863b2bd3e02195a9970b0873aaaac115799e94d45c59e7b"
+  },
+  {
+    "id": 61,
+    "name": "J3-",
+    "group": 10,
+    "setup": "R2 U2 R2' U2 R2 U R2' U2' R2 U2 R2' U2 R2 U R2'",
+    "groupDescription": "J block",
+    "algorithms": [
+      "(R U' R2' U' R U' R' U2 R U R U R' U2 R U2' R')",
+      "y2 (F U F' R2' F U' F U' R2 U R2' U F2' R2)"
+    ],
+    "sheetCell": "U9",
+    "imageSHA256": "f8f536d99b765e21bec85fa74b9a83b97e6e109198fbfd98cafd65740ddd07fb"
+  },
+  {
+    "id": 62,
+    "name": "K1+",
+    "group": 11,
+    "setup": "R2 U2' R2' U' R2 U R2' U' R2 U2' R U2' R2 U' R2' U2' R2",
+    "groupDescription": "5 corner CP",
+    "algorithms": [
+      "(R2' U2 R2 U R2' U' R2 U R2' U' R2 U R2' U2 R2)"
+    ],
+    "sheetCell": "V5",
+    "imageSHA256": "1a8cc480d2b22e5961f2b24ab47658d532b012e22166484d85c7e00ad0fb3ed7"
+  },
+  {
+    "id": 63,
+    "name": "K1-",
+    "group": 11,
+    "setup": "R2 U2 R2' U R2 U2 R U2 R2 U R2' U' R2 U R2' U2 R2",
+    "groupDescription": "5 corner CP",
+    "algorithms": [
+      "(R2 U2' R2' U' R2 U R2' U' R2 U R2' U' R2 U2' R2')"
+    ],
+    "sheetCell": "W5",
+    "imageSHA256": "fae63b80255ddd83c488e81f7e799f2bedb9beb482d94fc0c7e6c42b6d63d86b"
+  },
+  {
+    "id": 64,
+    "name": "K2+",
+    "group": 11,
+    "setup": "R U2' R2 U' R' U R2 U2' R U R2' U' R U' R2' U2' R' U2 R2",
+    "groupDescription": "5 corner CP",
+    "algorithms": [
+      "(R' U2 R U' R' U2 R U2' R' U' R U2' R' U R U2' R' U R)",
+      "y' (R U R' U2' R U R' U2' R U' R' U2' R U2 R' U' R U2 R')"
+    ],
+    "sheetCell": "V7",
+    "imageSHA256": "b158328d9e082e853e6a24f0744de588abb9834358e164bef883b9612811c51c"
+  },
+  {
+    "id": 65,
+    "name": "K2-",
+    "group": 11,
+    "setup": "R U R' U2 R U2 R2 U' R U R U2 R' U2 R U2 R2' U R2",
+    "groupDescription": "5 corner CP",
+    "algorithms": [
+      "(R U2' R' U R U2' R' U2 R U R' U2 R U' R' U2 R U' R')",
+      "y (R' U' R U2 R' U' R U2 R' U R U2 R' U2' R U R' U2' R)",
+      "y' (R2 U2' R2' U' R2 U2' R' U R' U' R' F R2 U' R' U' R U R' F')"
+    ],
+    "sheetCell": "W7",
+    "imageSHA256": "6aa798d9372b140ee82392587a7ad977cf1844d27eca56a7a1ff550668f607d1"
+  },
+  {
+    "id": 66,
+    "name": "L1",
+    "group": 12,
+    "setup": "R2 U2' R2' U' R2 U R2' U2' R2 U R2' U2' R2 U2 R2' U R2 U' R2'",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R' U2 R U R' U R U' R' U2 R U' R U R' U R U2' R')"
+    ],
+    "sheetCell": "X5",
+    "imageSHA256": "d10708510eb535e74f199cf7ab6bd8a5cc7bdaabd5f403d120336ac2b8c92217"
+  },
+  {
+    "id": 67,
+    "name": "L2",
+    "group": 12,
+    "setup": "R U' R2' U' R' U' R2 U2' R2 U2 R2 U2' R U2' R U R2 U R'",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R' U2' R U' R' U R U R' U R2 U R' U R U R' U' R U2' R')",
+      "y2' (R U2 R' U R U' R' U' R U' R2' U' R U' R' U' R U R' U2 R)"
+    ],
+    "sheetCell": "X7",
+    "imageSHA256": "5d6b762b14e202550d433204f85fe670a2a77761321d15a42719680efeb54939"
+  },
+  {
+    "id": 68,
+    "name": "L3+",
+    "group": 12,
+    "setup": "R2 U2' R2' U' R2 U2' R2' U R2 U2' R2' U' R2 U R2' U' R2 U2' R2'",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(F U2' F' U2' R F R' U' R F' U2' R' U' R U2' R')"
+    ],
+    "sheetCell": "X9",
+    "imageSHA256": "093f7e505a0151b430ed9b0b7c02c5a91257deb600e223f671b889e70535ce46"
+  },
+  {
+    "id": 69,
+    "name": "L3-",
+    "group": 12,
+    "setup": "R2' U R' U' R' U2' R2' U2 R U R U' R U2' R U2' R2' U' R2",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R U R' U' R' U2 R U R U R2' U R U' R U R' U' R U2' R')",
+      "(y2') (R' U2 R U2 F' R' y' R U R' bR U2 R U R' U2 R)"
+    ],
+    "sheetCell": "Y9",
+    "imageSHA256": "a4acbd196bf793a0a898f3b5987111fac8ad6d017c5ec83d16ae9e9a886e8641"
+  },
+  {
+    "id": 70,
+    "name": "L4+",
+    "group": 12,
+    "setup": "R U2' R2 U' R' U2' R2 U R2 U R' U' R2 U2 R2' U2' R2' U' R",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R U R U R' U R' U R U' R U2' R' U2' R' U' R U2 R')",
+      "(y2) (R' U2 R U' R' U2' R' U2' R U' R U R' U R' U R U R)"
+    ],
+    "sheetCell": "X11",
+    "imageSHA256": "35ac3bf16935a17b12e62bc86c2359a5e7a69fe409ac6630ef53462cb5c3befc"
+  },
+  {
+    "id": 71,
+    "name": "L4-",
+    "group": 12,
+    "setup": "R' U2 R U' R' U2' R' U2' R U' R U R' U R' U R U R",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R U2' R' U R U2 R U2 R' U R' U' R U' R U' R' U' R')",
+      "(y2) (R' U' R' U' R U' R U' R' U R' U2 R U2 R U R' U2' R)"
+    ],
+    "sheetCell": "Y11",
+    "imageSHA256": "93acd0666c1f4feb437ad1899075d41c04705927cd36229b994e0d3e24fcb23f"
+  },
+  {
+    "id": 72,
+    "name": "L5+",
+    "group": 12,
+    "setup": "R U R' U2 R U' R' U R U2 R2' U' R U' R' U2 R",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R' U2' R U R' U R2 U2' R' U' R U R' U2' R U' R')"
+    ],
+    "sheetCell": "X13",
+    "imageSHA256": "b57c89c85cc5def1b27b423c3fb63389378764d9340168212ccc0ef78da11b18"
+  },
+  {
+    "id": 73,
+    "name": "L5-",
+    "group": 12,
+    "setup": "R' U' R U2' R' U R U' R' U2' R2 U R' U R U2' R'",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R U2 R' U' R U' R2' U2 R U R' U' R U2 R' U R)"
+    ],
+    "sheetCell": "Y13",
+    "imageSHA256": "0f3d422e5ae2664e4a8e884f571506d57aacdf18116ad1ad328dc8286500dafc"
+  },
+  {
+    "id": 74,
+    "name": "L6+",
+    "group": 12,
+    "setup": "R' U2' R U R' U R2 U2' R' U' R U R' U2' R U' R'",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R U R' U2 R U' R' U R U2 R2' U' R U' R' U2 R)"
+    ],
+    "sheetCell": "X15",
+    "imageSHA256": "5b886e58e300835b7566e78c0958aea2847b205cddf8f9bd594c0432f3443ea7"
+  },
+  {
+    "id": 75,
+    "name": "L6-",
+    "group": 12,
+    "setup": "R U2 R' U' R U' R2' U2 R U R' U' R U2 R' U R",
+    "groupDescription": "Double headlights, no blocks",
+    "algorithms": [
+      "(R' U' R U2' R' U R U' R' U2' R2 U R' U R U2' R')"
+    ],
+    "sheetCell": "Y15",
+    "imageSHA256": "a093ae410688b874c44dfe760019fd15abc23404e859926d5462c4236e8c93b7"
+  },
+  {
+    "id": 76,
+    "name": "M",
+    "group": 13,
+    "setup": "R2 U R2 U' R2 U' R2' U2 R U R U2' R U' R2'",
+    "groupDescription": "2 3x1s",
+    "algorithms": [
+      "(R' U2 R U2 R' U' F R2 U R2' U R2 U2' R2' F' R)",
+      "(y2') (R U R' U2' R' U2' R U R' U R2 U' R' U2 R U' R' U R U' R')",
+      "(y) (R U R' U' R U R' U2' R U R2' U' R U' R' U2 R U2 R U' R')"
+    ],
+    "sheetCell": "Z5",
+    "imageSHA256": "3ae703d5e64c187bd4503db74c6b3f1e49a4b1a0e64af255f4ae207a8ca2bab2"
+  },
+  {
+    "id": 77,
+    "name": "N1+",
+    "group": 14,
+    "setup": "R U2 R U2' R' U2 R' U2 R U2' R U2 R' U2' R'",
+    "groupDescription": "5 2x1s",
+    "algorithms": [
+      "(R U2 R' F' R U R' U' R' F R2 U2' R')",
+      "(y) (R U2 R2' F' R U R U' R' F R U2' R')",
+      "(y2') (R U2 R U2' R' U' R U2' R' U2 R')"
+    ],
+    "sheetCell": "AB5",
+    "imageSHA256": "8140283fe46e0c53f4093209feca5ef7fddec3ba9a3bab6e10c248fd3cfe342d"
+  },
+  {
+    "id": 78,
+    "name": "N1-",
+    "group": 14,
+    "setup": "R U R2' U2 R' U2' R2' U' R2' U R' U2 R U2' R",
+    "groupDescription": "5 2x1s",
+    "algorithms": [
+      "(R' U2 R' U2' R U' R' U2' R U2 R)",
+      "y2 (L' R' U2' R U' R' U2' R U' L)"
+    ],
+    "sheetCell": "AC5",
+    "imageSHA256": "729e0e5d9a7d6357b304deceb084800ae36d2eba955254b552fa22f2cd8eafab"
+  },
+  {
+    "id": 79,
+    "name": "N2+",
+    "group": 14,
+    "setup": "R2' U2 R U2' R2 U2' R2' U2 R' U2' R U R2 U' R2' U' R",
+    "groupDescription": "5 2x1s",
+    "algorithms": [
+      "(R L U2 L' U R' L U' R U2 L' U2 R')"
+    ],
+    "sheetCell": "AB7",
+    "imageSHA256": "db3ef053366ecea7c8f726ceedf9e7a15328267335ed011a6bae85c83ad343b8"
+  },
+  {
+    "id": 80,
+    "name": "N2-",
+    "group": 14,
+    "setup": "R U' R2' U' R2 U R U2' R' U2 R2' U2' R2 U2' R U2 R2'",
+    "groupDescription": "5 2x1s",
+    "algorithms": [
+      "(R' L' U2' R U' L R' U L' U2' R U2' L)",
+      "(R' U2 R U2' R2' U' R2 U' R2' U R2 U' R2' U2 R U2' R)"
+    ],
+    "sheetCell": "AC7",
+    "imageSHA256": "75cf6b3d41ff799c57983b7e68c745f4f6069dcf747fa55076d673628da85546"
+  },
+  {
+    "id": 81,
+    "name": "Skip",
+    "group": 15,
+    "setup": "",
+    "groupDescription": "Skip!",
+    "algorithms": [],
+    "sheetCell": "AD4",
+    "imageSHA256": "430195ebdd7ddbab61ffaf2493b27f4cac88e90a211d5e7f9e16eaf56b396f35"
+  },
+  {
+    "id": 82,
+    "name": "P1+",
+    "group": 16,
+    "setup": "R' U2' R U' R' U2 R U2' R' U2' R2 U R' U2 R U2 R'",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(R' F R2 U R' U R U2' R' U R' F' R F U' F')"
+    ],
+    "sheetCell": "AF5",
+    "imageSHA256": "05b30f75b7e7c7429f158aa91a3137daa6f3b5ed66a3b45bd8795bc6547bc377"
+  },
+  {
+    "id": 83,
+    "name": "P1-",
+    "group": 16,
+    "setup": "R U2 R' U R U2' R' U2 R U2 R2' U' R U2' R' U2' R",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(R' U2' F' U2 F R2 U2' R' F R' F' R2 U2 R')",
+      "y2 (F R' U' R2 U' R2' U2 R U' F' R' U' F' U F R)"
+    ],
+    "sheetCell": "AG5",
+    "imageSHA256": "4fe586808f4e15dde5babd1ba994f78f701628ed22ab1ec18790908abc392be6"
+  },
+  {
+    "id": 84,
+    "name": "P2+",
+    "group": 16,
+    "setup": "R U2' R' U2' R U' R2' U2 R U2 R' U2' R U R' U2 R",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(F U F' R' F R U' R U2 R' U' R U' R2' F' R)",
+      "(F R U2 R' U' R U' R2' F' L F R F' L')"
+    ],
+    "sheetCell": "AF7",
+    "imageSHA256": "1c87f9f46a4184e3d8ba95277e3bd2b0b779ad8c01de05e49bf42e036a5f61c5"
+  },
+  {
+    "id": 85,
+    "name": "P2-",
+    "group": 16,
+    "setup": "R' U2 R U2 R' U R2 U2' R' U2' R U2 R' U' R U2' R'",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(BR' R' U2' R U R' U R2 x' U L' U' R' U L)",
+      "y' (R U2' R2' F R F' R U2 R2' F' U2' F U2 R)"
+    ],
+    "sheetCell": "AG7",
+    "imageSHA256": "c9fa86034d6469b9e4994da78ae0e12500d3b440a743a9f4770169d7315b06ad"
+  },
+  {
+    "id": 86,
+    "name": "P3+",
+    "group": 16,
+    "setup": "R' U2' R' U' R2 U2' R2' U R U' R U2 R' U2' R' U2' R2",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(F R U' R' U' R U R U2 R' U' R U' R2' F')"
+    ],
+    "sheetCell": "AF9",
+    "imageSHA256": "32af8dd2cb1108cd0507fa0cf8773c91a9f7c658cb984e8e70f0d746c8c5ed7d"
+  },
+  {
+    "id": 87,
+    "name": "P3-",
+    "group": 16,
+    "setup": "R U2 R U R2' U2 R2 U' R' U R' U2' R U2 R U2 R2'",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(BR' R' U R U R' U' R' U2' R U R' U R2 BR)"
+    ],
+    "sheetCell": "AG9",
+    "imageSHA256": "1c2a97ba67435740420948ecc5b764a69fbabfca7161a12af752c8ac3280e545"
+  },
+  {
+    "id": 88,
+    "name": "P4+",
+    "group": 16,
+    "setup": "R2' U2 R U2 R U2' R' U R' U' R2 U2 R2' U R U2 R",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(F R2 U R' U R U2' R' U' R' U R U R' F')"
+    ],
+    "sheetCell": "AF11",
+    "imageSHA256": "4b157a5fe83fe9b2defcdf82339a5e4619f744ab0fb170bfc462aa6fe203235a"
+  },
+  {
+    "id": 89,
+    "name": "P4-",
+    "group": 16,
+    "setup": "R2 U2' R' U2' R' U2 R U' R U R2' U2' R2 U' R' U2' R'",
+    "groupDescription": "R block",
+    "algorithms": [
+      "(BR' R2' U' R U' R' U2 R U R U' R' U' R BR)"
+    ],
+    "sheetCell": "AG11",
+    "imageSHA256": "e54b5b8d1ba478876cb4664036cd2473e99fe66308e7cdf72b4ae356be43fb64"
+  },
+  {
+    "id": 90,
+    "name": "Q1+",
+    "group": 17,
+    "setup": "R2 U2' R2' U' R2 U2' R2' U R2 U2' R2' U' R2 U2' R2'",
+    "groupDescription": "5 edge EP",
+    "algorithms": [
+      "(R2' U2 R2 U R2' U2 R2 U' R2' U2 R2 U R2' U2 R2)",
+      "(R' U R U R' U2' R y U2' R U' R' U' R U2 R')",
+      "(F' R' F U F' R F U R' U2 R U' R' U' R U2 R' U R)"
+    ],
+    "sheetCell": "AH5",
+    "imageSHA256": "8c75216d77814dd2c79322b29a5bf83697cfca77efbc24d71d125249199a8e2d"
+  },
+  {
+    "id": 91,
+    "name": "Q1-",
+    "group": 17,
+    "setup": "R2 U2 R2' U R2 U2 R2' U' R2 U2 R2' U R2 U2 R2'",
+    "groupDescription": "5 edge EP",
+    "algorithms": [
+      "(R2 U2' R2' U' R2 U2' R2' U R2 U2' R2' U' R2 U2' R2')",
+      "(R U' R' U' R U2 R' y' U2 R' U R U R' U2' R)"
+    ],
+    "sheetCell": "AI5",
+    "imageSHA256": "59401bb9d04a0c05c301a29fc56e4635aaece1dab1d8dd77327062645022a5f0"
+  },
+  {
+    "id": 92,
+    "name": "Q2+",
+    "group": 17,
+    "setup": "R U2 R' U R U2 R' U' R' U2' R U' R' U2' R",
+    "groupDescription": "5 edge EP",
+    "algorithms": [
+      "(R' U2' R U' R' U2' R2 U2' R' U' R U2' R')"
+    ],
+    "sheetCell": "AH7",
+    "imageSHA256": "164be5828e43d78a1a90f8cf85ba40d94dce55d44f5fa0a5bc995d5d4dd9414c"
+  },
+  {
+    "id": 93,
+    "name": "Q2-",
+    "group": 17,
+    "setup": "R' U2' R U' R' U2' R U R U2 R' U R U2 R'",
+    "groupDescription": "5 edge EP",
+    "algorithms": [
+      "(R U2 R' U R U2 R2' U2 R U R' U2 R)"
+    ],
+    "sheetCell": "AI7",
+    "imageSHA256": "c3d0ef7feccab855782eacc573c802724814942bec1a2579a64600f91840edec"
+  },
+  {
+    "id": 94,
+    "name": "R1+",
+    "group": 18,
+    "setup": "R2 U R2' U R2 U R2' U2 R2 U2 R2' U R2 U' R2'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R' U2 R U' R2' U2 R2 U R' U' R' U2' R U' R)"
+    ],
+    "sheetCell": "AJ5",
+    "imageSHA256": "29d7226cced44fff9f29750b5becaa69dc3a85b9b97c1f31d16570db205bf057"
+  },
+  {
+    "id": 95,
+    "name": "R1-",
+    "group": 18,
+    "setup": "R' U' R U R2 U2' R2' U' R' U R U' R2 U2' R2'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R U2' R' U R2 U2' R2' U' R U R U2 R' U R')"
+    ],
+    "sheetCell": "AK5",
+    "imageSHA256": "9ceaf3bf27eb565838ab57f7662dac60cb1a89b13bffca5f811aeb3966013837"
+  },
+  {
+    "id": 96,
+    "name": "R2+",
+    "group": 18,
+    "setup": "R2 U R2' U' R2 U2' R2' U2' R2 U' R2' U' R2 U' R2'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R' U R' U2 R U R U' R2' U2' R2 U R' U2' R)"
+    ],
+    "sheetCell": "AJ7",
+    "imageSHA256": "5a2c2ed2e16651cddd795a0fcba31f3e981066b10c134db3994989bcad8a9593"
+  },
+  {
+    "id": 97,
+    "name": "R2-",
+    "group": 18,
+    "setup": "R U2' R' U R2 U2' R2' U' R U R U2 R' U R'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R U' R U2' R' U' R' U R2 U2 R2' U' R U2 R')"
+    ],
+    "sheetCell": "AK7",
+    "imageSHA256": "924f91267da069bbb35c1f10ca5a8d90e8f8873e9adb6d43cec61ddf159f4998"
+  },
+  {
+    "id": 98,
+    "name": "R3+",
+    "group": 18,
+    "setup": "R2 U2 R2' U R2 U' R2 U2' R2' U' R2 U2' R2' U2 R2'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R U R2' U R U R U' R' U' R U' R2' U' R U' R' U R)"
+    ],
+    "sheetCell": "AJ9",
+    "imageSHA256": "bbca957c72b958f58c218e2f000da5a2f98013ecbbdb1822611e0b86fb725b39"
+  },
+  {
+    "id": 99,
+    "name": "R3-",
+    "group": 18,
+    "setup": "R2 U2' R2' U' R2 U R2 U2 R2' U R2 U2 R2' U2' R2'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R' U' R2 U' R' U' R' U R U R' U R2 U R' U R U' R')"
+    ],
+    "sheetCell": "AK9",
+    "imageSHA256": "926fc457668648363a7bb15d001fd9602416a4c833ff1dc78d586b55a70879bb"
+  },
+  {
+    "id": 100,
+    "name": "R4+",
+    "group": 18,
+    "setup": "R2 U2' R2 U2 R2' U R2 U2 R2' U R2' U' R2 U2' R2'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R' U' R U R' U R2 U R' U R U R' U' R' U' R2 U' R')"
+    ],
+    "sheetCell": "AJ11",
+    "imageSHA256": "ddbe3710c9760fe7ed6eaf297f4ae8ca14ce2c984aeb2d45acbc5ba850cef3e1"
+  },
+  {
+    "id": 101,
+    "name": "R4-",
+    "group": 18,
+    "setup": "R2 U2 R2 U2' R2' U' R2 U2' R2' U' R2' U R2 U2 R2'",
+    "groupDescription": "R block and 2x1",
+    "algorithms": [
+      "(R U R' U' R U' R2' U' R U' R' U' R U R U R2' U R)"
+    ],
+    "sheetCell": "AK11",
+    "imageSHA256": "21151da2dd132514d49854948514985e0f2532f4dacacacf4fcbb779115ec360"
+  },
+  {
+    "id": 102,
+    "name": "S1+",
+    "group": 19,
+    "setup": "R U R' U2 R U2 R' U' R' U' R U' R' U2 R",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R' U2' R U R' U R U R U2' R' U2' R U' R')"
+    ],
+    "sheetCell": "AL5",
+    "imageSHA256": "2cb70169bbbac7b80a1abd17b2814920ae998d36a3f5d7c2445b3453ce1e68a1"
+  },
+  {
+    "id": 103,
+    "name": "S1-",
+    "group": 19,
+    "setup": "R2 U' R2' U R2 U R2' U2' R2 U' R2' U2 R2 U R2'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R' U' R U2' R' U2' R U R U R' U R U2' R')"
+    ],
+    "sheetCell": "AM5",
+    "imageSHA256": "b7e160c0037a735416839c5b40ce8e0a78f62bae0054d2a26ce33eddeae771dd"
+  },
+  {
+    "id": 104,
+    "name": "S2+",
+    "group": 19,
+    "setup": "R2 U2' R2' U2' R2' U R' U' R2' U R2 U R U' R' U2' R2'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R2 U2' R2' U2' R2 U' R' U2 R' U' R' U2' R2 U R2' U R)"
+    ],
+    "sheetCell": "AL7",
+    "imageSHA256": "e2f1128a948e5c4fc43e9d42fa14b75e5b50e1c622e9c99f44cad9a2d68473b7"
+  },
+  {
+    "id": 105,
+    "name": "S2-",
+    "group": 19,
+    "setup": "R2 U2 R2' U R' U' R U R2 U R2' U' R' U R2' U R2'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R2' U2 R2 U2 R2' U R U2' R U R U2 R2' U' R2 U' R')"
+    ],
+    "sheetCell": "AM7",
+    "imageSHA256": "fd07eac6c99d422031432ee345d21cc72e92564c22896e58d5ebdfd78b7079bb"
+  },
+  {
+    "id": 106,
+    "name": "S3+",
+    "group": 19,
+    "setup": "R2 U2' R2' U2' R2 U' R' U2 R' U' R' U2' R2 U R2' U R",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R2 U2' R2' U' R F' R U R2' U' R' F R3 U2' R2')"
+    ],
+    "sheetCell": "AL9",
+    "imageSHA256": "32e7c7cda39afda87d1940f1268066d2073cc5fdab2e45621b44a32b5add04d7"
+  },
+  {
+    "id": 107,
+    "name": "S3-",
+    "group": 19,
+    "setup": "R2' U2 R2 U2 R2' U R U2' R U R U2 R2' U' R2 U' R'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R' U' R U' R2' F' R U R U' R' F U R U2' R' U2' R)",
+      "y (R U R2' U R2 U2' R' U' R' U2 R' U' R2 U2' R2' U2' R2)"
+    ],
+    "sheetCell": "AM9",
+    "imageSHA256": "977d82b754c324cbaea920a3c681b2b4d94f8bd2e9631fb60f72ebfdb7dcdaf5"
+  },
+  {
+    "id": 108,
+    "name": "S4+",
+    "group": 19,
+    "setup": "R2 U2' R2' U' R2 U2' R2' U' R2 U2 R2' U R2 U2 R2'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R2' U2' R2 U' R2' U2' R2 U R2' U2 R2 U R2' U2 R2)",
+      "(y') (R2' U2 R2 U' bR2' U R2' U R2 U' bR2 R2' U2' R2)"
+    ],
+    "sheetCell": "AL11",
+    "imageSHA256": "46a8e836da58bcba82b375fd103ae272f50739981b99d02b1b95f16f04e86d0e"
+  },
+  {
+    "id": 109,
+    "name": "S4-",
+    "group": 19,
+    "setup": "R2 U2 R2' U R2 U2 R2' U R2 U2' R2' U' R2 U2' R2'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R2' U2 R2 U R2' U2 R2 U' R2' U2' R2 U' R2' U2' R2)",
+      "(y) (R2 U2' R2' U F2 U' R2 U' R2' U F2' R2 U2 R2')"
+    ],
+    "sheetCell": "AM11",
+    "imageSHA256": "1d00b77f1b4e0473f98f64ad55b85b50d4210ff49df896bbcb6097d5760de017"
+  },
+  {
+    "id": 110,
+    "name": "S5+",
+    "group": 19,
+    "setup": "R2' U2 R U R' U2 R U2 R U' R' U R U2 R' U2 R",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R' U2' R U' F U' R' U R U F' R' U2 R)",
+      "(R' U2' R L U2' R' U R U2 L' U' R' U2 R)"
+    ],
+    "sheetCell": "AL13",
+    "imageSHA256": "1db6996458f15b3089f7f44f1d7aa6dbdd9a14346a9954b61754cfb5f8bcd2eb"
+  },
+  {
+    "id": 111,
+    "name": "S5-",
+    "group": 19,
+    "setup": "R' U R U2' R2' U' R U2' R' U R U R' U R U R",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R U2 R' U BR' U R U' R' U' BR R U2' R')",
+      "(F' R U2 R' U R' F R U' R U R' F' U' R U2' R' F)"
+    ],
+    "sheetCell": "AM13",
+    "imageSHA256": "4eed7d7f5bc6f81431c99af673d99ba7416b84f895afddee7ee4203975ef0fbc"
+  },
+  {
+    "id": 112,
+    "name": "S6+",
+    "group": 19,
+    "setup": "R U' R' U2 R2 U R' U2 R U' R' U' R U' R' U' R'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R U R U R' U R U R' U2' R U' R2' U2' R U R')"
+    ],
+    "sheetCell": "AL15",
+    "imageSHA256": "c771171ce1ee466df7c0a987253f0e2727053ac008e199e58105a013dc61cf5e"
+  },
+  {
+    "id": 113,
+    "name": "S6-",
+    "group": 19,
+    "setup": "R2 U2' R' U' R U2' R' U2' R' U R U' R' U2' R U2' R'",
+    "groupDescription": "2 2x1s, not touching",
+    "algorithms": [
+      "(R' U' R' U' R U' R' U' R U2 R' U R2 U2 R' U' R)",
+      "(y2) (R U R2' F' R U2' R U2 R' F R U' R2' U' R U' R' U2 R)"
+    ],
+    "sheetCell": "AM15",
+    "imageSHA256": "a250a9f46366fd8544502433b743e404ac463f7c44a87d253835d666fbdfe9f7"
+  },
+  {
+    "id": 114,
+    "name": "T1",
+    "group": 20,
+    "setup": "R2' U R U R U2 R' U2' R' U2 R U2 R' U' R2",
+    "groupDescription": "2,3 or 4 2x1s in these patterns:",
+    "algorithms": [
+      "(R U R' U' R' F R2 U' R' U' R U R' F')"
+    ],
+    "sheetCell": "AN5",
+    "imageSHA256": "c923710314b4aed8f0e84e44e1274dae0978fbe14284e8c62186b05134228412"
+  },
+  {
+    "id": 115,
+    "name": "T2+",
+    "group": 20,
+    "setup": "R U' R U R' U' R' U R U2' R U2 R' U2 R' U' R U2 R'",
+    "groupDescription": "2,3 or 4 2x1s in these patterns:",
+    "algorithms": [
+      "(R' U2' R U2 R' F R U R' U' R' F' R2)"
+    ],
+    "sheetCell": "AN7",
+    "imageSHA256": "c079cbb64ebfa894f9c3235bd6bb6b3731464cff7ed6ae43674919babe74ccd0"
+  },
+  {
+    "id": 116,
+    "name": "T2-",
+    "group": 20,
+    "setup": "R' U R' U' R U R U' R' U2 R' U2' R U2' R U R' U2' R",
+    "groupDescription": "2,3 or 4 2x1s in these patterns:",
+    "algorithms": [
+      "(R2' F R U R U' R' F' R U2' R' U2 R)",
+      "(y) (R U2 R' U2' R bR' R' U' R U R bR R2')"
+    ],
+    "sheetCell": "AO7",
+    "imageSHA256": "869e3adb929c994d7793e04c1d5ee18dc383a0db92b33201609421a22b089d48"
+  },
+  {
+    "id": 117,
+    "name": "T3+",
+    "group": 20,
+    "setup": "R2 U R2' U2' R2 U R2' U' R2 U R2' U2' R2 U R2'",
+    "groupDescription": "2,3 or 4 2x1s in these patterns:",
+    "algorithms": [
+      "(R2' U2 R2 U R2' U' R2 U R2' U2 R2)"
+    ],
+    "sheetCell": "AN9",
+    "imageSHA256": "b741014c1b612aabc01dc62d93eecd19cfdbb9da1db80998f5e8a96b60526f1b"
+  },
+  {
+    "id": 118,
+    "name": "T3-",
+    "group": 20,
+    "setup": "R2 U R2' U R2 U R2' U' R2 U' R2' U2 R2 U2 R2'",
+    "groupDescription": "2,3 or 4 2x1s in these patterns:",
+    "algorithms": [
+      "(R2 U2' R2' U' R2 U R2' U' R2 U2' R2')"
+    ],
+    "sheetCell": "AO9",
+    "imageSHA256": "b9226271fd1ed8335ecf71e381a5467b4511d1eed16e40fce0fe7901f50964ad"
+  },
+  {
+    "id": 119,
+    "name": "T4+",
+    "group": 20,
+    "setup": "R U R' U R2 U2' R2' U' R2 U2' R2' U2' R U' R'",
+    "groupDescription": "2,3 or 4 2x1s in these patterns:",
+    "algorithms": [
+      "(R U R' F' R U R' U' R' F R U' R' F R2 U' R' U' R U R' F')",
+      "(y) (R U R' U2 R2 U2 R2' U R2 U2 R2' U' R U' R')",
+      "(R U R' U R2 U2' R2' U' R2 U2' R2' U2' R U' R')"
+    ],
+    "sheetCell": "AN11",
+    "imageSHA256": "e0fab04cf0032f70e63b6d2113ea511978a79f71f1ccca86dfc63eee928bb05d"
+  },
+  {
+    "id": 120,
+    "name": "T4-",
+    "group": 20,
+    "setup": "R2 U' R2' U' R2 U2 R2' U R2 U2 R2' U2 R2 U R2'",
+    "groupDescription": "2,3 or 4 2x1s in these patterns:",
+    "algorithms": [
+      "(R' U' R U2' R2' U2' R2 U' R2' U2' R2 U R' U R)",
+      "(y) (R' U' R U' R2' U2 R2 U R2' U2 R2 U2 R' U R)"
+    ],
+    "sheetCell": "AO11",
+    "imageSHA256": "735848e2f6b2e3ac556e21a4535a97e53b46a9032059154424e360302dd91e55"
+  },
+  {
+    "id": 121,
+    "name": "U1+",
+    "group": 21,
+    "setup": "R U R U R2' U R U' R U' R' U2 R' U' R U2' R'",
+    "groupDescription": "3 edge EP",
+    "algorithms": [
+      "(R' U' R U' R U R2' U R U' R U' R')"
+    ],
+    "sheetCell": "AP5",
+    "imageSHA256": "88217b354300b1aa5eab4d029fce4e37615deb38f94a1e2ae4d5f88f01136544"
+  },
+  {
+    "id": 122,
+    "name": "U1-",
+    "group": 21,
+    "setup": "R U2 R' U2 R' U' R U' R U R2' U R U' R U2 R'",
+    "groupDescription": "3 edge EP",
+    "algorithms": [
+      "(R U R' U R' U' R2 U' R' U R' U R)"
+    ],
+    "sheetCell": "AQ5",
+    "imageSHA256": "5b9b78a40e44c9f66f577b5a72c8f83aa75826b83f34d46f4a73371de97a0cad"
+  },
+  {
+    "id": 123,
+    "name": "U2+",
+    "group": 21,
+    "setup": "R U2 R U R2' U R U' R U' R' U2 R' U' R U2 R'",
+    "groupDescription": "3 edge EP",
+    "algorithms": [
+      "(R U R' U2 R' U' R U' R U R2' U R U' R U2' R')",
+      "(R' U2' R U' R U R2' U R U' R U' R' U2 R' U R)"
+    ],
+    "sheetCell": "AP7",
+    "imageSHA256": "325a0462eb76fa14d3f9e3600ff8e7ba4b2e7d23f117013fc5640e5c5849eb04"
+  },
+  {
+    "id": 124,
+    "name": "U2-",
+    "group": 21,
+    "setup": "R U R' U2 R' U' R U' R U R2' U R U' R U2' R'",
+    "groupDescription": "3 edge EP",
+    "algorithms": [
+      "(R U2 R' U R' U' R2 U' R' U R' U R U2' R U' R')",
+      "(R' U' R U2' R U R' U R' U' R2 U' R' U R' U2 R)"
+    ],
+    "sheetCell": "AQ7",
+    "imageSHA256": "649184d747b5c3d802ee8014808398977d26519b342f633f5d670cd5a28ad386"
+  },
+  {
+    "id": 125,
+    "name": "V1+",
+    "group": 22,
+    "setup": "R' U2' R U' R U R' U2 R U2 R' U2 R' U2' R",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R' U2 R' dR' R U' R' dR R U R U' R' U' R)"
+    ],
+    "sheetCell": "AR5",
+    "imageSHA256": "122a2fac6fd179d08a86592fec1a61c2ba607e5f792d49f903a7342d47783d75"
+  },
+  {
+    "id": 126,
+    "name": "V1-",
+    "group": 22,
+    "setup": "R U2 R' U R' U' R U2' R' U2' R U2' R U2 R'",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R U2 R2' F R F' R U' R' F' U F R U' R')",
+      "(y2) (R U2' R' U2 R' U2 R U2 R' U R U' R U2' R')"
+    ],
+    "sheetCell": "AS5",
+    "imageSHA256": "ffed6c4ec57f0e60d08e10fb27d23cc7b7b5218edde904b804cc80b48cc82569"
+  },
+  {
+    "id": 127,
+    "name": "V2+",
+    "group": 22,
+    "setup": "R2 U2' R2' U2' R2' U R2' U R2 U2' R' U' R' U2 R'",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R' U R U R' U' R' dR' R U R' dR R U2' R)"
+    ],
+    "sheetCell": "AR7",
+    "imageSHA256": "7497a003450d07ffdf95fc0073714021dbbae8640e3da1728f0e310519942141"
+  },
+  {
+    "id": 128,
+    "name": "V2-",
+    "group": 22,
+    "setup": "R2' U2 R2 U2 R2 U' R2 U' R2' U2 R U R U2' R",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R U' R' F U R U' R' F' R U R' F' U' F R U R')",
+      "(R U' R' U' R U R' U R' DR' R U' R' DR R2 U R')",
+      "(y') (R U R' F' U' F R U R' F R' F' R2 U2' R')"
+    ],
+    "sheetCell": "AS7",
+    "imageSHA256": "e0c5f55d174a7fce3e5eec3d13d0eefcd28e5f6230958f66f050d4d2fb88e722"
+  },
+  {
+    "id": 129,
+    "name": "V3+",
+    "group": 22,
+    "setup": "R' U' R' U' R U' R2 U R2 U R U R U2' R U' R'",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R U R2 U' R' U' R U R' U' R' U R2' U R U' R)"
+    ],
+    "sheetCell": "AR9",
+    "imageSHA256": "44511b75181dc2ff6b2de67c9c8e4b7d8943d624d6ef79b9a228e1d6e561bdd5"
+  },
+  {
+    "id": 130,
+    "name": "V3-",
+    "group": 22,
+    "setup": "R U R U R' U R2' U' R2' U' R' U' R' U2 R' U R",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R' U2' R U R U' R' F R' U2 R U2' F' R U R')",
+      "(y) (R' U' R2' U R U R' U' R U R U' R2 U' R' U R')"
+    ],
+    "sheetCell": "AS9",
+    "imageSHA256": "8c98903eebb09feee49e166b8f86cdb0a3ec5d6661e0ff4733dc9c1bcc057496"
+  },
+  {
+    "id": 131,
+    "name": "V4+",
+    "group": 22,
+    "setup": "R U R' U2 R' U' R' U' R2' U' R2' U R' U R U R",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R' U R' U' R2 U' R U R U' R' U R U R2' U' R')",
+      "y' (R U R' U' R' U F R U R U' R' F' U R' U2' R)"
+    ],
+    "sheetCell": "AR11",
+    "imageSHA256": "3d0c31e97031822d67af43edb7b8ade1821f520b63e50a6b51bc54a65a806143"
+  },
+  {
+    "id": 132,
+    "name": "V4-",
+    "group": 22,
+    "setup": "R' U' R U2' R U R U R2 U R2 U' R U' R' U' R'",
+    "groupDescription": "2x2 and 2x1",
+    "algorithms": [
+      "(R U' R' F U2 R' U2' R F' R U R' U' R' U2 R)",
+      "(y2') (R U' R U R2' U R' U' R' U R U' R' U' R2 U R)"
+    ],
+    "sheetCell": "AS11",
+    "imageSHA256": "19d4a44022bee682214f6d4dad1d094e4d049d15cd82e9a316b01c22ca0a15d0"
+  },
+  {
+    "id": 133,
+    "name": "W",
+    "group": 23,
+    "setup": "R2 U2' R2' U' R2 U R2' U2 R2 U2 R2' U2 R2 U2' R2'",
+    "groupDescription": "2 2x2s",
+    "algorithms": [
+      "(R' U2' R' U2 R U2 R U' R2' U2 R2 U2 R' U R)"
+    ],
+    "sheetCell": "AT5",
+    "imageSHA256": "f60165a4bfd53c50b31f8063f7a0ffb01bb3c8e1ca8bcd19424bb9a3fdc3c97d"
+  },
+  {
+    "id": 134,
+    "name": "X1",
+    "group": 24,
+    "setup": "R U R U R2' U R U' R U' R2 U' R2 U' R2' U2 R U' R U' R'",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(F U2 R U2' R' U R U R' U2' F' R' U' R U2' R' U2' R)"
+    ],
+    "sheetCell": "AV5",
+    "imageSHA256": "ef87785630d52463f1477e48e0879402fc45694a907b5932f8a5323a27019420"
+  },
+  {
+    "id": 135,
+    "name": "X2",
+    "group": 24,
+    "setup": "R2' U R2' U' R2' U' R U' R U R U R2 U R U2' R U' R2",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(F R U R' F U R' U' F' U R2 U2' R' F')"
+    ],
+    "sheetCell": "AV7",
+    "imageSHA256": "aeef4c32f79fb8680382b1a0b75cc3eb33b5483b2f497765f5e7544e0fa664f2"
+  },
+  {
+    "id": 136,
+    "name": "X3",
+    "group": 24,
+    "setup": "R2 U2 R2' U R2 U2 R2' U2 R2 U2 R2' U2' R2 U R2' U2' R2 U2 R2'",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R' U' R U' R' U2 R2 U R' U2 R' U2' R2 U' R' U2 R' U R)",
+      "(y2') (R2 U R2' U R U2' R' U R' U2' R U R' U R2 U R U' R2')",
+      "(y') (R U R2' U2 R2 U2 R2' y' R' U' R U2 R' U' R U bR)"
+    ],
+    "sheetCell": "AV9",
+    "imageSHA256": "f1b13853def32b401f11b7d6ba82f3ef7c96a2109aeba346248b0d55291c5b33"
+  },
+  {
+    "id": 137,
+    "name": "X4",
+    "group": 24,
+    "setup": "R' U2' R U R' U R U' R' U2' R U' R' U2 R U' R' U2 R",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R' U' R2 U' R' U R U' R2' U' R2 U R' U' R U R2' U2 R)"
+    ],
+    "sheetCell": "AV11",
+    "imageSHA256": "eee7e363d01bc88d8ef2ab14c81f465837eedb52d4a52cde9dcc57629ee76e22"
+  },
+  {
+    "id": 138,
+    "name": "X5+",
+    "group": 24,
+    "setup": "R U2' R2 U2 R2' U2 R U2' R U R U R2 U' R' U2 R2' U2 R'",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R' U R U2 R' U2 R U R2' U' R U' R' U' R U2 R' U R2)",
+      "(y2) (R2 U R' U2 R U' R' U' R U' R2' U R U2 R' U2 R U R')"
+    ],
+    "sheetCell": "AV13",
+    "imageSHA256": "e4d999c3269a748cf758d3821b77f29846747a54816bb76a9154035e7cc99cc2"
+  },
+  {
+    "id": 139,
+    "name": "X5-",
+    "group": 24,
+    "setup": "R' U2 R2' U2' R2 U2' R' U2 R' U' R' U' R2' U R U2' R2 U2' R",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R2' U' R U2' R' U R U R' U R2 U' R' U2' R U2' R' U' R)",
+      "(y2') (R U' R' U2' R U2' R' U' R2 U R' U R U R' U2' R U' R2')"
+    ],
+    "sheetCell": "AW13",
+    "imageSHA256": "bcd422bd4ed94a4425ed57666cd66af01c883f99364fa7704026796c409468b2"
+  },
+  {
+    "id": 140,
+    "name": "X6+",
+    "group": 24,
+    "setup": "R' U' R U2' R' U R U' R' U2' R U' R' U2 R U2 R' U R",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R' U2 R' U' R2 U' R' U' R U R' U R' U R2 U' R' U2' R)",
+      "(y2') (F R U R' U' R U' R2' U' F' U' F U2 R U' R U R' F')"
+    ],
+    "sheetCell": "AV15",
+    "imageSHA256": "f43c309439a70aaba8fbc306fe1c7241dbea228d456353513e557bff230e9111"
+  },
+  {
+    "id": 141,
+    "name": "X6-",
+    "group": 24,
+    "setup": "R U R' U2 R U2 R' U' R U2' R' U' R U R' U2' R U' R'",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R U2' R U R2' U R U R' U' R U' R U' R2' U R U2 R')"
+    ],
+    "sheetCell": "AW15",
+    "imageSHA256": "b2a451a9dcec26c356f9623c358974921ce28299d640a8ce96f096ffe3fe4a9e"
+  },
+  {
+    "id": 142,
+    "name": "X7+",
+    "group": 24,
+    "setup": "R U R' U R2' U2' R2 U' R2' U2 R2 U' R U' R' U2 R2' U R2",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R2 U' R2' U' F U F' R2 U2' R2' U R2 U2 R2' F U' F')",
+      "(R U R' U' F' U' F U R U R' U R U2' F R' F' R U R U' R2')"
+    ],
+    "sheetCell": "AV17",
+    "imageSHA256": "f669f128ca7c5bb293c0b87dbbcabac62810587e489a5fe796fa71585e18b1f3"
+  },
+  {
+    "id": 143,
+    "name": "X7-",
+    "group": 24,
+    "setup": "R2 U R2' U2 R' U' R U' R2 U2 R2' U' R2 U2' R2' U R' U R",
+    "groupDescription": "No blocks or headlights",
+    "algorithms": [
+      "(R U R2' F' R U2' R U' R' U2' R' F R U R U R' U2' R U' R')"
+    ],
+    "sheetCell": "AW17",
+    "imageSHA256": "3939f8bdc07f027fe9b83ccb4b3984ba424458b54de67239519c88be4daacc14"
+  },
+  {
+    "id": 144,
+    "name": "Y1+",
+    "group": 25,
+    "setup": "R2' U2' R2' U2 R' U R U2 R2 U2' R' U2' R2' U R2 U R2'",
+    "groupDescription": "2 2x1s in Y pattern and other stuff",
+    "algorithms": [
+      "(F R U' R' U' R U R' F' R U R' U' R' F R F')"
+    ],
+    "sheetCell": "AX5",
+    "imageSHA256": "9d749c5cc3479d8ac1ac90ded3c54b3792dfe77ffbab01419a16f831c42416ab"
+  },
+  {
+    "id": 145,
+    "name": "Y1-",
+    "group": 25,
+    "setup": "R2 U2 R2 U2' R U' R' U2' R2' U2 R U2 R2 U' R2' U' R2",
+    "groupDescription": "2 2x1s in Y pattern and other stuff",
+    "algorithms": [
+      "(F R' F' R U R U' R' F R U' R' U R U R' F')"
+    ],
+    "sheetCell": "AY5",
+    "imageSHA256": "dbddb84415d9f9d70ac3f253fdec1797413209f99146e97bec365f4b009a1c70"
+  },
+  {
+    "id": 146,
+    "name": "Y2+",
+    "group": 25,
+    "setup": "R2 U2' R2' U' R2 U2' R2' U2 R2 U2' R2' U' R2 U2' R2'",
+    "groupDescription": "2 2x1s in Y pattern and other stuff",
+    "algorithms": [
+      "(R2 U2' R2' U2 R2 U' R2' U2 R2 U2' R2')",
+      "(R' U2' R U R U R2' U R2 U2' R2' U2 R)",
+      "(y2') (R2' U2 R2 U2' R2' U2' R2 U2' R2' U2 R2)"
+    ],
+    "sheetCell": "AX7",
+    "imageSHA256": "be201dd2156eb129b3cf26265e541d38cd880eee12fe9e16702493429771338b"
+  },
+  {
+    "id": 147,
+    "name": "Y2-",
+    "group": 25,
+    "setup": "R U2' R2 U2 R2' U2' R2 U2' R2' U2 R' U R2' U2 R2",
+    "groupDescription": "2 2x1s in Y pattern and other stuff",
+    "algorithms": [
+      "(R2' U2 R2 U2' R2' U R2 U2' R2' U2 R2)",
+      "(y2) (R' U2' R2 U2 R2' U' R2 U' R' U' R' U2 R)"
+    ],
+    "sheetCell": "AY7",
+    "imageSHA256": "ce8518c396c8b973a8d3a45f6db6198c31327246c6771a3a1dd316217216d0fa"
+  },
+  {
+    "id": 148,
+    "name": "Y3+",
+    "group": 25,
+    "setup": "R U R' U R2 U2' R2' U2' R U R U2' R' U2 R'",
+    "groupDescription": "2 2x1s in Y pattern and other stuff",
+    "algorithms": [
+      "(y) (R2 U R2' U R2 U2' R2' U2 R2 U R2' U R2 U2' R2')",
+      "(R2 U bR2' U R2' U R2 U' bR2 U2' R2')"
+    ],
+    "sheetCell": "AX9",
+    "imageSHA256": "e9cb79aad7235f7b804aa39e9165c4ab0bb01adc00b8318e35e6f7945ab0485d"
+  },
+  {
+    "id": 149,
+    "name": "Y3-",
+    "group": 25,
+    "setup": "R2 U2' R2' U R2 U R2' U2 R2 U2' R2' U R2 U R2'",
+    "groupDescription": "2 2x1s in Y pattern and other stuff",
+    "algorithms": [
+      "(R2' U' F2 U' R2 U' R2' U F2' U2 R2)",
+      "y' (R2' U' R2 U' R2' U2 R2 U2' R2' U' R2 U' R2' U2 R2)",
+      "y2 (R2' F2' R U2' R U2 R' F R U R' U' R' F R2)"
+    ],
+    "sheetCell": "AY9",
+    "imageSHA256": "f62a68c1b704ee2a1235481267efdb68176374605d35964ee856c433121fdd85"
+  },
+  {
+    "id": 150,
+    "name": "Z1",
+    "group": 26,
+    "setup": "R U2 R' U R U R' U2' R U2' R' U2' R U2' R' U R U R'",
+    "groupDescription": "4 edge EP",
+    "algorithms": [
+      "(R' U' F R U' R' U' R U2 R' F' R F U' F' R' U2 R)",
+      "(R' U' R' U' R F R' F' U R F' U' F U2 R)"
+    ],
+    "sheetCell": "AZ5",
+    "imageSHA256": "650081fc195641b6a86e23df7e533c861d69a17bf0fa1cf44d784469f2de12bd"
+  },
+  {
+    "id": 151,
+    "name": "Z2",
+    "group": 26,
+    "setup": "R2 U R2' U2 R2 U2 R2' U2 R2 U2 R2' U R2 U2' R2' U2 R2 U2 R2'",
+    "groupDescription": "4 edge EP",
+    "algorithms": [
+      "(R' U2' R' U' R F R' F' U R F' U' F U2' R)"
+    ],
+    "sheetCell": "AZ7",
+    "imageSHA256": "47bcd0befdd94c9f94fe88e92438d5d107741335087e2d5cb9e0ab1e8e2b9eba"
+  },
+  {
+    "id": 152,
+    "name": "Z3",
+    "group": 26,
+    "setup": "R U' R U R U' R' U' R U R U2 R U' R U' R2' U' R2'",
+    "groupDescription": "4 edge EP",
+    "algorithms": [
+      "(R' L' U2 L U R BR F U2' BR' U' F')"
+    ],
+    "sheetCell": "AZ9",
+    "imageSHA256": "d62d4073fe31918b5594be1bcc32ea66400c183733dd1a446925491b13af7662"
+  }
+]

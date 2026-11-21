@@ -5,8 +5,9 @@ import UIKit
 struct CaseDiagram: View {
     @EnvironmentObject private var model: TrainerModel
     let id: Int
+    var reference = false
     var body: some View {
-        if let image = CaseImageCache.image(id: id, kind: model.kind) {
+        if let image = CaseImageCache.image(id: id, kind: model.kind, reference: reference) {
             Image(uiImage: image).resizable().scaledToFit()
                 .padding(8).background(.white, in: RoundedRectangle(cornerRadius: 16))
                 .accessibilityLabel("\(model.kind.title) diagram for case \(id)")
@@ -21,15 +22,33 @@ struct CaseDiagram: View {
         return cache
     }()
 
-    static func image(id: Int, kind: TrainerKind) -> UIImage? {
-        let key = "\(kind.diagramDirectory)/\(id)" as NSString
+    static func image(id: Int, kind: TrainerKind, reference: Bool) -> UIImage? {
+        let directory = reference ? "AlgorithmDiagrams/\(kind.title)" : kind.diagramDirectory
+        let key = "\(directory)/\(id)" as NSString
         if let image = images.object(forKey: key) { return image }
-        guard let path = Bundle.main.path(forResource: String(id), ofType: "png", inDirectory: kind.diagramDirectory),
+        guard let path = Bundle.main.path(forResource: String(id), ofType: "png", inDirectory: directory),
               let image = UIImage(contentsOfFile: path) else { return nil }
         let cost = image.cgImage.map { $0.bytesPerRow * $0.height } ?? 0
         images.setObject(image, forKey: key, cost: cost)
         return image
     }
+}
+
+/// The Algorithms tab reads its own sheet-matched catalog. Trainer diagrams
+/// and setup sequences remain independent and continue to use their old assets.
+private enum AlgorithmReferenceCatalog {
+    private static let catalogs: [TrainerKind: [TrainerCase]] = {
+        var result: [TrainerKind: [TrainerCase]] = [:]
+        for kind in TrainerKind.allCases {
+            if let url = Bundle.main.url(forResource: "catalog", withExtension: "json", subdirectory: "AlgorithmDiagrams/\(kind.title)"),
+               let data = try? Data(contentsOf: url),
+               let cases = try? JSONDecoder().decode([TrainerCase].self, from: data) {
+                result[kind] = cases
+            }
+        }
+        return result
+    }()
+    static func cases(kind: TrainerKind) -> [TrainerCase] { catalogs[kind] ?? [] }
 }
 
 /// Shared empty state using APIs available on iOS and iPadOS 16.
@@ -106,8 +125,11 @@ struct CaseLibrary: View {
         self.train = train
     }
 
+    private var catalog: [TrainerCase] {
+        isReference ? AlgorithmReferenceCatalog.cases(kind: model.kind) : model.cases
+    }
     private var filtered: [TrainerCase] {
-        model.cases.filter { item in
+        catalog.filter { item in
             search.isEmpty || item.name.localizedCaseInsensitiveContains(search)
                 || model.kind.groupName(item.group).localizedCaseInsensitiveContains(search)
                 || item.groupDescription.localizedCaseInsensitiveContains(search)
@@ -119,10 +141,10 @@ struct CaseLibrary: View {
             VStack(alignment: .leading, spacing: 22) {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(isReference ? "\(model.kind.title) Algorithms" : model.kind == .oll ? "ONE FACE.\nA LITTLE FASTER." : "EVERY PIECE.\nIN ITS PLACE.").font(.system(.largeTitle, design: .rounded, weight: .heavy))
-                    Text("Megaminx \(model.kind.title) • \(model.cases.count) cases").foregroundStyle(.secondary)
+                    Text("Megaminx \(model.kind.title) • \(catalog.count) cases").foregroundStyle(.secondary)
                     Text(isReference ? "Tap a diagram to study algorithms and alternatives. Use Information for learning paths and recognition tips." : model.kind.instructions + " Select cases below, then start Train or Recap.").font(.subheadline)
                 }.padding(.top)
-                if model.cases.isEmpty { TrainerEmptyState("Case data unavailable", systemImage: "exclamationmark.triangle") }
+                if catalog.isEmpty { TrainerEmptyState("Case data unavailable", systemImage: "exclamationmark.triangle") }
                 ForEach(Array(Set(filtered.map(\.group))).sorted(), id: \.self) { group in
                     let items = filtered.filter { $0.group == group }
                     VStack(alignment: .leading, spacing: 12) {
@@ -142,7 +164,7 @@ struct CaseLibrary: View {
                                 VStack(spacing: 0) {
                                     Button { detailCase = item } label: {
                                         VStack(spacing: 10) {
-                                            CaseDiagram(id: item.id).frame(height: 95)
+                                            CaseDiagram(id: item.id, reference: isReference).frame(height: 95)
                                             HStack {
                                                 Text(item.name).font(.headline)
                                                 Spacer()
@@ -202,7 +224,7 @@ struct CaseLibrary: View {
             }
         }
         .sheet(item: $detailCase) { item in
-            CaseDetailView(item: item).environmentObject(model)
+            CaseDetailView(item: item, reference: isReference).environmentObject(model)
         }
     }
 
@@ -318,25 +340,30 @@ struct CaseDetailView: View {
     @EnvironmentObject private var model: TrainerModel
     @Environment(\.dismiss) private var dismiss
     let item: TrainerCase
+    var reference = false
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    CaseDiagram(id: item.id).frame(height: 220).frame(maxWidth: .infinity)
+                    CaseDiagram(id: item.id, reference: reference).frame(height: 220).frame(maxWidth: .infinity)
                     VStack(alignment: .leading, spacing: 6) {
                         Text(model.kind.groupName(item.group)).font(.headline)
                         Text(item.groupDescription).foregroundStyle(.secondary)
                     }
-                    Button { model.toggle([item.id]) } label: {
-                        Label(model.selected.contains(item.id) ? "Selected for practice" : "Select for practice",
-                              systemImage: model.selected.contains(item.id) ? "checkmark.circle.fill" : "circle")
-                            .frame(maxWidth: .infinity, minHeight: 32)
-                    }.buttonStyle(.bordered)
-                    CaseAlgorithms(item: item)
-                    DisclosureGroup("Setup moves") {
-                        CopyableAlgorithm(title: "Apply to a solved Megaminx", sequence: item.setup)
-                            .padding(.top, 12)
+                    if !reference {
+                        Button { model.toggle([item.id]) } label: {
+                            Label(model.selected.contains(item.id) ? "Selected for practice" : "Select for practice",
+                                  systemImage: model.selected.contains(item.id) ? "checkmark.circle.fill" : "circle")
+                                .frame(maxWidth: .infinity, minHeight: 32)
+                        }.buttonStyle(.bordered)
+                    }
+                    CaseAlgorithms(item: item, showInverseSetup: !reference)
+                    if !reference {
+                        DisclosureGroup("Setup moves") {
+                            CopyableAlgorithm(title: "Apply to a solved Megaminx", sequence: item.setup)
+                                .padding(.top, 12)
+                        }
                     }
                 }
                 .padding(24).frame(maxWidth: 720).frame(maxWidth: .infinity)
@@ -351,6 +378,7 @@ struct CaseDetailView: View {
 
 struct CaseAlgorithms: View {
     let item: TrainerCase
+    var showInverseSetup = true
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -363,12 +391,14 @@ struct CaseAlgorithms: View {
                 ForEach(Array(item.algorithms.enumerated()), id: \.offset) { index, sequence in
                     CopyableAlgorithm(title: index == 0 ? "Algorithm 1" : "Alternative \(index + 1)", sequence: sequence)
                 }
-                DisclosureGroup("Inverse setup · exact reset") {
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("Use the same grip as the setup to return to the exact starting state.")
-                            .font(.caption).foregroundStyle(.secondary)
-                        CopyableAlgorithm(title: "Undo setup", sequence: item.solution)
-                    }.padding(.top, 12)
+                if showInverseSetup {
+                    DisclosureGroup("Inverse setup · exact reset") {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Use the same grip as the setup to return to the exact starting state.")
+                                .font(.caption).foregroundStyle(.secondary)
+                            CopyableAlgorithm(title: "Undo setup", sequence: item.solution)
+                        }.padding(.top, 12)
+                    }
                 }
             }
         }.frame(maxWidth: .infinity, alignment: .leading)
@@ -417,7 +447,7 @@ struct CopyableAlgorithm: View {
 
 struct InformationView: View {
     @EnvironmentObject private var model: TrainerModel
-    private var groups: [Int] { Array(Set(model.cases.map(\.group))).sorted() }
+    private var groups: [Int] { Array(Set(AlgorithmReferenceCatalog.cases(kind: model.kind).map(\.group))).sorted() }
     private var recognition: [(String, String)] {
         model.kind == .oll ? [
             ("Corner orientation (OCLL)", "Groups 2–5"),
@@ -474,7 +504,7 @@ struct InformationView: View {
                     } label: {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(model.kind.groupName(group)).font(.headline)
-                            Text(model.cases.first { $0.group == group }?.groupDescription ?? "")
+                            Text(AlgorithmReferenceCatalog.cases(kind: model.kind).first { $0.group == group }?.groupDescription ?? "")
                                 .font(.subheadline).foregroundStyle(.secondary)
                         }.padding(.vertical, 4)
                     }
@@ -497,10 +527,10 @@ struct GroupAlgorithmsView: View {
     @State private var detailCase: TrainerCase?
 
     var body: some View {
-        List(model.cases.filter { $0.group == group }) { item in
+        List(AlgorithmReferenceCatalog.cases(kind: model.kind).filter { $0.group == group }) { item in
             Button { detailCase = item } label: {
                 HStack(spacing: 16) {
-                    CaseDiagram(id: item.id).frame(width: 72, height: 72)
+                    CaseDiagram(id: item.id, reference: true).frame(width: 72, height: 72)
                     VStack(alignment: .leading, spacing: 6) {
                         Text(item.name).font(.headline)
                         Text(item.setup.isEmpty ? "Solved / skip" : "\(item.algorithms.count) algorithms")
@@ -515,7 +545,7 @@ struct GroupAlgorithmsView: View {
         }
         .navigationTitle(model.kind.groupName(group))
         .sheet(item: $detailCase) { item in
-            CaseDetailView(item: item).environmentObject(model)
+            CaseDetailView(item: item, reference: true).environmentObject(model)
         }
     }
 }

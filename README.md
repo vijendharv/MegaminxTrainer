@@ -18,6 +18,7 @@ For simulator use, select an installed iPhone or iPad simulator and Run. No acco
 - Weighted random practice and a shuffled, one-pass recap.
 - Tap-to-start/stop timer using a monotonic clock; interruptions cancel an unfinished time.
 - 541 offline algorithms, including alternatives, with native case details and copy buttons. Tap a case to study it; use its selection control to include it in practice.
+- Algorithms uses a separate catalog pairing each spreadsheet diagram with its own algorithm notes; trainer images and setup sequences remain independent.
 - Reveal algorithms during practice, with the inverse setup available separately for an exact reset.
 - Four tabs: Train, Algorithms, Progress, and Settings. Information inside Algorithms provides learning paths, recognition features, group descriptions, and notation.
 - Local selection, frequency, and solve-history persistence; best, mean, and trimmed average of five.

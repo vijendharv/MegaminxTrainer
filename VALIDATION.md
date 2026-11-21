@@ -56,3 +56,13 @@
 - Compared all 541 bundled algorithms with the workbook notes again; every string matches, including leading rotations.
 - Added exact 4B sequence assertions and checks for rotation labels, parenthesized prefixes, multiple rotations, and trailing repetition notation.
 - Model checks and the unsigned iPhone/iPad simulator build passed. The installed device version and on-device appearance remain unverified.
+
+## Algorithms-only sheet alignment — November 21, 2026
+
+- Audited spreadsheet images by the same cells as their algorithm notes and following case labels. Found 3 OLL differences (4E+, 8B+, 11B-) and 14 PLL differences between the sheet originals and trainer assets. OLL 4B's image was already pixel-identical.
+- Added a separate Algorithms-only catalog and original images in Resources/AlgorithmDiagrams. All 329 case diagrams are paired with their exact cell notes (541 algorithms). The PLL skip uses the sheet's group O overview at AD4.
+- Algorithms, its case-detail sheets, and its Information group browser use the sheet catalog and images. Reference details omit trainer selection, setup moves, and inverse-setup controls to avoid mixing the two contexts.
+- Trainer catalogs, trainer images, setup sequences, timer code, model state, and persistence files have no changes. Reference images have separate cache keys from trainer images.
+- Tests/ReferenceCatalogChecks.py passed for all 330 PNGs and recorded image hashes, 541 algorithms, cell mappings, distinct trainer/reference assets, and 4B rotation prefixes. Existing model checks passed.
+- Verified all new catalog records and image hashes in the built app bundle. Interactive checking on the physical iPad remains unverified.
+- Final unsigned iPhone/iPad simulator build, explicit iOS 16 type check, and Xcode project validation passed.
